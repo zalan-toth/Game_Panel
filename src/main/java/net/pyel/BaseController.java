@@ -341,7 +341,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void newPanel() throws IOException {
 		BackgroundController.setCargoAPI(new CargoAPI(handler.getText()));
-		App.setRoot("ports");
+		App.setRoot("main");
 		App.getStageInfo().setTitle("Shipping Management Panel | Ports");
 		App.getStageInfo().setHeight(900);
 		App.getStageInfo().setWidth(1400);
@@ -381,7 +381,7 @@ public class BaseController implements Initializable {
 			shipsOnSea = new CustomList<>();
 		}*/
 		initialize(null, null);
-		App.setRoot("ports");
+		App.setRoot("main");
 		App.getStageInfo().setHeight(900);
 		App.getStageInfo().setWidth(1400);
 		App.getStageInfo().setResizable(false);

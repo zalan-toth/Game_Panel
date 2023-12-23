@@ -41,7 +41,7 @@
       xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="net.pyel.BaseController">
     <children>
-        <AnchorPane prefHeight="231.0" prefWidth="492.0" stylesheets="@Game_Machines/smp.css">
+        <AnchorPane prefHeight="231.0" prefWidth="492.0" stylesheets="@Game_Panel/smp.css">
             <children>
                 <Button fx:id="popUpAddAddButton" layoutX="558.0" layoutY="120.0" mnemonicParsing="false"
                         onMouseClicked="#addPort" style="-fx-background-color: #8ad3ff;" text="Add">
