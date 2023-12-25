@@ -8,4 +8,20 @@ public class Panel {
 
 	private CustomList<Port> ports = new CustomList<>();
 	private CustomList<Game> games = new CustomList<>();
+
+	public CustomList<Port> getPorts() {
+		return ports;
+	}
+
+	public void setPorts(CustomList<Port> ports) {
+		this.ports = ports;
+	}
+
+	public CustomList<Game> getGames() {
+		return games;
+	}
+
+	public void setGames(CustomList<Game> games) {
+		this.games = games;
+	}
 }
