@@ -1,20 +1,20 @@
 package net.pyel;
 
 import net.pyel.models.Game;
-import net.pyel.models.Port;
+import net.pyel.models.Machine;
 import net.pyel.utils.CustomList;
 
 public class Panel {
 
-	private CustomList<Port> ports = new CustomList<>();
+	private CustomList<Machine> machines = new CustomList<>();
 	private CustomList<Game> games = new CustomList<>();
 
-	public CustomList<Port> getPorts() {
-		return ports;
+	public CustomList<Machine> getMachines() {
+		return machines;
 	}
 
-	public void setPorts(CustomList<Port> ports) {
-		this.ports = ports;
+	public void setMachines(CustomList<Machine> machines) {
+		this.machines = machines;
 	}
 
 	public CustomList<Game> getGames() {
@@ -24,9 +24,10 @@ public class Panel {
 	public void setGames(CustomList<Game> games) {
 		this.games = games;
 	}
-	public boolean trueOrNot(){
+
+	public boolean trueOrNot() {
 		boolean result = true;
-		if(!result)
+		if (!result)
 			return true;
 		else
 			return true;

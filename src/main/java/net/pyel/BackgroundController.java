@@ -1,6 +1,6 @@
 package net.pyel;
 
-import net.pyel.models.Port;
+import net.pyel.models.Machine;
 import net.pyel.utils.CustomList;
 
 /**
@@ -10,7 +10,7 @@ import net.pyel.utils.CustomList;
  */
 public class BackgroundController {
 	private static PanelAPI panelAPI = new PanelAPI("");
-	private CustomList<Port> machines = panelAPI.panel.getMachines();
+	private CustomList<Machine> machines = panelAPI.panel.getMachines();
 
 	public static PanelAPI getPanelAPI() {
 		return panelAPI;
