@@ -250,8 +250,8 @@ public class BaseController implements Initializable {
 	private void loadData() {
 		BackgroundController.loadData();
 		BackgroundController.setPanelAPI(panelAPI);
-		deselectMachine();
-		deselectGame();
+		//deselectMachine();
+		//deselectGame();
 		machines = panelAPI.panel.getMachines();
 		games = panelAPI.panel.getGames();
 		initialize(null, null);
@@ -266,7 +266,9 @@ public class BaseController implements Initializable {
 	@FXML
 	private ListView<String> viewFacility = new ListView<>();
 	@FXML
-	private ListView<Port> portListView = new ListView<>();
+	private ListView<Machine> machineListView = new ListView<>();
+	@FXML
+	private ListView<Game> gameListView = new ListView<>();
 
 	private Machine selectedMachine;
 	private Game selectedGame;

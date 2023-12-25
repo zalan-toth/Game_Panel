@@ -5,6 +5,7 @@ import net.pyel.models.Machine;
 import net.pyel.utils.CustomList;
 
 public class Panel {
+	private boolean debugMode = false;
 
 	private CustomList<Machine> machines = new CustomList<>();
 	private CustomList<Game> games = new CustomList<>();
@@ -23,6 +24,14 @@ public class Panel {
 
 	public void setGames(CustomList<Game> games) {
 		this.games = games;
+	}
+
+	public boolean isDebugMode() {
+		return debugMode;
+	}
+
+	public void setDebugMode(boolean debugMode) {
+		this.debugMode = debugMode;
 	}
 
 	public boolean trueOrNot() {
