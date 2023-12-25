@@ -8,6 +8,8 @@ import java.util.function.UnaryOperator;
  *
  * @author Zalán Tóth
  */
+
+
 public class CustomList<F> implements Iterable<F>, List<F> {
 	public CustomNode<F> first = null;
 	public CustomNode<F> last = null;

@@ -31,6 +31,7 @@ public class App extends Application {
 		return stageInfo;
 	}
 
+
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
 	}

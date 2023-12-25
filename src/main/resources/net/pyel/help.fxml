@@ -58,7 +58,7 @@
                               <Image url="@img/about.png" />
                            </image>
                         </ImageView>
-                        <Text fill="#f2f2f2" layoutX="78.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Stuctures And Algorithms Assignment 1" textAlignment="CENTER" wrappingWidth="362.0">
+                        <Text fill="#f2f2f2" layoutX="78.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Stuctures And Algorithms Assignment 2" textAlignment="CENTER" wrappingWidth="362.0">
                            <font>
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
@@ -119,7 +119,7 @@
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
                         </Text>
-                        <Text layoutX="78.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Budzinski - 12345678" textAlignment="CENTER" wrappingWidth="362.0">
+                        <Text layoutX="78.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Budzinski - 20081125" textAlignment="CENTER" wrappingWidth="362.0">
                            <font>
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
