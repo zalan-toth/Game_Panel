@@ -13,7 +13,7 @@ import java.io.ObjectOutputStream;
 import java.util.Objects;
 
 public class PanelAPI {
-	Panel panel = new Panel(); //Every potential data is stored in the panel.
+	public Panel panel = new Panel(); //Every potential data is stored in the panel.
 	public String currentStaff = "";
 
 	public PanelAPI(String staff) {

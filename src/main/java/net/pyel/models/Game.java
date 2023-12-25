@@ -4,7 +4,7 @@ import net.pyel.utils.CustomList;
 
 public class Game {
 
-	private Machine machine;
+	private Machine machine; //Original machine
 	private String name;
 	private String publisher;
 	private String description;
@@ -12,4 +12,5 @@ public class Game {
 	private int releaseYear;
 	private String cover;
 	private CustomList<Port> ports = new CustomList<>();
+
 }
