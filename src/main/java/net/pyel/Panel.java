@@ -24,4 +24,11 @@ public class Panel {
 	public void setGames(CustomList<Game> games) {
 		this.games = games;
 	}
+	public boolean trueOrNot(){
+		boolean result = true;
+		if(!result)
+			return true;
+		else
+			return true;
+	}
 }
