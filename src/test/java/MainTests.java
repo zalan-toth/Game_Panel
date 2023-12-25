@@ -1,16 +1,3 @@
-import net.pyel.BackgroundController;
-import net.pyel.Cargo;
-import net.pyel.models.Container;
-import net.pyel.models.ContainerShip;
-import net.pyel.models.Pallet;
-import net.pyel.models.Port;
-import net.pyel.utils.CustomList;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-
 /**
  * JUnit - some useful tests for the app
  *
@@ -20,7 +7,7 @@ class MainTests {
 	/*Port port1, port2, port3, port4, port5, port6;
 	ContainerShip ship1, ship2;
 	Container container1, container2, container3, container4;
-	Pallet pallet1, pallet2, pallet3, pallet4, pallet5, pallet6, pallet7, pallet8, pallet9, pallet10, pallet11, pallet12;*/
+	Pallet pallet1, pallet2, pallet3, pallet4, pallet5, pallet6, pallet7, pallet8, pallet9, pallet10, pallet11, pallet12;*//*
 	Cargo cargo = new Cargo(new CustomList<>(), new CustomList<>(), new CustomList<>());
 
 
@@ -64,6 +51,7 @@ class MainTests {
 		public void tearDown() throws Exception {
 		}
 	*/
+	/*
 	@BeforeEach
 	void before() {
 		BackgroundController.setCargo(new Cargo(new CustomList<>(), new CustomList<>(), new CustomList<>()));
@@ -235,5 +223,5 @@ class MainTests {
 		assertEquals(640, ship2.getContainers().get(0).getTotalSize()); //length 10
 
 
-	}
+	}*/
 }

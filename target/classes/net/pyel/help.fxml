@@ -39,6 +39,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -52,7 +55,7 @@
                      <children>
                         <ImageView fitHeight="682.0" fitWidth="682.0" layoutX="518.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <image>
-                              <Image url="@img/help2.png" />
+                              <Image url="@img/about.png" />
                            </image>
                         </ImageView>
                         <Text fill="#f2f2f2" layoutX="78.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data Stuctures And Algorithms Assignment 1" textAlignment="CENTER" wrappingWidth="362.0">
@@ -60,10 +63,26 @@
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
                         </Text>
-                        <Text fill="#7ae7ff" layoutX="78.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zalán Tóth - 20102768" textAlignment="CENTER" wrappingWidth="362.0">
+                        <Text layoutX="78.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zalán Tóth - 20102768" textAlignment="CENTER" wrappingWidth="362.0">
                            <font>
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color green="0.8333333134651184" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="0.90656578540802" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
                         </Text>
                         <ImageView fitHeight="251.0" fitWidth="569.0" layoutX="35.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -95,7 +114,33 @@
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
                         </Text>
-                        <Text fill="#9ad0c9" layoutX="24.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="06/12/2023" textAlignment="CENTER" wrappingWidth="470.0">
+                        <Text fill="#9ad0c9" layoutX="24.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="31/12/2023" textAlignment="CENTER" wrappingWidth="470.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="78.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcin Budzinski - 12345678" textAlignment="CENTER" wrappingWidth="362.0">
+                           <font>
+                              <Font name="Monospaced Regular" size="19.0" />
+                           </font>
+                           <fill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.9210526347160339" green="0.782468318939209" blue="0.08954678475856781" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.7583333253860474" green="0.46296295523643494" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                        </Text>
+                        <Text fill="WHITE" layoutX="78.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&amp;" textAlignment="CENTER" wrappingWidth="362.0">
                            <font>
                               <Font name="Monospaced Regular" size="19.0" />
                            </font>
@@ -110,12 +155,7 @@
                      <children>
                         <ImageView fitHeight="682.0" fitWidth="682.0" layoutX="517.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <image>
-                              <Image url="@img/help1.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="148.0" fitWidth="198.0" layoutX="345.0" layoutY="471.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@img/transparent_ondark.png" />
+                              <Image url="@img/helpdesk.png" />
                            </image>
                         </ImageView>
                         <Text fill="#a4a4a4" layoutX="400.0" layoutY="634.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alpha Edition" wrappingWidth="124.39990234375">
@@ -148,7 +188,7 @@
                      <children>
                         <ImageView fitHeight="682.0" fitWidth="682.0" layoutX="517.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <image>
-                              <Image url="@img/help3.png" />
+                              <Image url="@img/petergames.png" />
                            </image>
                         </ImageView>
                         <Text fill="#f2f2f2" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference">

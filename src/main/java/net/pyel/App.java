@@ -22,7 +22,7 @@ public class App extends Application {
 		scene = new Scene(loadFXML("base"));
 		stage.setScene(scene);
 		stage.setResizable(false);
-		stage.setTitle("Shipping Management Panel | Welcome");
+		stage.setTitle("Game Panel | Welcome");
 		stage.show();
 		stageInfo = stage;
 	}

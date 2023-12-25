@@ -9,30 +9,30 @@ import net.pyel.utils.CustomList;
  * @author Zalán Tóth
  */
 public class BackgroundController {
-	private static CargoAPI cargoAPI = new CargoAPI("");
-	private CustomList<Port> ports = cargoAPI.cargo.getPorts();
+	private static PanelAPI panelAPI = new PanelAPI("");
+	private CustomList<Port> machines = panelAPI.panel.getMachines();
 
-	public static CargoAPI getCargoAPI() {
-		return cargoAPI;
-
-
-	}
-
-	public static Cargo getCargo() {
-		return cargoAPI.cargo;
+	public static PanelAPI getPanelAPI() {
+		return panelAPI;
 
 
 	}
 
-
-	public static void setCargo(Cargo cargo) {
-		cargoAPI.cargo = cargo;
+	public static Panel getPanel() {
+		return panelAPI.panel;
 
 
 	}
 
-	public static void setCargoAPI(CargoAPI newCargoAPI) {
-		cargoAPI = newCargoAPI;
+
+	public static void setPanel(Panel panel) {
+		panelAPI.panel = panel;
+
+
+	}
+
+	public static void setPanelAPI(PanelAPI newPanelAPI) {
+		panelAPI = newPanelAPI;
 
 
 	}
@@ -49,7 +49,7 @@ public class BackgroundController {
 
 		try {
 			System.out.println("Data save attempted.");
-			cargoAPI.save();
+			panelAPI.save();
 		} catch (Exception e) {
 			System.err.println("Error writing to file: " + e);
 		}
@@ -58,7 +58,7 @@ public class BackgroundController {
 	private static void load() {
 		try {
 			System.out.println("Data load attempted.");
-			cargoAPI.load();
+			panelAPI.load();
 		} catch (Exception e) {
 			System.err.println("Error reading from file: " + e);
 		}

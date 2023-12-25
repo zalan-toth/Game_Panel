@@ -6,3 +6,12 @@
 .menu {
     -fx-text-fill: blue;
 }
+.button:hover { 
+    -fx-background-color: #ffa154;
+    -fx-text-fill: black;
+}
+.button:pressed {
+    -fx-border-color: white;
+    -fx-background-color: #ff0000;
+}
+
