@@ -1,0 +1,11 @@
+<object-stream>
+  <net.pyel.Panel>
+    <debugMode>false</debugMode>
+    <machines>
+      <size>0</size>
+    </machines>
+    <games>
+      <size>0</size>
+    </games>
+  </net.pyel.Panel>
+</object-stream>

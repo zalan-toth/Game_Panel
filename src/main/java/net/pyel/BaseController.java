@@ -213,6 +213,11 @@ public class BaseController implements Initializable {
 	}
 
 	@FXML
+	private void quit() {
+		javafx.application.Platform.exit();
+	}
+
+	@FXML
 	private void refresh() {
 		initialize(null, null);
 	}

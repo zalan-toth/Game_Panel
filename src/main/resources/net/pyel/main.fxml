@@ -63,12 +63,12 @@
                         <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" onAction="#logTerminal" text="Log" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
+                        <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#openHelpMenu" text="About SMP (Shipping Management Panel)" />
+                        <MenuItem mnemonicParsing="false" onAction="#openHelpMenu" text="About GP (Game Panel)" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Facilities">
@@ -94,7 +94,7 @@
                                     <contextMenu>
                                         <ContextMenu>
                                             <items>
-                                                <MenuItem mnemonicParsing="false" onAction="#removePort" text="Delete Port" />
+                                                <MenuItem mnemonicParsing="false" text="Delete Port" />
                                             </items>
                                         </ContextMenu>
                                     </contextMenu>
@@ -119,17 +119,17 @@
                                         <Font name="Monospaced Regular" size="15.0" />
                                     </font>
                                 </TextField>
-                                <Button layoutX="96.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="12.0" prefWidth="116.0" text="Update">
+                                <Button layoutX="96.0" layoutY="237.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="116.0" text="Update">
                                     <font>
                                         <Font size="21.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="113.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#deselectPort" prefHeight="26.0" prefWidth="99.0" text="Deselect">
+                                <Button layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Deselect">
                                     <font>
                                         <Font name="Monospaced Regular" size="13.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="18.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="40.0" prefWidth="74.0" text="Add">
+                                <Button layoutX="18.0" layoutY="237.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="74.0" text="Add">
                                     <font>
                                         <Font size="21.0" />
                                     </font>
@@ -180,7 +180,7 @@
                            <contextMenu>
                               <ContextMenu>
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#removePort" text="Delete Port" />
+                                    <MenuItem mnemonicParsing="false" text="Delete Port" />
                                  </items>
                               </ContextMenu>
                            </contextMenu>
@@ -210,17 +210,17 @@
                               <Font name="Monospaced Regular" size="15.0" />
                            </font>
                         </TextField>
-                        <Button layoutX="96.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="12.0" prefWidth="116.0" text="Update">
+                        <Button layoutX="96.0" layoutY="237.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="116.0" text="Update">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <Button layoutX="113.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#deselectPort" prefHeight="26.0" prefWidth="99.0" text="Deselect">
+                        <Button layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Deselect">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="18.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="40.0" prefWidth="74.0" text="Add">
+                        <Button layoutX="18.0" layoutY="237.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="74.0" text="Add">
                            <font>
                               <Font size="21.0" />
                            </font>
@@ -242,7 +242,7 @@
                            <contextMenu>
                               <ContextMenu>
                                  <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#removePort" text="Delete Port" />
+                                    <MenuItem mnemonicParsing="false" text="Delete Port" />
                                  </items>
                               </ContextMenu>
                            </contextMenu>
@@ -252,7 +252,7 @@
                               <Font name="Monospaced Regular" size="22.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port">
+                        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port ">
                            <font>
                               <Font name="Monospaced Regular" size="34.0" />
                            </font>
@@ -267,17 +267,17 @@
                               <Font name="Monospaced Regular" size="18.0" />
                            </font>
                         </Text>
-                        <Button layoutX="96.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="12.0" prefWidth="116.0" text="Update">
+                        <Button layoutX="96.0" layoutY="237.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="116.0" text="Update">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <Button layoutX="113.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#deselectPort" prefHeight="26.0" prefWidth="99.0" text="Deselect">
+                        <Button layoutX="113.0" layoutY="286.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Deselect">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
                         </Button>
-                        <Button layoutX="18.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="40.0" prefWidth="74.0" text="Add">
+                        <Button layoutX="18.0" layoutY="237.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="74.0" text="Add">
                            <font>
                               <Font size="21.0" />
                            </font>

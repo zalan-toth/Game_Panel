@@ -57,7 +57,7 @@
                         <MenuItem disable="true" mnemonicParsing="false" text="Close" />
                         <MenuItem disable="true" mnemonicParsing="false" text="Save" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
+                        <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
