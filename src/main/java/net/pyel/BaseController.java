@@ -271,6 +271,8 @@ public class BaseController implements Initializable {
 	@FXML
 	private ListView<String> viewFacility = new ListView<>();
 	@FXML
+	private ListView<Port> portListView = new ListView<>();
+	@FXML
 	private ListView<Machine> machineListView = new ListView<>();
 	@FXML
 	private ListView<Game> gameListView = new ListView<>();
