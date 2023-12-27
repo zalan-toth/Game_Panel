@@ -9,11 +9,11 @@ public class Machine {
 	private String type;
 	private String media;
 	private int launchYear;
-	private int RRP;
+	private double RRP;
 	private String image;
 	private CustomList<Game> linkedGames = new CustomList<>();
 
-	public Machine(String name, String manufacturer, String description, String type, String media, int launchYear, int RRP, String image) {
+	public Machine(String name, String manufacturer, String description, String type, String media, int launchYear, double RRP, String image) {
 		setName(name);
 		setManufacturer(manufacturer);
 		setDescription(description);
@@ -76,11 +76,11 @@ public class Machine {
 		this.launchYear = launchYear;
 	}
 
-	public int getRRP() {
+	public double getRRP() {
 		return RRP;
 	}
 
-	public void setRRP(int RRP) {
+	public void setRRP(double RRP) {
 		this.RRP = RRP;
 	}
 

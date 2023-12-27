@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import net.pyel.models.Game;
 import net.pyel.models.Machine;
@@ -277,6 +279,61 @@ public class BaseController implements Initializable {
 	@FXML
 	private ListView<Game> gameListView = new ListView<>();
 
+	//MACHINE FIELDS
+	@FXML
+	private Text machineNameText = new Text();
+	@FXML
+	private TextField machineNameBox = new TextField();
+	@FXML
+	private TextField machineRRPBox = new TextField();
+	@FXML
+	private TextField machineManufacturerBox = new TextField();
+	@FXML
+	private TextField machineTypeBox = new TextField();
+	@FXML
+	private TextField machineMediaBox = new TextField();
+	@FXML
+	private TextField machineYearBox = new TextField();
+	@FXML
+	private TextField machineURLBox = new TextField();
+	@FXML
+	private TextArea machineDescriptionBox = new TextArea();
+
+	//GAME FIELDS
+	@FXML
+	private Text gameNameText = new Text();
+	@FXML
+	private TextField gameNameBox = new TextField();
+	@FXML
+	private TextField gameSelectedMachineBox = new TextField();
+	@FXML
+	private TextField gameCurrentMachineBox = new TextField();
+	@FXML
+	private TextField gamePublisherBox = new TextField();
+	@FXML
+	private TextField gameDeveloperBox = new TextField();
+	@FXML
+	private TextField gameURLBox = new TextField();
+	@FXML
+	private TextField gameYearBox = new TextField();
+	@FXML
+	private TextArea gameDescriptionBox = new TextArea();
+
+	//PORT FIELDS
+	@FXML
+	private Text portNameText = new Text();
+	@FXML
+	private TextField portDeveloperBox = new TextField();
+	@FXML
+	private TextField portYearBox = new TextField();
+	@FXML
+	private TextField portSelectedMachineBox = new TextField();
+	@FXML
+	private TextField portCurrentMachineBox = new TextField();
+	@FXML
+	private TextField portURLBox = new TextField();
+
+	//Selected items in listviews are syncronised with the following objects, so basically use that for referencing the selected item from the listview
 	private Machine selectedMachine;
 	private Game selectedGame;
 	private Port selectedPort;
@@ -292,7 +349,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void addMachine() {
 		if (true) {
-			Machine m = new Machine("No", "", "", "", "", 2000, 0, "");
+			Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), Integer.parseInt(machineYearBox.getText()), Double.parseDouble(machineRRPBox.getText()), machineURLBox.getText());
 			machines.add(m);
 		}
 		refresh();
@@ -371,6 +428,23 @@ public class BaseController implements Initializable {
 				updateData();
 			}
 		});
+
+		machineListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+			// This will be called whenever the user selects a different item in the list
+			if (newValue != null) {
+				// Call initialize or any specific update method
+				//refresh();
+				updateData();
+			}
+		});
+		portListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+			// This will be called whenever the user selects a different item in the list
+			if (newValue != null) {
+				// Call initialize or any specific update method
+				//refresh();
+				updateOnlyPortsData();
+			}
+		});
 		log.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			// This will be called whenever the user selects a different item in the list
 			if (newValue != null) {
@@ -404,6 +478,30 @@ public class BaseController implements Initializable {
 				portListView.setItems(FXCollections.observableList(selectedGame.getPorts()));
 				portListView.refresh();
 			}
+			gameNameText.setText(selectedGame.getName() + " by " + selectedGame.getDeveloper());
+			gameNameBox.setText(selectedGame.getName());
+			gameDeveloperBox.setText(selectedGame.getDeveloper());
+			gamePublisherBox.setText(selectedGame.getPublisher());
+			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
+			gameDescriptionBox.setText(selectedGame.getDescription());
+			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
+			selectedMachine = selectedGame.getMachine();
+			updateOnlyPortsData();
 		}
+		if (selectedMachine != null) {
+			machineNameText.setText(selectedMachine.getName() + " by " + selectedMachine.getManufacturer());
+			gameSelectedMachineBox.setText(selectedMachine.toString());
+			machineManufacturerBox.setText(selectedMachine.getManufacturer());
+			machineRRPBox.setText(String.valueOf(selectedMachine.getRRP()));
+			machineMediaBox.setText(selectedMachine.getMedia());
+			machineTypeBox.setText(selectedMachine.getType());
+			machineYearBox.setText(String.valueOf(selectedMachine.getLaunchYear()));
+			machineURLBox.setText(selectedMachine.getImage());
+			machineDescriptionBox.setText(selectedMachine.getDescription());
+		}
+	}
+
+	private void updateOnlyPortsData() {
+
 	}
 }
