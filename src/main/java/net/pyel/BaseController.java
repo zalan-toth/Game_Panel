@@ -490,6 +490,7 @@ public class BaseController implements Initializable {
 		}
 		if (selectedMachine != null) {
 			machineNameText.setText(selectedMachine.getName() + " by " + selectedMachine.getManufacturer());
+			machineNameBox.setText(selectedMachine.getName());
 			gameSelectedMachineBox.setText(selectedMachine.toString());
 			machineManufacturerBox.setText(selectedMachine.getManufacturer());
 			machineRRPBox.setText(String.valueOf(selectedMachine.getRRP()));
