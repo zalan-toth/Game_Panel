@@ -482,6 +482,7 @@ public class BaseController implements Initializable {
 			gameNameBox.setText(selectedGame.getName());
 			gameDeveloperBox.setText(selectedGame.getDeveloper());
 			gamePublisherBox.setText(selectedGame.getPublisher());
+			gameURLBox.setText(selectedGame.getCover());
 			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
 			gameDescriptionBox.setText(selectedGame.getDescription());
 			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
