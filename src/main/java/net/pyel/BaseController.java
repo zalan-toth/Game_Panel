@@ -359,7 +359,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void addGame() {
 		if (true) {
-			Game g = new Game(selectedMachine, "Hello", "", "", "", 2000, "", new CustomList<>());
+			Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), Integer.parseInt(gameYearBox.getText()), gameURLBox.getText(), new CustomList<>());
 			games.add(g);
 		}
 		refresh();
@@ -369,7 +369,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void addPort() {
 		if (true) {
-			Port p = new Port(selectedMachine, "Activision", "2003", "");
+			Port p = new Port(selectedMachine, portDeveloperBox.getText(), Integer.parseInt(portYearBox.getText()), portURLBox.getText());
 			selectedGame.getPorts().add(p);
 		}
 		updateData();
@@ -478,7 +478,7 @@ public class BaseController implements Initializable {
 				portListView.setItems(FXCollections.observableList(selectedGame.getPorts()));
 				portListView.refresh();
 			}
-			gameNameText.setText(selectedGame.getName() + " by " + selectedGame.getDeveloper());
+			gameNameText.setText(selectedGame.getName());
 			gameNameBox.setText(selectedGame.getName());
 			gameDeveloperBox.setText(selectedGame.getDeveloper());
 			gamePublisherBox.setText(selectedGame.getPublisher());
@@ -486,7 +486,7 @@ public class BaseController implements Initializable {
 			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
 			gameDescriptionBox.setText(selectedGame.getDescription());
 			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
-			selectedMachine = selectedGame.getMachine();
+			//selectedMachine = selectedGame.getMachine();
 			updateOnlyPortsData();
 		}
 		if (selectedMachine != null) {

@@ -36,7 +36,45 @@
       <size>2</size>
     </machines>
     <games>
-      <size>0</size>
+      <first>
+        <next>
+          <contents class="net.pyel.models.Game">
+            <machine reference="../../../../../machines/first/next/contents"/>
+            <name>Minecraft2</name>
+            <publisher>Moj</publisher>
+            <description>1243124124</description>
+            <developer>Mojang</developer>
+            <releaseYear>2020</releaseYear>
+            <cover>asdasd</cover>
+            <ports>
+              <size>0</size>
+            </ports>
+          </contents>
+        </next>
+        <contents class="net.pyel.models.Game">
+          <machine reference="../../../../machines/first/contents"/>
+          <name>Minecraft</name>
+          <publisher>Moj</publisher>
+          <description>1243124124</description>
+          <developer>Mojang</developer>
+          <releaseYear>2003</releaseYear>
+          <cover>asdasd</cover>
+          <ports>
+            <first>
+              <contents class="net.pyel.models.Port">
+                <machine reference="../../../../../../../machines/first/next/contents"/>
+                <developer>Mineacademy</developer>
+                <releaseYear>2022</releaseYear>
+                <cover>asddassad</cover>
+              </contents>
+            </first>
+            <last reference="../first"/>
+            <size>1</size>
+          </ports>
+        </contents>
+      </first>
+      <last reference="../first/next"/>
+      <size>2</size>
     </games>
   </net.pyel.Panel>
 </object-stream>

@@ -9,10 +9,10 @@ public class Port {
 
 	private Machine machine;
 	private String developer;
-	private String releaseYear;
+	private int releaseYear;
 	private String cover;
 
-	public Port(Machine machine, String developer, String releaseYear, String cover) {
+	public Port(Machine machine, String developer, int releaseYear, String cover) {
 		this.machine = machine;
 		this.developer = developer;
 		this.releaseYear = releaseYear;
@@ -35,11 +35,11 @@ public class Port {
 		this.developer = developer;
 	}
 
-	public String getReleaseYear() {
+	public int getReleaseYear() {
 		return releaseYear;
 	}
 
-	public void setReleaseYear(String releaseYear) {
+	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 
