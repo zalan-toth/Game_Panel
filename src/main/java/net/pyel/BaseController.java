@@ -289,6 +289,62 @@ public class BaseController implements Initializable {
 
 	}
 
+	@FXML
+	private void addMachine() {
+		if (true) {
+			Machine m = new Machine("No", "", "", "", "", 2000, 0, "");
+			machines.add(m);
+		}
+		refresh();
+
+	}
+
+	@FXML
+	private void addGame() {
+		if (true) {
+			Game g = new Game(selectedMachine, "Hello", "", "", "", 2000, "", new CustomList<>());
+			games.add(g);
+		}
+		refresh();
+
+	}
+
+	@FXML
+	private void addPort() {
+		if (true) {
+			Port p = new Port(selectedMachine, "Activision", "2003", "");
+			selectedGame.getPorts().add(p);
+		}
+		updateData();
+
+	}
+
+	@FXML
+	private void removeMachine() {
+		if (true) {
+			machines.remove(selectedMachine);
+		}
+		refresh();
+
+	}
+
+	@FXML
+	private void removeGame() {
+		if (true) {
+			games.remove(selectedGame);
+		}
+		refresh();
+
+	}
+
+	@FXML
+	private void removePort() {
+		if (selectedPort != null && selectedGame != null) {
+			selectedGame.getPorts().remove(selectedPort);
+		}
+		refresh();
+
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -306,6 +362,15 @@ public class BaseController implements Initializable {
 	}
 
 	private void setupPortListViewListener() {
+
+		gameListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+			// This will be called whenever the user selects a different item in the list
+			if (newValue != null) {
+				// Call initialize or any specific update method
+				//refresh();
+				updateData();
+			}
+		});
 		log.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
 			// This will be called whenever the user selects a different item in the list
 			if (newValue != null) {
@@ -329,5 +394,16 @@ public class BaseController implements Initializable {
 
 
 	private void updateData() {
+		selectedGame = gameListView.getSelectionModel().getSelectedItem();
+		selectedMachine = machineListView.getSelectionModel().getSelectedItem();
+		if (selectedGame != null) {
+
+			if (selectedGame.getPorts() == null) {
+				portListView.setItems(null);
+			} else {
+				portListView.setItems(FXCollections.observableList(selectedGame.getPorts()));
+				portListView.refresh();
+			}
+		}
 	}
 }

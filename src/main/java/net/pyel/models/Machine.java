@@ -91,4 +91,9 @@ public class Machine {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 }

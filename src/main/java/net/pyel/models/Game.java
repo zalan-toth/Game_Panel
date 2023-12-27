@@ -27,6 +27,7 @@ public class Game {
 	public Machine getMachine() {
 		return machine;
 	}
+
 	public void setMachine(Machine machine) {
 		this.machine = machine;
 	}
@@ -85,5 +86,10 @@ public class Game {
 
 	public void setPorts(CustomList<Port> ports) {
 		this.ports = ports;
+	}
+
+	@Override
+	public String toString() {
+		return name;
 	}
 }

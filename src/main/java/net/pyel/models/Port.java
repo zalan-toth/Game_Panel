@@ -18,6 +18,7 @@ public class Port {
 		this.releaseYear = releaseYear;
 		this.cover = cover;
 	}
+
 	public Machine getMachine() {
 		return machine;
 	}
@@ -48,5 +49,10 @@ public class Port {
 
 	public void setCover(String cover) {
 		this.cover = cover;
+	}
+
+	@Override
+	public String toString() {
+		return machine + " by " + developer + " [" + releaseYear + "]";
 	}
 }
