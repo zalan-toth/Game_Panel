@@ -477,15 +477,16 @@ public class BaseController implements Initializable {
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), year, rrp, machineURLBox.getText());
 					machines.add(m);
-					System.out.println("Machine added successfully");
+					terminalOutError("Machine added successfully");
+					deselectMachines();
 				} else {
-					System.out.println("That is not a valid year.");
+					terminalOutError("That is not a valid year.");
 				}
 			} else {
-				System.out.println("All fields are required!");
+				terminalOutError("All fields are required!");
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("Year and RRP must be valid numbers.");
+			terminalOutError("Year and RRP must be valid numbers.");
 		}
 		refresh();
 	}
@@ -499,15 +500,16 @@ public class BaseController implements Initializable {
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>());
 					games.add(g);
-					System.out.println("Game added successfully.");
+					terminalOutError("Game added successfully.");
+					deselectGames();
 				} else {
-					System.out.println("That is not a valid year.");
+					terminalOutError("That is not a valid year.");
 				}
 			} else {
-				System.out.println("ERROR - All fields are required!");
+				terminalOutError("All fields are required!");
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("Year must be a number.");
+			terminalOut("Year must be a number.");
 		}
 		refresh();
 	}
@@ -521,15 +523,16 @@ public class BaseController implements Initializable {
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Port p = new Port(selectedMachine, portDeveloperBox.getText(), year, portURLBox.getText());
 					selectedGame.getPorts().add(p);
-					System.out.println("Game port Successfully added.");
+					terminalOutError("Game port Successfully added.");
+					deselectPorts();
 				} else {
-					System.out.println("Game port add failure, That's not a valid year, try again.");
+					terminalOutError("That is not a valid year.");
 				}
 			} else {
-				System.out.println("ERROR - All fields are required.");
+				terminalOutError("All fields are required.");
 			}
 		} catch (NumberFormatException e) {
-			System.out.println("Year must be a valid number.");
+			terminalOutError("Year must be a valid number.");
 		}
 		updateData();
 	}
