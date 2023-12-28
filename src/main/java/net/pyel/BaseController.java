@@ -584,8 +584,96 @@ public class BaseController implements Initializable {
 
 
 	//TODO Update Machine
+
 	//TODO Update Game
+	@FXML
+	private void updateMachine() {
+		try {
+			if (selectedMachine != null && !machineNameBox.getText().isEmpty() && !machineManufacturerBox.getText().isEmpty() && !machineDescriptionBox.getText().isEmpty() && !machineTypeBox.getText().isEmpty() && !machineMediaBox.getText().isEmpty() && !machineYearBox.getText().isEmpty() && !machineRRPBox.getText().isEmpty() && !machineURLBox.getText().isEmpty()) {
+				int year = Integer.parseInt(machineYearBox.getText());
+				double rrp = Double.parseDouble(machineRRPBox.getText());
+				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+				if (year >= 1920 && year <= currentYear) {
+					selectedMachine.setName(machineNameBox.getText());
+					selectedMachine.setManufacturer(machineManufacturerBox.getText());
+					selectedMachine.setDescription(machineDescriptionBox.getText());
+					selectedMachine.setType(machineTypeBox.getText());
+					selectedMachine.setMedia(machineMediaBox.getText());
+					selectedMachine.setLaunchYear(year);
+					selectedMachine.setRRP(rrp);
+					selectedMachine.setImage(machineURLBox.getText());
+
+					terminalOutError("Machine updated successfully.");
+					deselectMachines();
+				} else {
+					terminalOutError("That is not a valid year.");
+				}
+			} else {
+				terminalOutError("All fields are required!");
+			}
+		} catch (NumberFormatException e) {
+			terminalOutError("Year and RRP must be valid numbers.");
+		}
+		refresh();
+	}
+
+	@FXML
+	private void updateGame() {
+		try {
+			if (selectedGame != null && !gameNameBox.getText().isEmpty() && !gamePublisherBox.getText().isEmpty() && !gameDescriptionBox.getText().isEmpty() && !gameDeveloperBox.getText().isEmpty() && !gameYearBox.getText().isEmpty() && !gameURLBox.getText().isEmpty()) {
+				int year = Integer.parseInt(gameYearBox.getText());
+				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+				if (year >= 1920 && year <= currentYear) {
+					selectedGame.setMachine(selectedMachine);
+					selectedGame.setName(gameNameBox.getText());
+					selectedGame.setPublisher(gamePublisherBox.getText());
+					selectedGame.setDescription(gameDescriptionBox.getText());
+					selectedGame.setDeveloper(gameDeveloperBox.getText());
+					selectedGame.setReleaseYear(year);
+					selectedGame.setCover(gameURLBox.getText());
+
+					terminalOutError("Game updated successfully.");
+					deselectGames();
+				} else {
+					terminalOutError("That is not a valid year.");
+				}
+			} else {
+				terminalOutError("All fields are required!");
+			}
+		} catch (NumberFormatException e) {
+			terminalOut("Year must be a number.");
+		}
+		refresh();
+	}
+
 	//TODO Update Port
+	@FXML
+	public void updatePort() {
+		try {
+			if (selectedPort != null && !portDeveloperBox.getText().isEmpty() && !portYearBox.getText().isEmpty() && !portURLBox.getText().isEmpty()) {
+				int year = Integer.parseInt(portYearBox.getText());
+				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+
+				if (year >= 1920 && year <= currentYear) {
+					selectedPort.setMachine(selectedMachine);
+					selectedPort.setDeveloper(portDeveloperBox.getText());
+					selectedPort.setReleaseYear(year);
+					selectedPort.setCover(portURLBox.getText());
+					terminalOutError("Game port successfully updated.");
+					deselectPorts();
+				} else {
+					terminalOutError("That is not a valid year.");
+				}
+			} else {
+				terminalOutError("All fields are required.");
+			}
+		} catch (NumberFormatException e) {
+			terminalOutError("Year must be a valid number.");
+		}
+		updateData();
+	}
 
 
 	//░██████╗██╗░░░██╗███╗░░██╗░█████╗░
