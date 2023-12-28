@@ -25,9 +25,17 @@ import java.util.ResourceBundle;
 /**
  * Base Controller - Manages all windows with fxml
  *
- * @author Zalán Tóth
+ * @author Zalán Tóth & Marcin Budzinski
  */
 public class BaseController implements Initializable {
+
+
+	//██████╗░███████╗░█████╗░██╗░░░░░░█████╗░██████╗░███████╗
+	//██╔══██╗██╔════╝██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝
+	//██║░░██║█████╗░░██║░░╚═╝██║░░░░░███████║██████╔╝█████╗░░
+	//██║░░██║██╔══╝░░██║░░██╗██║░░░░░██╔══██║██╔══██╗██╔══╝░░
+	//██████╔╝███████╗╚█████╔╝███████╗██║░░██║██║░░██║███████╗
+	//╚═════╝░╚══════╝░╚════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝
 	private static PanelAPI panelAPI = new PanelAPI(null);
 	private CustomList<Machine> machines;
 	private CustomList<Game> games = new CustomList<>();
@@ -37,10 +45,95 @@ public class BaseController implements Initializable {
 	Stage terminalStage = new Stage();
 	Parent terminalRoot;
 	Scene terminalScene;
-	Stage facilityStage = new Stage();
-	Parent facilityRoot;
-	Scene facilityScene;
 	boolean setRun = true;
+
+	//███████╗██╗░░██╗███╗░░░███╗██╗░░░░░░░░░░░░░██████╗░███████╗░█████╗░██╗░░░░░░█████╗░██████╗░███████╗
+	//██╔════╝╚██╗██╔╝████╗░████║██║░░░░░░░░░░░░░██╔══██╗██╔════╝██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝
+	//█████╗░░░╚███╔╝░██╔████╔██║██║░░░░░░░░░░░░░██║░░██║█████╗░░██║░░╚═╝██║░░░░░███████║██████╔╝█████╗░░
+	//██╔══╝░░░██╔██╗░██║╚██╔╝██║██║░░░░░░░░░░░░░██║░░██║██╔══╝░░██║░░██╗██║░░░░░██╔══██║██╔══██╗██╔══╝░░
+	//██║░░░░░██╔╝╚██╗██║░╚═╝░██║███████╗░░░░░░░░██████╔╝███████╗╚█████╔╝███████╗██║░░██║██║░░██║███████╗
+	//╚═╝░░░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝░░░░░░░░╚═════╝░╚══════╝░╚════╝░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝
+
+	@FXML
+	private ListView<String> viewFacility = new ListView<>();
+	@FXML
+	private ListView<Port> portListView = new ListView<>();
+	@FXML
+	private ListView<Machine> machineListView = new ListView<>();
+	@FXML
+	private ListView<Game> gameListView = new ListView<>();
+
+	//MACHINE FIELDS
+	@FXML
+	private Text machineNameText = new Text();
+	@FXML
+	private TextField machineNameBox = new TextField();
+	@FXML
+	private TextField machineRRPBox = new TextField();
+	@FXML
+	private TextField machineManufacturerBox = new TextField();
+	@FXML
+	private TextField machineTypeBox = new TextField();
+	@FXML
+	private TextField machineMediaBox = new TextField();
+	@FXML
+	private TextField machineYearBox = new TextField();
+	@FXML
+	private TextField machineURLBox = new TextField();
+	@FXML
+	private TextArea machineDescriptionBox = new TextArea();
+
+	//GAME FIELDS
+	@FXML
+	private Text gameNameText = new Text();
+	@FXML
+	private TextField gameNameBox = new TextField();
+	@FXML
+	private TextField gameSelectedMachineBox = new TextField();
+	@FXML
+	private TextField gameCurrentMachineBox = new TextField();
+	@FXML
+	private TextField gamePublisherBox = new TextField();
+	@FXML
+	private TextField gameDeveloperBox = new TextField();
+	@FXML
+	private TextField gameURLBox = new TextField();
+	@FXML
+	private TextField gameYearBox = new TextField();
+	@FXML
+	private TextArea gameDescriptionBox = new TextArea();
+
+	//PORT FIELDS
+	@FXML
+	private Text portNameText = new Text();
+	@FXML
+	private TextField portDeveloperBox = new TextField();
+	@FXML
+	private TextField portYearBox = new TextField();
+	@FXML
+	private TextField portSelectedMachineBox = new TextField();
+	@FXML
+	private TextField portCurrentMachineBox = new TextField();
+	@FXML
+	private TextField portURLBox = new TextField();
+
+	//Selected items in listviews are syncronised with the following objects, so basically use that for referencing the selected item from the listview
+	private Machine selectedMachine;
+	private Game selectedGame;
+	private Port selectedPort;
+
+	//██╗░░░░░░█████╗░░██████╗░██╗███╗░░██╗
+	//██║░░░░░██╔══██╗██╔════╝░██║████╗░██║
+	//██║░░░░░██║░░██║██║░░██╗░██║██╔██╗██║
+	//██║░░░░░██║░░██║██║░░╚██╗██║██║╚████║
+	//███████╗╚█████╔╝╚██████╔╝██║██║░╚███║
+	//╚══════╝░╚════╝░░╚═════╝░╚═╝╚═╝░░╚══╝
+	//░█████╗░░█████╗░███╗░░██╗████████╗██████╗░░█████╗░██╗░░░░░██╗░░░░░███████╗██████╗░
+	//██╔══██╗██╔══██╗████╗░██║╚══██╔══╝██╔══██╗██╔══██╗██║░░░░░██║░░░░░██╔════╝██╔══██╗
+	//██║░░╚═╝██║░░██║██╔██╗██║░░░██║░░░██████╔╝██║░░██║██║░░░░░██║░░░░░█████╗░░██████╔╝
+	//██║░░██╗██║░░██║██║╚████║░░░██║░░░██╔══██╗██║░░██║██║░░░░░██║░░░░░██╔══╝░░██╔══██╗
+	//╚█████╔╝╚█████╔╝██║░╚███║░░░██║░░░██║░░██║╚█████╔╝███████╗███████╗███████╗██║░░██║
+	//░╚════╝░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚══════╝╚══════╝╚══════╝╚═╝░░╚═╝
 
 	public BaseController() {
 		panelAPI = BackgroundController.getPanelAPI();
@@ -49,6 +142,18 @@ public class BaseController implements Initializable {
 	}
 
 
+	//████████╗███████╗██████╗░███╗░░░███╗██╗███╗░░██╗░█████╗░██╗░░░░░
+	//╚══██╔══╝██╔════╝██╔══██╗████╗░████║██║████╗░██║██╔══██╗██║░░░░░
+	//░░░██║░░░█████╗░░██████╔╝██╔████╔██║██║██╔██╗██║███████║██║░░░░░
+	//░░░██║░░░██╔══╝░░██╔══██╗██║╚██╔╝██║██║██║╚████║██╔══██║██║░░░░░
+	//░░░██║░░░███████╗██║░░██║██║░╚═╝░██║██║██║░╚███║██║░░██║███████╗
+	//░░░╚═╝░░░╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═╝╚═╝░░╚══╝╚═╝░░╚═╝╚══════╝
+	//░█████╗░░█████╗░███╗░░██╗████████╗██████╗░░█████╗░██╗░░░░░██╗░░░░░███████╗██████╗░
+	//██╔══██╗██╔══██╗████╗░██║╚══██╔══╝██╔══██╗██╔══██╗██║░░░░░██║░░░░░██╔════╝██╔══██╗
+	//██║░░╚═╝██║░░██║██╔██╗██║░░░██║░░░██████╔╝██║░░██║██║░░░░░██║░░░░░█████╗░░██████╔╝
+	//██║░░██╗██║░░██║██║╚████║░░░██║░░░██╔══██╗██║░░██║██║░░░░░██║░░░░░██╔══╝░░██╔══██╗
+	//╚█████╔╝╚█████╔╝██║░╚███║░░░██║░░░██║░░██║╚█████╔╝███████╗███████╗███████╗██║░░██║
+	//░╚════╝░░╚════╝░╚═╝░░╚══╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░╚══════╝╚══════╝╚══════╝╚═╝░░╚═╝
 	@FXML
 	private void logTerminal() throws IOException {
 		terminalRoot = FXMLLoader.load(getClass().getResource("log.fxml"));
@@ -190,6 +295,44 @@ public class BaseController implements Initializable {
 	}
 
 	@FXML
+	private void clearOutputTerminal() {
+		log.getItems().clear();
+
+
+	}
+	//██████╗░███████╗██████╗░░██████╗██╗░██████╗████████╗███████╗███╗░░██╗░█████╗░███████╗
+	//██╔══██╗██╔════╝██╔══██╗██╔════╝██║██╔════╝╚══██╔══╝██╔════╝████╗░██║██╔══██╗██╔════╝
+	//██████╔╝█████╗░░██████╔╝╚█████╗░██║╚█████╗░░░░██║░░░█████╗░░██╔██╗██║██║░░╚═╝█████╗░░
+	//██╔═══╝░██╔══╝░░██╔══██╗░╚═══██╗██║░╚═══██╗░░░██║░░░██╔══╝░░██║╚████║██║░░██╗██╔══╝░░
+	//██║░░░░░███████╗██║░░██║██████╔╝██║██████╔╝░░░██║░░░███████╗██║░╚███║╚█████╔╝███████╗
+
+	/**
+	 * Loads data from panel.xml
+	 */
+	@FXML
+	private void loadData() {
+		BackgroundController.loadData();
+		BackgroundController.setPanelAPI(panelAPI);
+		//deselectMachine();
+		//deselectGame();
+		machines = panelAPI.panel.getMachines();
+		games = panelAPI.panel.getGames();
+		initialize(null, null);
+	}
+
+
+	/**
+	 * Saves data to panel.xml
+	 */
+	@FXML
+	private void saveData() {
+		BackgroundController.saveData();
+	}
+
+	/**
+	 * Will load the panel with new data
+	 */
+	@FXML
 	private void newPanel() throws IOException {
 		BackgroundController.setPanelAPI(new PanelAPI(staff.getText()));
 		App.setRoot("main");
@@ -201,6 +344,9 @@ public class BaseController implements Initializable {
 
 	}
 
+	/**
+	 * Setup of basepanel
+	 */
 	@FXML
 	private void basePanel() throws IOException {
 		BackgroundController.setPanelAPI(new PanelAPI(staff.getText()));
@@ -214,16 +360,18 @@ public class BaseController implements Initializable {
 
 	}
 
+	/**
+	 * Call this method if you wanna close the application
+	 */
 	@FXML
 	private void quit() {
 		javafx.application.Platform.exit();
 	}
 
-	@FXML
-	private void refresh() {
-		initialize(null, null);
-	}
 
+	/**
+	 * Will load the panel with the saved data panel.xml
+	 */
 	@FXML
 	private void loadPanel() throws IOException {
 		BackgroundController.setPanelAPI(new PanelAPI(staff.getText()));
@@ -243,6 +391,12 @@ public class BaseController implements Initializable {
 
 	}
 
+	//██╗░░██╗███████╗██╗░░░░░██████╗░░░░░░██╗░░░░░░░██╗██╗███╗░░██╗██████╗░░█████╗░░██╗░░░░░░░██╗
+	//██║░░██║██╔════╝██║░░░░░██╔══██╗░░░░░██║░░██╗░░██║██║████╗░██║██╔══██╗██╔══██╗░██║░░██╗░░██║
+	//███████║█████╗░░██║░░░░░██████╔╝░░░░░╚██╗████╗██╔╝██║██╔██╗██║██║░░██║██║░░██║░╚██╗████╗██╔╝
+	//██╔══██║██╔══╝░░██║░░░░░██╔═══╝░░░░░░░████╔═████║░██║██║╚████║██║░░██║██║░░██║░░████╔═████║░
+	//██║░░██║███████╗███████╗██║░░░░░░░░░░░╚██╔╝░╚██╔╝░██║██║░╚███║██████╔╝╚█████╔╝░░╚██╔╝░╚██╔╝░
+	//╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░░░░░░░░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░░╚════╝░░░░╚═╝░░░╚═╝░░
 	@FXML
 	private void openHelpMenu() throws IOException {
 		popuproot = FXMLLoader.load(getClass().getResource("help.fxml"));
@@ -253,99 +407,14 @@ public class BaseController implements Initializable {
 		popupstage.show();
 	}
 
-	@FXML
-	private void loadData() {
-		BackgroundController.loadData();
-		BackgroundController.setPanelAPI(panelAPI);
-		//deselectMachine();
-		//deselectGame();
-		machines = panelAPI.panel.getMachines();
-		games = panelAPI.panel.getGames();
-		initialize(null, null);
-	}
 
-
-	@FXML
-	private void saveData() {
-		BackgroundController.saveData();
-	}
-
-	@FXML
-	private ListView<String> viewFacility = new ListView<>();
-	@FXML
-	private ListView<Port> portListView = new ListView<>();
-	@FXML
-	private ListView<Machine> machineListView = new ListView<>();
-	@FXML
-	private ListView<Game> gameListView = new ListView<>();
-
-	//MACHINE FIELDS
-	@FXML
-	private Text machineNameText = new Text();
-	@FXML
-	private TextField machineNameBox = new TextField();
-	@FXML
-	private TextField machineRRPBox = new TextField();
-	@FXML
-	private TextField machineManufacturerBox = new TextField();
-	@FXML
-	private TextField machineTypeBox = new TextField();
-	@FXML
-	private TextField machineMediaBox = new TextField();
-	@FXML
-	private TextField machineYearBox = new TextField();
-	@FXML
-	private TextField machineURLBox = new TextField();
-	@FXML
-	private TextArea machineDescriptionBox = new TextArea();
-
-	//GAME FIELDS
-	@FXML
-	private Text gameNameText = new Text();
-	@FXML
-	private TextField gameNameBox = new TextField();
-	@FXML
-	private TextField gameSelectedMachineBox = new TextField();
-	@FXML
-	private TextField gameCurrentMachineBox = new TextField();
-	@FXML
-	private TextField gamePublisherBox = new TextField();
-	@FXML
-	private TextField gameDeveloperBox = new TextField();
-	@FXML
-	private TextField gameURLBox = new TextField();
-	@FXML
-	private TextField gameYearBox = new TextField();
-	@FXML
-	private TextArea gameDescriptionBox = new TextArea();
-
-	//PORT FIELDS
-	@FXML
-	private Text portNameText = new Text();
-	@FXML
-	private TextField portDeveloperBox = new TextField();
-	@FXML
-	private TextField portYearBox = new TextField();
-	@FXML
-	private TextField portSelectedMachineBox = new TextField();
-	@FXML
-	private TextField portCurrentMachineBox = new TextField();
-	@FXML
-	private TextField portURLBox = new TextField();
-
-	//Selected items in listviews are syncronised with the following objects, so basically use that for referencing the selected item from the listview
-	private Machine selectedMachine;
-	private Game selectedGame;
-	private Port selectedPort;
-
-
-	@FXML
-	private void clearOutputTerminal() {
-		log.getItems().clear();
-
-
-	}
-
+	//██████╗░███████╗░██████╗███████╗██╗░░░░░███████╗░█████╗░████████╗░██████╗
+	//██╔══██╗██╔════╝██╔════╝██╔════╝██║░░░░░██╔════╝██╔══██╗╚══██╔══╝██╔════╝
+	//██║░░██║█████╗░░╚█████╗░█████╗░░██║░░░░░█████╗░░██║░░╚═╝░░░██║░░░╚█████╗░
+	//██║░░██║██╔══╝░░░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░██║░░██╗░░░██║░░░░╚═══██╗
+	//██████╔╝███████╗██████╔╝███████╗███████╗███████╗╚█████╔╝░░░██║░░░██████╔╝
+	//╚═════╝░╚══════╝╚═════╝░╚══════╝╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═════╝░
+	//TODO Test if deselects work correctly in every case/scenario
 	@FXML
 	private void deselectMachines() {
 		machineNameText.setText("-");
@@ -390,6 +459,14 @@ public class BaseController implements Initializable {
 		portListView.getSelectionModel().clearSelection();
 	}
 
+	//░█████╗░██████╗░██████╗░░██████╗
+	//██╔══██╗██╔══██╗██╔══██╗██╔════╝
+	//███████║██║░░██║██║░░██║╚█████╗░
+	//██╔══██║██║░░██║██║░░██║░╚═══██╗
+	//██║░░██║██████╔╝██████╔╝██████╔╝
+	//╚═╝░░╚═╝╚═════╝░╚═════╝░╚═════╝░
+	//TODO Test adds
+	//TODO Add validation
 	@FXML
 	private void addMachine() {
 		if (true) {
@@ -420,6 +497,13 @@ public class BaseController implements Initializable {
 
 	}
 
+	//██████╗░███████╗███╗░░░███╗░█████╗░██╗░░░██╗███████╗░██████╗
+	//██╔══██╗██╔════╝████╗░████║██╔══██╗██║░░░██║██╔════╝██╔════╝
+	//██████╔╝█████╗░░██╔████╔██║██║░░██║╚██╗░██╔╝█████╗░░╚█████╗░
+	//██╔══██╗██╔══╝░░██║╚██╔╝██║██║░░██║░╚████╔╝░██╔══╝░░░╚═══██╗
+	//██║░░██║███████╗██║░╚═╝░██║╚█████╔╝░░╚██╔╝░░███████╗██████╔╝
+	//╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝░╚════╝░░░░╚═╝░░░╚══════╝╚═════╝░
+	//TODO Test removes
 	@FXML
 	private void removeMachine() {
 		if (true) {
@@ -445,6 +529,32 @@ public class BaseController implements Initializable {
 		}
 		refresh();
 
+	}
+
+	//██╗░░░██╗██████╗░██████╗░░█████╗░████████╗███████╗░██████╗
+	//██║░░░██║██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝██╔════╝██╔════╝
+	//██║░░░██║██████╔╝██║░░██║███████║░░░██║░░░█████╗░░╚█████╗░
+	//██║░░░██║██╔═══╝░██║░░██║██╔══██║░░░██║░░░██╔══╝░░░╚═══██╗
+	//╚██████╔╝██║░░░░░██████╔╝██║░░██║░░░██║░░░███████╗██████╔╝
+	//░╚═════╝░╚═╝░░░░░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝╚═════╝░
+
+	//TODO Write updates
+
+
+	//TODO Update Machine
+	//TODO Update Game
+	//TODO Update Port
+
+
+	//░██████╗██╗░░░██╗███╗░░██╗░█████╗░
+	//██╔════╝╚██╗░██╔╝████╗░██║██╔══██╗
+	//╚█████╗░░╚████╔╝░██╔██╗██║██║░░╚═╝
+	//░╚═══██╗░░╚██╔╝░░██║╚████║██║░░██╗
+	//██████╔╝░░░██║░░░██║░╚███║╚█████╔╝
+	//╚═════╝░░░░╚═╝░░░╚═╝░░╚══╝░╚════╝░
+	@FXML
+	private void refresh() {
+		initialize(null, null);
 	}
 
 	@Override
@@ -510,6 +620,9 @@ public class BaseController implements Initializable {
 		});
 	}
 
+	/**
+	 * Updates values in machine related boxes and in listview
+	 */
 	private void updateOnlyMachines() {
 		selectedMachine = machineListView.getSelectionModel().getSelectedItem();
 		if (selectedMachine != null) {
@@ -527,6 +640,10 @@ public class BaseController implements Initializable {
 		}
 	}
 
+	/**
+	 * Updates values in game related boxes and in listview
+	 * It also forces an update on the port listview as we have a list of ports for each game.
+	 */
 	private void updateData() {
 		selectedGame = gameListView.getSelectionModel().getSelectedItem();
 		if (selectedGame != null) {
@@ -552,6 +669,9 @@ public class BaseController implements Initializable {
 
 	}
 
+	/**
+	 * Updates values in port related boxes and in listview
+	 */
 	private void updateOnlyPortsData() {
 		selectedPort = portListView.getSelectionModel().getSelectedItem();
 		if (selectedPort != null) {
