@@ -359,7 +359,7 @@ public class BaseController implements Initializable {
 		machineYearBox.setText("");
 		machineURLBox.setText("");
 		machineDescriptionBox.setText("");
-
+		selectedMachine = null;
 		machineListView.getSelectionModel().clearSelection();
 	}
 
@@ -375,6 +375,7 @@ public class BaseController implements Initializable {
 		gameCurrentMachineBox.setText("");
 		deselectPorts();
 		portListView.setItems(null);
+		selectedGame = null;
 		gameListView.getSelectionModel().clearSelection();
 	}
 
@@ -385,6 +386,7 @@ public class BaseController implements Initializable {
 		portYearBox.setText("");
 		portURLBox.setText("");
 		portCurrentMachineBox.setText("");
+		selectedPort = null;
 		portListView.getSelectionModel().clearSelection();
 	}
 
