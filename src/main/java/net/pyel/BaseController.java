@@ -19,10 +19,9 @@ import net.pyel.utils.CustomList;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.ResourceBundle;
-
-import static java.sql.Types.INTEGER;
 
 /**
  * Base Controller - Manages all windows with fxml
@@ -471,51 +470,70 @@ public class BaseController implements Initializable {
 	//TODO Add validation
 	@FXML
 	private void addMachine() {
-		if (!((machineNameBox.getText().isEmpty() || machineManufacturerBox.getText().isEmpty() || machineDescriptionBox.getText().isEmpty() || machineTypeBox.getText().isEmpty() || machineMediaBox.getText().isEmpty() || machineYearBox.getText().isEmpty() || machineRRPBox.getText().isEmpty() || machineURLBox.getText().isEmpty()))){
-			if (Integer.parseInt(machineYearBox.getText()) == INTEGER) {
-				Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), Integer.parseInt(machineYearBox.getText()), Double.parseDouble(machineRRPBox.getText()), machineURLBox.getText());
-				machines.add(m);
-				System.out.println("Machine added successfully");
+		try {
+			if (!machineNameBox.getText().isEmpty() && !machineManufacturerBox.getText().isEmpty() && !machineDescriptionBox.getText().isEmpty() && !machineTypeBox.getText().isEmpty() && !machineMediaBox.getText().isEmpty() && !machineYearBox.getText().isEmpty() && !machineRRPBox.getText().isEmpty() && !machineURLBox.getText().isEmpty()){
+				int year = Integer.parseInt(machineYearBox.getText());
+				double rrp = Double.parseDouble(machineRRPBox.getText());
+				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
+					Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), year, rrp, machineURLBox.getText());
+					machines.add(m);
+					System.out.println("Machine added successfully");
+				} else {
+					System.out.println("That is not a valid year.");
+				}
 			} else {
-				System.out.println("That is not a valid year.");
+				System.out.println("All fields are required!");
 			}
-		} else {
-			System.out.println("All fields are required!");
+		} catch (NumberFormatException e) {
+			System.out.println("Year and RRP must be valid numbers.");
 		}
 		refresh();
 	}
+
 
 	@FXML
 	private void addGame() {
-		if (selectedMachine != null && !gameNameBox.getText().isEmpty() && !gamePublisherBox.getText().isEmpty() && !gameDescriptionBox.getText().isEmpty() && !gameDeveloperBox.getText().isEmpty() && !gameYearBox.getText().isEmpty() && !gameURLBox.getText().isEmpty()) {
-			if (Integer.parseInt(gameYearBox.getText()) == INTEGER) {
-				Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), Integer.parseInt(gameYearBox.getText()), gameURLBox.getText(), new CustomList<>());
-				games.add(g);
-				System.out.println("Game added successfully.");
+		try {
+			if (selectedMachine != null && !gameNameBox.getText().isEmpty() && !gamePublisherBox.getText().isEmpty() && !gameDescriptionBox.getText().isEmpty() && !gameDeveloperBox.getText().isEmpty() && !gameYearBox.getText().isEmpty() && !gameURLBox.getText().isEmpty()) {
+				int year = Integer.parseInt(gameYearBox.getText());
+				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
+					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>());
+					games.add(g);
+					System.out.println("Game added successfully.");
+				} else {
+					System.out.println("That is not a valid year.");
+				}
 			} else {
-				System.out.println("That is not a valid year.");
+				System.out.println("ERROR - All fields are required!");
 			}
-		} else {
-			System.out.println("ERROR - All fields are required!");
+		} catch (NumberFormatException e) {
+			System.out.println("Year must be a number.");
 		}
 		refresh();
 	}
 
+
 	@FXML
 	private void addPort() {
-		if (selectedMachine != null && !portDeveloperBox.getText().isEmpty() && !portYearBox.getText().isEmpty() && !portURLBox.getText().isEmpty()) {
-			if (Integer.parseInt(portYearBox.getText()) == INTEGER) {
-				Port p = new Port(selectedMachine, portDeveloperBox.getText(), Integer.parseInt(portYearBox.getText()), portURLBox.getText());
-				selectedGame.getPorts().add(p);
-				System.out.println("Game port Successfully added.");
+		try {
+			if (selectedMachine != null && !portDeveloperBox.getText().isEmpty() && !portYearBox.getText().isEmpty() && !portURLBox.getText().isEmpty()) {
+				int year = Integer.parseInt(portYearBox.getText());
+				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
+					Port p = new Port(selectedMachine, portDeveloperBox.getText(), year, portURLBox.getText());
+					selectedGame.getPorts().add(p);
+					System.out.println("Game port Successfully added.");
+				} else {
+					System.out.println("Game port add failure, That's not a valid year, try again.");
+				}
 			} else {
-				System.out.println("Game port add failure, Thats not a valid year, try again.");
+				System.out.println("ERROR - All fields are required.");
 			}
-			updateData();
-		} else {
-			System.out.println("ERROR - All fields are required.");;
+		} catch (NumberFormatException e) {
+			System.out.println("Year must be a valid number.");
 		}
+		updateData();
 	}
+
 
 	//██████╗░███████╗███╗░░░███╗░█████╗░██╗░░░██╗███████╗░██████╗
 	//██╔══██╗██╔════╝████╗░████║██╔══██╗██║░░░██║██╔════╝██╔════╝
