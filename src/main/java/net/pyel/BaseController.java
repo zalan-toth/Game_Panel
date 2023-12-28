@@ -22,6 +22,8 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import static java.sql.Types.INTEGER;
+
 /**
  * Base Controller - Manages all windows with fxml
  *
@@ -392,38 +394,57 @@ public class BaseController implements Initializable {
 
 	@FXML
 	private void addMachine() {
-		if (true) {
-			Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), Integer.parseInt(machineYearBox.getText()), Double.parseDouble(machineRRPBox.getText()), machineURLBox.getText());
-			machines.add(m);
+		if (!((machineNameBox.getText().isEmpty() || machineManufacturerBox.getText().isEmpty() || machineDescriptionBox.getText().isEmpty() || machineTypeBox.getText().isEmpty() || machineMediaBox.getText().isEmpty() || machineYearBox.getText().isEmpty() || machineRRPBox.getText().isEmpty() || machineURLBox.getText().isEmpty()))){
+			if (Integer.parseInt(machineYearBox.getText()) == INTEGER) {
+				Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), Integer.parseInt(machineYearBox.getText()), Double.parseDouble(machineRRPBox.getText()), machineURLBox.getText());
+				machines.add(m);
+				System.out.println("Machine added successfully");
+			} else {
+				System.out.println("That is not a valid year.");
+			}
+		} else {
+			System.out.println("All fields are required!");
 		}
 		refresh();
-
 	}
 
 	@FXML
 	private void addGame() {
-		if (true) {
-			Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), Integer.parseInt(gameYearBox.getText()), gameURLBox.getText(), new CustomList<>());
-			games.add(g);
+		if (selectedMachine != null && !gameNameBox.getText().isEmpty() && !gamePublisherBox.getText().isEmpty() && !gameDescriptionBox.getText().isEmpty() && !gameDeveloperBox.getText().isEmpty() && !gameYearBox.getText().isEmpty() && !gameURLBox.getText().isEmpty()) {
+			if (Integer.parseInt(gameYearBox.getText()) == INTEGER) {
+				Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), Integer.parseInt(gameYearBox.getText()), gameURLBox.getText(), new CustomList<>());
+				games.add(g);
+				System.out.println("Game added successfully.");
+			} else {
+				System.out.println("That is not a valid year.");
+			}
+		} else {
+			System.out.println("ERROR - All fields are required!");
 		}
 		refresh();
-
 	}
 
 	@FXML
 	private void addPort() {
-		if (true) {
-			Port p = new Port(selectedMachine, portDeveloperBox.getText(), Integer.parseInt(portYearBox.getText()), portURLBox.getText());
-			selectedGame.getPorts().add(p);
+		if (selectedMachine != null && !portDeveloperBox.getText().isEmpty() && !portYearBox.getText().isEmpty() && !portURLBox.getText().isEmpty()) {
+			if (Integer.parseInt(portYearBox.getText()) == INTEGER) {
+				Port p = new Port(selectedMachine, portDeveloperBox.getText(), Integer.parseInt(portYearBox.getText()), portURLBox.getText());
+				selectedGame.getPorts().add(p);
+				System.out.println("Game port Successfully added.");
+			} else {
+				System.out.println("Game port add failure, Thats not a valid year, try again.");
+			}
+			updateData();
+		} else {
+			System.out.println("ERROR - All fields are required.");;
 		}
-		updateData();
-
 	}
 
 	@FXML
 	private void removeMachine() {
-		if (true) {
+		if (selectedMachine != null) {
 			machines.remove(selectedMachine);
+			deselectMachines();
 		}
 		refresh();
 
@@ -431,7 +452,7 @@ public class BaseController implements Initializable {
 
 	@FXML
 	private void removeGame() {
-		if (true) {
+		if (selectedGame != null) {
 			games.remove(selectedGame);
 		}
 		refresh();

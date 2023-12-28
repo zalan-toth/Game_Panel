@@ -47,7 +47,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
+<VBox prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
     <children>
         <MenuBar style="-fx-background-color: #ff4242;" VBox.vgrow="NEVER">
             <menus>
@@ -178,7 +178,7 @@
                             <children>
                                 <AnchorPane prefHeight="860.0" prefWidth="461.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                     <children>
-                                        <ListView fx:id="log" layoutY="45.0" prefHeight="815.0" prefWidth="461.0" style="-fx-background-color: black;" stylesheets="@css/terminal.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                                        <ListView fx:id="log" layoutY="45.0" prefHeight="802.0" prefWidth="461.0" style="-fx-background-color: black;" stylesheets="@css/terminal.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
                                             <contextMenu>
                                                 <ContextMenu>
                                                     <items>
