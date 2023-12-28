@@ -122,7 +122,7 @@
                                         <Font size="21.0" />
                                     </font>
                                 </Button>
-                                <Button layoutX="224.0" layoutY="325.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Deselect">
+                                <Button layoutX="224.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#deselectMachines" prefHeight="26.0" prefWidth="116.0" text="Deselect">
                                     <font>
                                         <Font name="Monospaced Regular" size="13.0" />
                                     </font>
@@ -229,7 +229,7 @@
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="95.0" text="Deselect">
+                        <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#deselectGames" prefHeight="26.0" prefWidth="95.0" text="Deselect">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
@@ -327,7 +327,7 @@
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <Button layoutX="176.0" layoutY="234.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="Deselect">
+                        <Button layoutX="176.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#deselectPorts" prefHeight="26.0" prefWidth="99.0" text="Deselect">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>

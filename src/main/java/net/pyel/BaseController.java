@@ -347,6 +347,48 @@ public class BaseController implements Initializable {
 	}
 
 	@FXML
+	private void deselectMachines() {
+		machineNameText.setText("-");
+		machineNameBox.setText("");
+		gameSelectedMachineBox.setText("[No selection]");
+		portSelectedMachineBox.setText("[No selection]");
+		machineManufacturerBox.setText("");
+		machineRRPBox.setText("");
+		machineMediaBox.setText("");
+		machineTypeBox.setText("");
+		machineYearBox.setText("");
+		machineURLBox.setText("");
+		machineDescriptionBox.setText("");
+
+		machineListView.getSelectionModel().clearSelection();
+	}
+
+	@FXML
+	private void deselectGames() {
+		gameNameText.setText("-");
+		gameNameBox.setText("");
+		gameDeveloperBox.setText("");
+		gamePublisherBox.setText("");
+		gameURLBox.setText("");
+		gameYearBox.setText("");
+		gameDescriptionBox.setText("");
+		gameCurrentMachineBox.setText("");
+		deselectPorts();
+		portListView.setItems(null);
+		gameListView.getSelectionModel().clearSelection();
+	}
+
+	@FXML
+	private void deselectPorts() {
+		portNameText.setText("");
+		portDeveloperBox.setText("");
+		portYearBox.setText("");
+		portURLBox.setText("");
+		portCurrentMachineBox.setText("");
+		portListView.getSelectionModel().clearSelection();
+	}
+
+	@FXML
 	private void addMachine() {
 		if (true) {
 			Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), Integer.parseInt(machineYearBox.getText()), Double.parseDouble(machineRRPBox.getText()), machineURLBox.getText());
@@ -434,7 +476,7 @@ public class BaseController implements Initializable {
 			if (newValue != null) {
 				// Call initialize or any specific update method
 				//refresh();
-				updateData();
+				updateOnlyMachines();
 			}
 		});
 		portListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -466,33 +508,13 @@ public class BaseController implements Initializable {
 		});
 	}
 
-
-	private void updateData() {
-		selectedGame = gameListView.getSelectionModel().getSelectedItem();
+	private void updateOnlyMachines() {
 		selectedMachine = machineListView.getSelectionModel().getSelectedItem();
-		if (selectedGame != null) {
-
-			if (selectedGame.getPorts() == null) {
-				portListView.setItems(null);
-			} else {
-				portListView.setItems(FXCollections.observableList(selectedGame.getPorts()));
-				portListView.refresh();
-			}
-			gameNameText.setText(selectedGame.getName());
-			gameNameBox.setText(selectedGame.getName());
-			gameDeveloperBox.setText(selectedGame.getDeveloper());
-			gamePublisherBox.setText(selectedGame.getPublisher());
-			gameURLBox.setText(selectedGame.getCover());
-			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
-			gameDescriptionBox.setText(selectedGame.getDescription());
-			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
-			//selectedMachine = selectedGame.getMachine();
-			updateOnlyPortsData();
-		}
 		if (selectedMachine != null) {
 			machineNameText.setText(selectedMachine.getName() + " by " + selectedMachine.getManufacturer());
 			machineNameBox.setText(selectedMachine.getName());
 			gameSelectedMachineBox.setText(selectedMachine.toString());
+			portSelectedMachineBox.setText(selectedMachine.toString());
 			machineManufacturerBox.setText(selectedMachine.getManufacturer());
 			machineRRPBox.setText(String.valueOf(selectedMachine.getRRP()));
 			machineMediaBox.setText(selectedMachine.getMedia());
@@ -503,7 +525,40 @@ public class BaseController implements Initializable {
 		}
 	}
 
-	private void updateOnlyPortsData() {
+	private void updateData() {
+		selectedGame = gameListView.getSelectionModel().getSelectedItem();
+		if (selectedGame != null) {
+			deselectPorts();
+			if (selectedGame.getPorts() == null) {
+				portListView.setItems(null);
+			} else {
+				portListView.setItems(FXCollections.observableList(selectedGame.getPorts()));
+				portListView.refresh();
+				updateOnlyPortsData();
+			}
+			gameNameText.setText(selectedGame.getName());
+			gameNameBox.setText(selectedGame.getName());
+			gameDeveloperBox.setText(selectedGame.getDeveloper());
+			gamePublisherBox.setText(selectedGame.getPublisher());
+			gameURLBox.setText(selectedGame.getCover());
+			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
+			gameDescriptionBox.setText(selectedGame.getDescription());
+			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
+			//selectedMachine = gameListView.getSelectionModel().getSelectedItem().getMachine();
+			//selectedMachine = selectedGame.getMachine();
+		}
 
+	}
+
+	private void updateOnlyPortsData() {
+		selectedPort = portListView.getSelectionModel().getSelectedItem();
+		if (selectedPort != null) {
+			portNameText.setText(selectedPort.getMachine().toString() + " by " + selectedPort.getDeveloper());
+			portDeveloperBox.setText(selectedPort.getDeveloper());
+			portYearBox.setText(String.valueOf(selectedPort.getReleaseYear()));
+			portURLBox.setText(selectedPort.getCover());
+			portCurrentMachineBox.setText(selectedPort.getMachine().toString());
+			//selectedMachine = portListView.getSelectionModel().getSelectedItem().getMachine();
+		}
 	}
 }
