@@ -338,8 +338,8 @@ public class BaseController implements Initializable {
 		BackgroundController.setPanelAPI(new PanelAPI(staff.getText()));
 		App.setRoot("main");
 		App.getStageInfo().setTitle("Game Panel | Ports");
-		App.getStageInfo().setHeight(882);
-		App.getStageInfo().setWidth(1413);
+		App.getStageInfo().setHeight(920);
+		App.getStageInfo().setWidth(1434);
 		App.getStageInfo().setResizable(false);
 
 

@@ -42,24 +42,23 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="882" prefWidth="1413" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
+<VBox prefHeight="884.0" prefWidth="1434" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
     <children>
         <AnchorPane stylesheets="@Game_Panel/smp.css">
             <children>
                 <AnchorPane layoutX="-4.0" layoutY="-4.0" minHeight="0.0" minWidth="0.0" prefHeight="882.0" prefWidth="1422.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-4.0">
                     <children>
-                  <ImageView fitHeight="996.0" fitWidth="1587.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: brightness:40%;">
+                  <ImageView fitHeight="996.0" fitWidth="1587.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img/nodes.gif" />
                      </image>
@@ -67,56 +66,25 @@
                         <GaussianBlur radius="24.46" />
                      </effect>
                   </ImageView>
+                  <Rectangle fill="#00000039" height="45.0" layoutX="4.0" layoutY="534.0" stroke="#0000004c" strokeType="INSIDE" strokeWidth="0.0" width="453.0" />
                   <Line endX="112.0" endY="742.0" fill="#0d0c0c9d" layoutX="348.0" layoutY="142.0" startX="112.0" startY="-113.0" stroke="#00000033" strokeWidth="6.0" />
-                  <Text fx:id="portNameText" fontSmoothingType="LCD" layoutX="4.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                  <Text fx:id="portNameText" fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                      <font>
                         <Font name="Monospaced Regular" size="18.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="643.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="RIGHT" wrappingWidth="89.0">
-                     <font>
-                        <Font name="Monospaced Regular" size="27.0" />
-                     </font>
-                     <effect>
-                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72" />
-                     </effect>
-                  </Text>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="129.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Ports" textAlignment="RIGHT" wrappingWidth="164.0">
-                     <font>
-                        <Font name="Monospaced Regular" size="27.0" />
-                     </font>
-                     <effect>
-                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
-                           <color>
-                              <Color opacity="0.9236640930175781" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                  </Text>
-                  <Text fx:id="gameNameText" fill="#f50000" fontSmoothingType="LCD" layoutX="462.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                  <Text fx:id="gameNameText" fill="WHITE" fontSmoothingType="LCD" layoutX="469.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
                      <font>
                         <Font name="Monospaced Regular" size="18.0" />
                      </font>
-                  </Text>
-                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1113.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machines" textAlignment="RIGHT" wrappingWidth="149.0">
-                     <font>
-                        <Font name="Monospaced Regular" size="27.0" />
-                     </font>
-                     <effect>
-                        <DropShadow spread="0.8">
-                           <color>
-                              <Color opacity="0.7366412281990051" />
-                           </color>
-                        </DropShadow>
-                     </effect>
                   </Text>
                   <ImageView fx:id="imageOfPort" fitHeight="199.0" fitWidth="228.0" layoutX="116.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="168.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="96.0" prefWidth="163.0" stylesheets="@css/buttoncss.css" text="Update" textFill="WHITE">
+                  <Button layoutX="168.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="95.0" prefWidth="163.0" stylesheets="@css/buttoncss.css" text="Update" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </Button>
-                  <Button layoutX="331.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#deselectPorts" prefHeight="96.0" prefWidth="126.0" stylesheets="@css/buttoncss.css" text="Deselect" textFill="WHITE">
+                  <Button layoutX="331.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#deselectPorts" prefHeight="94.0" prefWidth="126.0" stylesheets="@css/buttoncss.css" text="Deselect" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
@@ -141,29 +109,29 @@
                                   <Font name="Monospaced Regular" size="34.0" />
                               </font>
                           </Text>
-                          <Button layoutX="1191.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#updateMachine" prefHeight="96.0" prefWidth="104.0" stylesheets="@css/buttoncss.css" text="Update">
+                          <Button layoutX="1191.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#updateMachine" prefHeight="99.0" prefWidth="104.0" stylesheets="@css/buttoncss.css" text="Update">
                               <font>
                                   <Font size="21.0" />
                               </font>
                           </Button>
-                          <Button layoutX="1295.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#deselectMachines" prefHeight="96.0" prefWidth="121.0" stylesheets="@css/buttoncss.css" text="Deselect">
+                          <Button layoutX="1295.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#deselectMachines" prefHeight="99.0" prefWidth="127.0" stylesheets="@css/buttoncss.css" text="Deselect">
                               <font>
                                   <Font name="Monospaced Regular" size="13.0" />
                               </font>
                           </Button>
-                          <Button layoutX="1121.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#addMachine" prefHeight="96.0" prefWidth="70.0" stylesheets="@css/buttoncss.css" text="Add">
+                          <Button layoutX="1120.0" layoutY="403.0" mnemonicParsing="false" onMouseClicked="#addMachine" prefHeight="99.0" prefWidth="71.0" stylesheets="@css/buttoncss.css" text="Add">
                               <font>
                                   <Font size="21.0" />
                               </font>
                           </Button>
-                  <ImageView fx:id="imageOfGame" fitHeight="199.0" fitWidth="228.0" layoutX="588.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="ImageOfMachine" fitHeight="199.0" fitWidth="228.0" layoutX="1064.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button layoutX="4.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="96.0" prefWidth="164.0" stylesheets="@css/buttoncss.css" text="Add" textAlignment="CENTER" textFill="WHITE">
+                  <ImageView fx:id="imageOfGame" fitHeight="169.0" fitWidth="182.0" layoutX="611.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ImageOfMachine" fitHeight="188.0" fitWidth="203.0" layoutX="1079.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="4.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="94.0" prefWidth="164.0" stylesheets="@css/buttoncss.css" text="Add" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="gameDeveloperBox" layoutX="597.0" layoutY="341.0" prefHeight="31.0" prefWidth="335.0" promptText="Developer" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="gameDeveloperBox" layoutX="598.0" layoutY="341.0" prefHeight="31.0" prefWidth="334.0" promptText="Developer" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
@@ -193,7 +161,7 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <ListView fx:id="portListView" layoutX="5.0" layoutY="608.0" minHeight="276.0" minWidth="455.0" prefHeight="276.0" prefWidth="461.0" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="956.0">
+                  <ListView fx:id="portListView" layoutX="5.0" layoutY="608.0" minHeight="276.0" minWidth="452.0" prefHeight="276.0" prefWidth="452.0" stylesheets="@css/stylesheet.css">
                      <contextMenu>
                         <ContextMenu>
                            <items>
@@ -212,7 +180,7 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextArea fx:id="gameDescriptionBox" layoutX="463.0" layoutY="406.0" prefHeight="96.0" prefWidth="184.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
+                  <TextArea fx:id="gameDescriptionBox" layoutX="463.0" layoutY="406.0" prefHeight="97.0" prefWidth="184.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
                   <TextField fx:id="gameURLBox" layoutX="463.0" layoutY="372.0" prefHeight="34.0" prefWidth="469.0" promptText="URL" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
@@ -233,7 +201,7 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <ListView fx:id="gameListView" layoutX="463.0" layoutY="608.0" prefHeight="282.0" prefWidth="478.0" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="-8.0" AnchorPane.leftAnchor="463.0" AnchorPane.rightAnchor="481.0">
+                  <ListView fx:id="gameListView" layoutX="463.0" layoutY="608.0" prefHeight="276.0" prefWidth="469.0" stylesheets="@css/stylesheet.css">
                      <contextMenu>
                         <ContextMenu>
                            <items>
@@ -242,7 +210,7 @@
                         </ContextMenu>
                      </contextMenu>
                   </ListView>
-                          <ListView fx:id="machineListView" layoutX="938.0" layoutY="608.0" prefHeight="276.0" prefWidth="480.0" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="938.0" AnchorPane.rightAnchor="4.0">
+                          <ListView fx:id="machineListView" layoutX="938.0" layoutY="608.0" prefHeight="276.0" prefWidth="484.0" stylesheets="@css/stylesheet.css">
                               <contextMenu>
                                   <ContextMenu>
                                       <items>
@@ -251,38 +219,38 @@
                                   </ContextMenu>
                               </contextMenu>
                           </ListView>
-                          <TextField fx:id="machineNameBox" layoutX="939.0" layoutY="279.0" prefHeight="31.0" prefWidth="477.0" promptText="Machine name" stylesheets="@css/textfieldscss.css">
+                          <TextField fx:id="machineNameBox" layoutX="938.0" layoutY="279.0" prefHeight="31.0" prefWidth="484.0" promptText="Machine name" stylesheets="@css/textfieldscss.css">
                               <font>
                                   <Font name="Monospaced Regular" size="15.0" />
                               </font>
                           </TextField>
-                          <TextField fx:id="machineManufacturerBox" layoutX="1055.0" layoutY="310.0" prefHeight="31.0" prefWidth="361.0" promptText="Manufacturer" stylesheets="@css/textfieldscss.css">
+                          <TextField fx:id="machineManufacturerBox" layoutX="1054.0" layoutY="310.0" prefHeight="31.0" prefWidth="368.0" promptText="Manufacturer" stylesheets="@css/textfieldscss.css">
                               <font>
                                   <Font name="Monospaced Regular" size="15.0" />
                               </font>
                           </TextField>
-                          <TextField fx:id="machineTypeBox" layoutX="1058.0" layoutY="341.0" prefHeight="31.0" prefWidth="173.0" promptText="Type" stylesheets="@css/textfieldscss.css">
+                          <TextField fx:id="machineTypeBox" layoutX="1057.0" layoutY="341.0" prefHeight="31.0" prefWidth="174.0" promptText="Type" stylesheets="@css/textfieldscss.css">
                               <font>
                                   <Font name="Monospaced Regular" size="15.0" />
                               </font>
                           </TextField>
-                  <TextField fx:id="machineYearBox" layoutX="939.0" layoutY="341.0" prefHeight="31.0" prefWidth="119.0" promptText="Year" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="machineYearBox" layoutX="938.0" layoutY="341.0" prefHeight="31.0" prefWidth="119.0" promptText="Year" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                          <TextArea fx:id="machineDescriptionBox" layoutX="939.0" layoutY="403.0" prefHeight="97.0" prefWidth="182.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
-                  <TextField fx:id="machineURLBox" layoutX="939.0" layoutY="372.0" prefHeight="31.0" prefWidth="477.0" promptText="URL" stylesheets="@css/textfieldscss.css">
+                          <TextArea fx:id="machineDescriptionBox" layoutX="938.0" layoutY="403.0" prefHeight="100.0" prefWidth="182.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
+                  <TextField fx:id="machineURLBox" layoutX="938.0" layoutY="372.0" prefHeight="31.0" prefWidth="484.0" promptText="URL" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="machineRRPBox" layoutX="939.0" layoutY="310.0" prefHeight="31.0" prefWidth="116.0" promptText="Price" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="machineRRPBox" layoutX="938.0" layoutY="310.0" prefHeight="31.0" prefWidth="116.0" promptText="Price" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="machineMediaBox" layoutX="1231.0" layoutY="341.0" prefHeight="31.0" prefWidth="186.0" promptText="Media" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="machineMediaBox" layoutX="1231.0" layoutY="341.0" prefHeight="31.0" prefWidth="191.0" promptText="Media" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
@@ -320,7 +288,40 @@
                             </Menu>
                         </menus>
                     </MenuBar>
-                  <Line endX="112.0" endY="742.0" fill="#9e9e9e" layoutX="823.0" layoutY="142.0" startX="112.0" startY="-113.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="112.0" endY="742.0" fill="#9e9e9e" layoutX="823.0" layoutY="142.0" startX="112.0" startY="-112.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Rectangle fill="#00000039" height="45.0" layoutX="463.0" layoutY="534.0" stroke="#0000004d" strokeType="INSIDE" strokeWidth="0.0" width="469.0" />
+                  <Rectangle fill="#00000039" height="45.0" layoutX="938.0" layoutY="534.0" stroke="#0000004b" strokeType="INSIDE" strokeWidth="0.0" width="484.0" />
+                  <Line endX="94.0" endY="-122.0" fill="#0d0c0c9d" layoutX="360.0" layoutY="152.0" startX="-352.0" startY="-122.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="-360.0" endY="146.0" fill="#0d0c0c9d" layoutX="367.0" layoutY="162.0" startX="-360.0" startY="-126.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="113.0" endY="-122.0" fill="#0d0c0c9d" layoutX="816.0" layoutY="152.0" startX="-350.0" startY="-122.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="125.0" endY="-122.0" fill="#0d0c0c9d" layoutX="1294.0" layoutY="152.0" startX="-353.0" startY="-122.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Rectangle fill="#00000033" height="31.0" layoutX="938.0" layoutY="248.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="484.0" />
+                  <Line endX="123.0" endY="97.0" fill="#9e9e9e" layoutX="1296.0" layoutY="148.0" startX="123.0" startY="-112.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="653.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="CENTER" wrappingWidth="89.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="27.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="148.0" layoutY="562.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Ports" textAlignment="CENTER" wrappingWidth="164.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="27.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="1106.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machines" textAlignment="CENTER" wrappingWidth="149.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="27.0" />
+                     </font>
+                  </Text>
+                  <Line endX="94.0" endY="-122.0" fill="#0d0c0c9d" layoutX="360.0" layoutY="727.0" startX="-352.0" startY="-122.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="111.0" endY="-120.0" fill="#0d0c0c9d" layoutX="818.0" layoutY="725.0" startX="-352.0" startY="-120.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="126.0" endY="-120.0" fill="#0d0c0c9d" layoutX="1293.0" layoutY="725.0" startX="-352.0" startY="-120.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="123.0" endY="-119.0" fill="#0d0c0c9d" layoutX="1296.0" layoutY="625.0" startX="-355.0" startY="-119.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="110.0" endY="-121.0" fill="#0d0c0c9d" layoutX="819.0" layoutY="627.0" startX="-353.0" startY="-121.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="97.0" endY="-127.0" fill="#0d0c0c9d" layoutX="357.0" layoutY="632.0" startX="-352.0" startY="-127.0" stroke="#00000033" strokeWidth="6.0" />
+                  <Line endX="-5.0" endY="14.0" layoutX="12.0" layoutY="517.0" startX="-5.0" startY="-6.0" stroke="#0000004c" strokeWidth="6.0" />
+                  <Line endX="-6.0" endY="11.0" layoutX="13.0" layoutY="588.0" startX="-6.0" startY="-6.0" stroke="#0000004c" strokeWidth="6.0" />
+                  <Line endX="-4.0" endY="15.0" layoutX="1423.0" layoutY="516.0" startX="-4.0" startY="-4.0" stroke="#0000004c" strokeWidth="6.0" />
+                  <Line endX="-4.0" endY="14.0" layoutX="1423.0" layoutY="585.0" startX="-4.0" startY="-3.0" stroke="#0000004c" strokeWidth="6.0" />
                     </children>
                 </AnchorPane>
             </children>
