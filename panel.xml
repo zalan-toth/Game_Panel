@@ -4,77 +4,182 @@
     <machines>
       <first>
         <next>
+          <next>
+            <next>
+              <next>
+                <next>
+                  <contents class="net.pyel.models.Machine">
+                    <name>PS5</name>
+                    <manufacturer>Sony</manufacturer>
+                    <description>PlayStation
+Made by Sony</description>
+                    <type>Console</type>
+                    <media>NVME SSD</media>
+                    <launchYear>2018</launchYear>
+                    <RRP>155.9</RRP>
+                    <image>https://idk.net</image>
+                    <linkedGames>
+                      <size>0</size>
+                    </linkedGames>
+                  </contents>
+                </next>
+                <contents class="net.pyel.models.Machine">
+                  <name>PS4</name>
+                  <manufacturer>Sony</manufacturer>
+                  <description>PlayStation
+Made by Sony</description>
+                  <type>Console</type>
+                  <media>SSD</media>
+                  <launchYear>2011</launchYear>
+                  <RRP>150.9</RRP>
+                  <image>https://idk.net</image>
+                  <linkedGames>
+                    <size>0</size>
+                  </linkedGames>
+                </contents>
+              </next>
+              <contents class="net.pyel.models.Machine">
+                <name>PS3</name>
+                <manufacturer>Sony</manufacturer>
+                <description>PlayStation
+Made by Sony</description>
+                <type>Console</type>
+                <media>SSD</media>
+                <launchYear>2011</launchYear>
+                <RRP>140.9</RRP>
+                <image>https://idk.net</image>
+                <linkedGames>
+                  <size>0</size>
+                </linkedGames>
+              </contents>
+            </next>
+            <contents class="net.pyel.models.Machine">
+              <name>PS2</name>
+              <manufacturer>Sony</manufacturer>
+              <description>Basic machine
+Made by Sony</description>
+              <type>Console</type>
+              <media>HDD</media>
+              <launchYear>2009</launchYear>
+              <RRP>110.9</RRP>
+              <image>https://idk.net</image>
+              <linkedGames>
+                <size>0</size>
+              </linkedGames>
+            </contents>
+          </next>
           <contents class="net.pyel.models.Machine">
-            <name>Alcatraz2</name>
-            <manufacturer>Activision</manufacturer>
-            <description>Hello this is another machine</description>
-            <type>Handy</type>
-            <media>Floppy</media>
-            <launchYear>2006</launchYear>
-            <RRP>77.5</RRP>
-            <image>asdasddas2</image>
+            <name>PS</name>
+            <manufacturer>Sony</manufacturer>
+            <description>Basic machine
+Made by Sony</description>
+            <type>Console</type>
+            <media>HDD</media>
+            <launchYear>2007</launchYear>
+            <RRP>99.9</RRP>
+            <image>https://idk.net</image>
             <linkedGames>
               <size>0</size>
             </linkedGames>
           </contents>
         </next>
         <contents class="net.pyel.models.Machine">
-          <name>Alcatraz</name>
-          <manufacturer>Plachy</manufacturer>
-          <description>Hello this is a machine</description>
-          <type>Consol</type>
-          <media>Disk</media>
-          <launchYear>2003</launchYear>
-          <RRP>55.5</RRP>
-          <image>asdasddas</image>
+          <name>Pringles</name>
+          <manufacturer>Sony</manufacturer>
+          <description>Basic machine
+Made by Sony</description>
+          <type>Console</type>
+          <media>HDD</media>
+          <launchYear>2005</launchYear>
+          <RRP>79.9</RRP>
+          <image>https://idk.net</image>
           <linkedGames>
             <size>0</size>
           </linkedGames>
         </contents>
       </first>
-      <last reference="../first/next"/>
-      <size>2</size>
+      <last reference="../first/next/next/next/next/next"/>
+      <size>6</size>
     </machines>
     <games>
       <first>
         <next>
+          <next>
+            <contents class="net.pyel.models.Game">
+              <machine reference="../../../../../../machines/first/next/next/next/next/contents"/>
+              <name>Farming Simulator</name>
+              <publisher>Quantum</publisher>
+              <description>Farming Simulator</description>
+              <developer>BogoTeam</developer>
+              <releaseYear>2012</releaseYear>
+              <cover>https://idk.net</cover>
+              <ports>
+                <first>
+                  <contents class="net.pyel.models.Port">
+                    <machine reference="../../../../../../../../../machines/first/next/next/next/next/next/contents"/>
+                    <developer>BogoTeam</developer>
+                    <releaseYear>2019</releaseYear>
+                    <cover>https://fs-ps5</cover>
+                  </contents>
+                </first>
+                <last reference="../first"/>
+                <size>1</size>
+              </ports>
+            </contents>
+          </next>
           <contents class="net.pyel.models.Game">
-            <machine reference="../../../../../machines/first/next/contents"/>
-            <name>Minecraft2</name>
-            <publisher>Moj</publisher>
-            <description>1243124124</description>
-            <developer>Mojang</developer>
-            <releaseYear>2020</releaseYear>
-            <cover>asdasd</cover>
+            <machine reference="../../../../../machines/first/next/next/contents"/>
+            <name>Need for Speed: Most Wanted</name>
+            <publisher>NFS</publisher>
+            <description>Car driving game</description>
+            <developer>BubleTeam</developer>
+            <releaseYear>2009</releaseYear>
+            <cover>https://idk.net</cover>
             <ports>
-              <size>0</size>
+              <first>
+                <next>
+                  <next>
+                    <contents class="net.pyel.models.Port">
+                      <machine reference="../../../../../../../../../../machines/first/next/next/next/next/next/contents"/>
+                      <developer>BubleTeam</developer>
+                      <releaseYear>2023</releaseYear>
+                      <cover>https://nfsforps3.png</cover>
+                    </contents>
+                  </next>
+                  <contents class="net.pyel.models.Port">
+                    <machine reference="../../../../../../../../../machines/first/next/next/next/next/contents"/>
+                    <developer>BubleTeam</developer>
+                    <releaseYear>2022</releaseYear>
+                    <cover>https://nfsforps3.png</cover>
+                  </contents>
+                </next>
+                <contents class="net.pyel.models.Port">
+                  <machine reference="../../../../../../../../machines/first/next/next/next/contents"/>
+                  <developer>BubleTeam</developer>
+                  <releaseYear>2020</releaseYear>
+                  <cover>https://nfsforps3.png</cover>
+                </contents>
+              </first>
+              <last reference="../first/next/next"/>
+              <size>3</size>
             </ports>
           </contents>
         </next>
         <contents class="net.pyel.models.Game">
-          <machine reference="../../../../machines/first/contents"/>
-          <name>Minecraft</name>
-          <publisher>Moj</publisher>
-          <description>1243124124</description>
-          <developer>Mojang</developer>
-          <releaseYear>2003</releaseYear>
-          <cover>asdasd</cover>
+          <machine reference="../../../../machines/first/next/next/contents"/>
+          <name>Medal of Honor</name>
+          <publisher>CrazyGames</publisher>
+          <description>FPS shooter game</description>
+          <developer>BubleTeam</developer>
+          <releaseYear>2010</releaseYear>
+          <cover>https://idk.net</cover>
           <ports>
-            <first>
-              <contents class="net.pyel.models.Port">
-                <machine reference="../../../../../../../machines/first/next/contents"/>
-                <developer>Mineacademy</developer>
-                <releaseYear>2022</releaseYear>
-                <cover>asddassad</cover>
-              </contents>
-            </first>
-            <last reference="../first"/>
-            <size>1</size>
+            <size>0</size>
           </ports>
         </contents>
       </first>
-      <last reference="../first/next"/>
-      <size>2</size>
+      <last reference="../first/next/next"/>
+      <size>3</size>
     </games>
   </net.pyel.Panel>
 </object-stream>
