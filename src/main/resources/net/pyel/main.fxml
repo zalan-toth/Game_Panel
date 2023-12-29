@@ -42,339 +42,535 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="720.0" prefWidth="1400.0" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="872.0" prefWidth="1404.0" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
     <children>
-        <MenuBar style="-fx-background-color: #ff4242;" VBox.vgrow="NEVER">
-            <menus>
-                <Menu mnemonicParsing="false" text="File">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#newPanel" text="New/Reset" />
-                        <MenuItem mnemonicParsing="false" onAction="#loadData" text="Load" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#basePanel" text="Close" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveData" text="Save" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#logTerminal" text="Log" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#openHelpMenu" text="About GP (Game Panel)" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Facilities">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#logTerminal" text="Terminal" />
-                        <MenuItem mnemonicParsing="false" onAction="#newPanel" text="Reset" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Debug">
-                    <items>
-                        <MenuItem mnemonicParsing="false" onAction="#refresh" text="Refresh" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <AnchorPane minHeight="860.0" prefWidth="1100.0" stylesheets="@Game_Panel/smp.css">
+        <AnchorPane minHeight="694.0" prefHeight="888.0" prefWidth="1404.0" stylesheets="@Game_Panel/smp.css">
             <children>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="860.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="829.0" fitWidth="1400.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/bg2.png" />
+               </image>
+               <effect>
+                  <GaussianBlur radius="32.24" />
+               </effect>
+            </ImageView>
+                <AnchorPane layoutX="-4.0" layoutY="-4.0" minHeight="0.0" minWidth="0.0" prefHeight="882.0" prefWidth="1413.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-5.0" AnchorPane.topAnchor="-4.0">
                     <children>
-                        <AnchorPane layoutX="1170.0" layoutY="92.0" prefHeight="860.0" prefWidth="230.0" style="-fx-background-color: #ff6d57;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1050.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <children>
-                                <ListView fx:id="machineListView" layoutX="-9.0" layoutY="385.0" prefHeight="462.0" prefWidth="210.0" style="-fx-background-color: red;" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                                    <contextMenu>
-                                        <ContextMenu>
-                                            <items>
-                                                <MenuItem mnemonicParsing="false" onAction="#removeMachine" text="Delete Machine" />
-                                            </items>
-                                        </ContextMenu>
-                                    </contextMenu>
-                                </ListView>
-                                <Text fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine ">
-                                    <font>
-                                        <Font name="Monospaced Regular" size="34.0" />
-                                    </font>
-                                </Text>
-                                <Text fx:id="machineNameText" fill="#ffb92b" fontSmoothingType="LCD" layoutX="16.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                                    <font>
-                                        <Font name="Monospaced Regular" size="18.0" />
-                                    </font>
-                                </Text>
-                                <TextField fx:id="machineNameBox" layoutX="18.0" layoutY="93.0" prefHeight="24.0" prefWidth="195.0" promptText="Machine name" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;">
-                                    <font>
-                                        <Font name="Monospaced Regular" size="15.0" />
-                                    </font>
-                                </TextField>
-                                <TextField fx:id="machineManufacturerBox" layoutX="18.0" layoutY="145.0" prefHeight="3.0" prefWidth="195.0" promptText="Manufacturer" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;">
-                                    <font>
-                                        <Font name="Monospaced Regular" size="15.0" />
-                                    </font>
-                                </TextField>
-                                <Button layoutX="224.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#updateMachine" prefHeight="12.0" prefWidth="116.0" text="Update">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Button>
-                                <Button layoutX="224.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#deselectMachines" prefHeight="26.0" prefWidth="116.0" text="Deselect">
-                                    <font>
-                                        <Font name="Monospaced Regular" size="13.0" />
-                                    </font>
-                                </Button>
-                                <Button layoutX="224.0" layoutY="211.0" mnemonicParsing="false" onMouseClicked="#addMachine" prefHeight="42.0" prefWidth="116.0" text="Add">
-                                    <font>
-                                        <Font size="21.0" />
-                                    </font>
-                                </Button>
-                                <Text fill="WHITE" layoutX="18.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine name/title*" />
-                                <Text fill="WHITE" layoutX="18.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine manufacturer*" />
-                                <TextField fx:id="machineTypeBox" layoutX="18.0" layoutY="198.0" prefHeight="31.0" prefWidth="95.0" promptText="Type" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                                    <font>
-                                        <Font name="Monospaced Regular" size="15.0" />
-                                    </font>
-                                </TextField>
-                                <Text fill="WHITE" layoutX="18.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine type" />
-                                <Text fx:id="alpha2error" fill="RED" layoutX="119.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="10.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machines" textAlignment="RIGHT" wrappingWidth="330.0">
-                           <font>
-                              <Font name="Monospaced Regular" size="22.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="machineYearBox" layoutX="124.0" layoutY="197.0" prefHeight="31.0" prefWidth="95.0" promptText="Year" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="124.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Launch year" />
-                                <TextArea fx:id="machineDescriptionBox" layoutX="18.0" layoutY="292.0" prefHeight="80.0" prefWidth="195.0" promptText="Description" style="-fx-text-fill: white; -fx-background-color: black; -fx-border-color: white;" stylesheets="@css/textarea.css" />
-                        <TextField fx:id="machineURLBox" layoutX="18.0" layoutY="245.0" prefHeight="3.0" prefWidth="195.0" promptText="URL" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="18.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image URL" />
-                        <Text fill="WHITE" layoutX="18.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine description" />
-                        <TextField fx:id="machineRRPBox" layoutX="224.0" layoutY="91.0" prefHeight="31.0" prefWidth="116.0" promptText="Price" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="224.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RRP" />
-                        <TextField fx:id="machineMediaBox" layoutX="224.0" layoutY="146.0" prefHeight="31.0" prefWidth="116.0" promptText="Media" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="224.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Media" />
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane prefHeight="860.0" prefWidth="461.0" style="-fx-background-color: #111726;">
-                            <children>
-                                <AnchorPane prefHeight="860.0" prefWidth="461.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                    <children>
-                                        <ListView fx:id="log" layoutY="45.0" prefHeight="802.0" prefWidth="461.0" style="-fx-background-color: black;" stylesheets="@css/terminal.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
-                                            <contextMenu>
-                                                <ContextMenu>
-                                                    <items>
-                                                        <MenuItem mnemonicParsing="false" onAction="#clearOutputTerminal" text="Clear" />
-                                                        <SeparatorMenuItem mnemonicParsing="false" />
-                                                        <MenuItem mnemonicParsing="false" onAction="#logTerminal" text="Open command prompt" />
-                                                    </items>
-                                                </ContextMenu>
-                                            </contextMenu>
-                                        </ListView>
-                              <Text fill="WHITE" layoutX="12.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$">
-                                 <font>
-                                    <Font name="Ubuntu Mono" size="19.0" />
-                                 </font>
-                              </Text>
-                              <TextField fx:id="logInput" layoutX="41.0" layoutY="7.0" prefHeight="33.0" prefWidth="437.0" promptText="terminal prompt - start by typing in &quot;help&quot;" style="-fx-background-color: black; -fx-border-color: black; -fx-text-fill: white;" AnchorPane.rightAnchor="0.0">
-                                 <font>
-                                    <Font name="Ubuntu Mono" size="18.0" />
-                                 </font>
-                              </TextField>
-                                    </children>
-                                </AnchorPane>
-                            </children>
-                        </AnchorPane>
-                  <AnchorPane layoutX="755.0" prefHeight="860.0" prefWidth="295.0" style="-fx-background-color: #ff8a30;">
-                     <children>
-                        <ListView fx:id="gameListView" layoutX="-9.0" layoutY="385.0" prefHeight="462.0" prefWidth="210.0" style="-fx-background-color: #ed6700;" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <contextMenu>
-                              <ContextMenu>
-                                 <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#removeGame" text="Delete Game" />
-                                 </items>
-                              </ContextMenu>
-                           </contextMenu>
-                        </ListView>
-                        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game">
-                           <font>
-                              <Font name="Monospaced Regular" size="34.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="gameNameText" fill="#f50000" fontSmoothingType="LCD" layoutX="16.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                           <font>
-                              <Font name="Monospaced Regular" size="18.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="186.0" layoutY="136.0" mnemonicParsing="false" onMouseClicked="#updateGame" prefHeight="42.0" prefWidth="109.0" text="Update">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="191.0" layoutY="333.0" mnemonicParsing="false" onMouseClicked="#deselectGames" prefHeight="26.0" prefWidth="95.0" text="Deselect">
-                           <font>
-                              <Font name="Monospaced Regular" size="13.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="185.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#addGame" prefHeight="42.0" prefWidth="109.0" text="Add">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Button>
-                        <Text fill="WHITE" fontSmoothingType="LCD" layoutX="9.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="RIGHT" wrappingWidth="275.0">
-                           <font>
-                              <Font name="Monospaced Regular" size="22.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="gameNameBox" layoutX="14.0" layoutY="149.0" prefHeight="31.0" prefWidth="164.0" promptText="Name" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game name/title*" />
-                        <TextField fx:id="gamePublisherBox" layoutX="14.0" layoutY="199.0" prefHeight="31.0" prefWidth="132.0" promptText="Publisher" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher" />
-                        <Text fx:id="alpha2error1" fill="RED" layoutX="115.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                        <TextField fx:id="gameDeveloperBox" layoutX="157.0" layoutY="198.0" prefHeight="31.0" prefWidth="143.0" promptText="Developer" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="158.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" />
-                        <TextArea fx:id="gameDescriptionBox" layoutX="14.0" layoutY="293.0" prefHeight="80.0" prefWidth="171.0" promptText="Description" style="-fx-text-fill: white; -fx-background-color: black; -fx-border-color: white;" stylesheets="@css/textarea.css" />
-                        <TextField fx:id="gameURLBox" layoutX="14.0" layoutY="246.0" prefHeight="31.0" prefWidth="281.0" promptText="URL" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image URL" />
-                        <Text fill="WHITE" layoutX="14.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game description" />
-                        <TextField fx:id="gameYearBox" layoutX="192.0" layoutY="293.0" prefHeight="31.0" prefWidth="95.0" promptText="Year" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="192.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Launch year" />
-                        <TextField fx:id="gameCurrentMachineBox" disable="true" editable="false" layoutX="14.0" layoutY="99.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="14.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Machine" />
-                        <Text fill="#6b0000" layoutX="129.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Machine in Machines">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="gameSelectedMachineBox" disable="true" editable="false" layoutX="130.0" layoutY="47.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text fill="WHITE" layoutX="130.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Machine" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="461.0" prefHeight="860.0" prefWidth="295.0" style="-fx-background-color: #ffd24d;">
-                     <children>
-                        <ListView fx:id="portListView" layoutX="-9.0" layoutY="385.0" prefHeight="462.0" prefWidth="210.0" style="-fx-background-color: yellow;" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                           <contextMenu>
-                              <ContextMenu>
-                                 <items>
-                                    <MenuItem mnemonicParsing="false" onAction="#removePort" text="Delete Port" />
-                                 </items>
-                              </ContextMenu>
-                           </contextMenu>
-                        </ListView>
-                        <Text fontSmoothingType="LCD" layoutX="9.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ports" textAlignment="RIGHT" wrappingWidth="275.0">
-                           <font>
-                              <Font name="Monospaced Regular" size="22.0" />
-                           </font>
-                        </Text>
-                        <Text fontSmoothingType="LCD" layoutX="14.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port ">
-                           <font>
-                              <Font name="Monospaced Regular" size="34.0" />
-                           </font>
-                        </Text>
-                        <Text fx:id="portNameText" fontSmoothingType="LCD" layoutX="16.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
-                           <font>
-                              <Font name="Monospaced Regular" size="18.0" />
-                           </font>
-                        </Text>
-                        <Button layoutX="177.0" layoutY="185.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="42.0" prefWidth="109.0" text="Update">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="176.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#deselectPorts" prefHeight="26.0" prefWidth="99.0" text="Deselect">
-                           <font>
-                              <Font name="Monospaced Regular" size="13.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="180.0" layoutY="133.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="42.0" prefWidth="103.0" text="Add">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Button>
-                        <Text fx:id="alpha2error11" fill="RED" layoutX="116.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-                        <TextField fx:id="portDeveloperBox" layoutX="9.0" layoutY="100.0" prefHeight="31.0" prefWidth="164.0" promptText="Developer" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="portYearBox" layoutX="9.0" layoutY="152.0" prefHeight="31.0" prefWidth="164.0" promptText="Year" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text layoutX="9.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer" />
-                        <Text layoutX="9.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Release Year" />
-                        <TextField fx:id="portCurrentMachineBox" disable="true" editable="false" layoutX="9.0" layoutY="242.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text layoutX="9.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Machine" />
-                        <Text fill="#6b0000" layoutX="10.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Machine in Machines to edit">
-                           <font>
-                              <Font size="12.0" />
-                           </font>
-                        </Text>
-                        <TextField fx:id="portURLBox" layoutX="9.0" layoutY="311.0" prefHeight="31.0" prefWidth="269.0" promptText="URL" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text layoutX="9.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cover URL" />
-                        <TextField fx:id="portSelectedMachineBox" disable="true" editable="false" layoutX="9.0" layoutY="198.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;">
-                           <font>
-                              <Font name="Monospaced Regular" size="15.0" />
-                           </font>
-                        </TextField>
-                        <Text layoutX="9.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Machine" />
-                     </children>
-                  </AnchorPane>
+                  <Text fontSmoothingType="LCD" layoutX="18.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Port ">
+                     <font>
+                        <Font name="Monospaced Regular" size="34.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fx:id="portNameText" fontSmoothingType="LCD" layoutX="100.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="15.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="15.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Release Year">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="13.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Machine">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="15.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Machine">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="14.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cover URL">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fill="#6b0000" layoutX="156.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Machine in Machines to edit">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fontSmoothingType="LCD" layoutX="660.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="RIGHT" wrappingWidth="71.677734375">
+                     <font>
+                        <Font name="Monospaced Regular" size="22.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="482.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Original Machine">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fill="#6b0000" layoutX="625.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Machine in Machines">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="783.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selected Machine">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fontSmoothingType="LCD" layoutX="177.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Ports" textAlignment="RIGHT" wrappingWidth="143.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="22.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fontSmoothingType="LCD" layoutX="477.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game">
+                     <font>
+                        <Font name="Monospaced Regular" size="34.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fx:id="gameNameText" fill="#f50000" fontSmoothingType="LCD" layoutX="568.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                     <font>
+                        <Font name="Monospaced Regular" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="482.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game name/title*">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="488.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Publisher">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="484.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image URL">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="482.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game description">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="496.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Launch year">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                          <Text layoutX="964.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine name/title*">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                          <Text layoutX="1087.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine manufacturer*">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                          <Text layoutX="961.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine type">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fontSmoothingType="LCD" layoutX="1113.0" layoutY="556.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machines" textAlignment="RIGHT" wrappingWidth="109.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="22.0" />
+                     </font>
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="965.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Launch year">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="961.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image URL">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="962.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine description">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="958.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RRP">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text layoutX="1295.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Media">
+                     <effect>
+                        <DropShadow spread="0.8">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <Text fontSmoothingType="LCD" layoutX="969.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine">
+                     <font>
+                        <Font name="Monospaced Regular" size="34.0" />
+                     </font>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                  <ImageView fx:id="imageOfPort" fitHeight="169.0" fitWidth="236.0" layoutX="202.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="335.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="47.0" prefWidth="103.0" stylesheets="@css/buttoncss.css" text="Update">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="340.0" layoutY="488.0" mnemonicParsing="false" onMouseClicked="#deselectPorts" prefHeight="26.0" prefWidth="103.0" stylesheets="@css/buttoncss.css" text="Deselect">
+                     <font>
+                        <Font name="Monospaced Regular" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="792.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#updateGame" prefHeight="42.0" prefWidth="109.0" stylesheets="@css/buttoncss.css" text="Update">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="805.0" layoutY="489.0" mnemonicParsing="false" onMouseClicked="#deselectGames" prefHeight="26.0" prefWidth="95.0" stylesheets="@css/buttoncss.css" text="Deselect">
+                     <font>
+                        <Font name="Monospaced Regular" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="666.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#addGame" prefHeight="42.0" prefWidth="109.0" stylesheets="@css/buttoncss.css" text="Add">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="599.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developer">
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="32.72" radius="15.86" spread="0.83" width="32.72">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Text>
+                          <Text fill="WHITE" fontSmoothingType="LCD" layoutX="620.0" layoutY="-37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Machine ">
+                              <font>
+                                  <Font name="Monospaced Regular" size="34.0" />
+                              </font>
+                          </Text>
+                          <Button layoutX="1281.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#updateMachine" prefHeight="47.0" prefWidth="109.0" stylesheets="@css/buttoncss.css" text="Update">
+                              <font>
+                                  <Font size="21.0" />
+                              </font>
+                          </Button>
+                          <Button layoutX="1295.0" layoutY="488.0" mnemonicParsing="false" onMouseClicked="#deselectMachines" prefHeight="26.0" prefWidth="95.0" stylesheets="@css/buttoncss.css" text="Deselect">
+                              <font>
+                                  <Font name="Monospaced Regular" size="13.0" />
+                              </font>
+                          </Button>
+                          <Button layoutX="1149.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#addMachine" prefHeight="42.0" prefWidth="116.0" stylesheets="@css/buttoncss.css" text="Add">
+                              <font>
+                                  <Font size="21.0" />
+                              </font>
+                          </Button>
+                  <ImageView fx:id="imageOfGame" fitHeight="120.0" fitWidth="146.0" layoutX="741.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ImageOfMachine" fitHeight="96.0" fitWidth="103.0" layoutX="1098.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button layoutX="217.0" layoutY="423.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="42.0" prefWidth="103.0" stylesheets="@css/buttoncss.css" text="Add">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="gameDeveloperBox" layoutX="589.0" layoutY="201.0" prefHeight="31.0" prefWidth="143.0" promptText="Developer" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="portURLBox" layoutX="15.0" layoutY="373.0" prefHeight="31.0" prefWidth="425.0" promptText="URL" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="portDeveloperBox" layoutX="15.0" layoutY="146.0" prefHeight="31.0" prefWidth="164.0" promptText="Developer" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="portYearBox" layoutX="15.0" layoutY="201.0" prefHeight="31.0" prefWidth="164.0" promptText="Year" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="portSelectedMachineBox" disable="true" editable="false" layoutX="15.0" layoutY="257.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="portCurrentMachineBox" disable="true" editable="false" layoutX="15.0" layoutY="312.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <ListView fx:id="portListView" layoutX="60.0" layoutY="572.0" prefHeight="246.0" prefWidth="389.0" style="-fx-background-color: rgba(255,255,255,0.3);" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="964.0">
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#removePort" text="Delete Port" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </ListView>
+                  <TextField fx:id="gameNameBox" layoutX="481.0" layoutY="144.0" prefHeight="31.0" prefWidth="431.0" promptText="Name" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="gamePublisherBox" layoutX="479.0" layoutY="257.0" prefHeight="31.0" prefWidth="143.0" promptText="Publisher" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextArea fx:id="gameDescriptionBox" layoutX="480.0" layoutY="425.0" prefHeight="80.0" prefWidth="171.0" promptText="Description" style="-fx-background-color: rgba(0,0,0,0.5) !important;" stylesheets="@css/textfieldscss.css" />
+                  <TextField fx:id="gameURLBox" layoutX="483.0" layoutY="372.0" prefHeight="31.0" prefWidth="431.0" promptText="URL" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="gameCurrentMachineBox" disable="true" editable="false" layoutX="483.0" layoutY="313.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="gameSelectedMachineBox" disable="true" editable="false" layoutX="748.0" layoutY="104.0" prefHeight="31.0" prefWidth="164.0" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="gameYearBox" layoutX="481.0" layoutY="199.0" prefHeight="31.0" prefWidth="95.0" promptText="Year" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <ListView fx:id="gameListView" layoutX="507.0" layoutY="572.0" prefHeight="246.0" prefWidth="389.0" style="-fx-background-color: rgba(255,255,255,0.3);" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="507.0" AnchorPane.rightAnchor="517.0">
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#removeGame" text="Delete Game" />
+                           </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </ListView>
+                          <ListView fx:id="machineListView" layoutX="980.0" layoutY="572.0" prefHeight="246.0" prefWidth="389.0" style="-fx-background-color: rgba(255,255,255,0.3);" stylesheets="@css/stylesheet.css" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="980.0" AnchorPane.rightAnchor="44.0">
+                              <contextMenu>
+                                  <ContextMenu>
+                                      <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#removeMachine" text="Delete Machine" />
+                                      </items>
+                                  </ContextMenu>
+                              </contextMenu>
+                          </ListView>
+                          <TextField fx:id="machineNameBox" layoutX="961.0" layoutY="144.0" prefHeight="31.0" prefWidth="431.0" promptText="Machine name" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: white;" stylesheets="@css/textfieldscss.css">
+                              <font>
+                                  <Font name="Monospaced Regular" size="15.0" />
+                              </font>
+                          </TextField>
+                          <TextField fx:id="machineManufacturerBox" layoutX="1084.0" layoutY="313.0" prefHeight="31.0" prefWidth="203.0" promptText="Manufacturer" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;" stylesheets="@css/textfieldscss.css">
+                              <font>
+                                  <Font name="Monospaced Regular" size="15.0" />
+                              </font>
+                          </TextField>
+                          <TextField fx:id="machineTypeBox" layoutX="961.0" layoutY="254.0" prefHeight="31.0" prefWidth="95.0" promptText="Type" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                              <font>
+                                  <Font name="Monospaced Regular" size="15.0" />
+                              </font>
+                          </TextField>
+                  <TextField fx:id="machineYearBox" layoutX="961.0" layoutY="199.0" prefHeight="31.0" prefWidth="95.0" promptText="Year" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                          <TextArea fx:id="machineDescriptionBox" layoutX="962.0" layoutY="425.0" prefHeight="80.0" prefWidth="171.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
+                  <TextField fx:id="machineURLBox" layoutX="961.0" layoutY="372.0" prefHeight="31.0" prefWidth="431.0" promptText="URL" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: orange;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="machineRRPBox" layoutX="960.0" layoutY="313.0" prefHeight="31.0" prefWidth="116.0" promptText="Price" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="machineMediaBox" layoutX="1290.0" layoutY="313.0" prefHeight="31.0" prefWidth="103.0" promptText="Media" style="-fx-background-color: black; -fx-border-color: white; -fx-text-fill: yellow;" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                    <MenuBar layoutX="-2.0" layoutY="2.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="1424.0" style="-fx-background-color: RGBA(0,140,250,0.5);">
+                        <menus>
+                            <Menu mnemonicParsing="false" text="File">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#newPanel" text="New/Reset" />
+                                    <MenuItem mnemonicParsing="false" onAction="#loadData" text="Load" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#basePanel" text="Close" />
+                                    <MenuItem mnemonicParsing="false" onAction="#saveData" text="Save" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#logTerminal" text="Log" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Help">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#openHelpMenu" text="About GP (Game Panel)" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Facilities">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#logTerminal" text="Terminal" />
+                                    <MenuItem mnemonicParsing="false" onAction="#newPanel" text="Reset" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Debug">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#refresh" text="Refresh" />
+                                </items>
+                            </Menu>
+                        </menus>
+                    </MenuBar>
                     </children>
                 </AnchorPane>
             </children>

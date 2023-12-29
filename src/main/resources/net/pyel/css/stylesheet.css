@@ -11,6 +11,6 @@
     -fx-text-fill: white;
 }
 .list-cell:filled:hover {
-    -fx-background-color: #d14d00;
+    -fx-background-color: rgba(61, 235, 255, 0.53);
     -fx-text-fill: white;
 }

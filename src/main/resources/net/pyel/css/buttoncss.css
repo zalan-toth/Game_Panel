@@ -1,0 +1,23 @@
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
+    -fx-background-radius: 15; /* Rounded corners */
+    -fx-border-radius: 15; /* Rounded border */
+    -fx-border-color: rgba(255, 255, 255, 0.5); /* Slightly visible white border */
+    -fx-border-width: 1; /* Thin border */
+    -fx-text-fill: white; /* White text */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); /* Subtle shadow */
+    -fx-font-family: "Consolas"; /* Consistent font with text fields */
+    -fx-font-size: 12px; /* Smaller font size */
+    -fx-padding: 4 20 4 20; /* Minimal padding */
+}
+
+.button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.3); /* Slightly darker on hover */
+    -fx-border-color: rgba(255, 255, 255, 0.7); /* More visible border on hover */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 6, 0.0 , 0 , 2 ); /* Slightly larger shadow on hover */
+}
+
+.button:pressed {
+    -fx-background-color: rgba(0, 0, 0, 0.4); /* Even darker when pressed */
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.6) , 4, 0.0 , 0 , -1 ); /* Smaller shadow when pressed */
+}
