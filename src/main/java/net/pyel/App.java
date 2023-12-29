@@ -18,10 +18,8 @@ public class App extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-
 		scene = new Scene(loadFXML("base"));
 		stage.setScene(scene);
-		stage.setResizable(false);
 		stage.setTitle("Game Panel | Welcome");
 		stage.show();
 		stageInfo = stage;
@@ -31,9 +29,15 @@ public class App extends Application {
 		return stageInfo;
 	}
 
-
 	static void setRoot(String fxml) throws IOException {
-		scene.setRoot(loadFXML(fxml));
+		Parent root = loadFXML(fxml);
+		// Check if the new root is for "main.fxml" and adjust the scene size
+		if ("main".equals(fxml)) {
+			scene = new Scene(root, 1413, 882);
+			stageInfo.setScene(scene);
+		} else {
+			scene.setRoot(root);
+		}
 	}
 
 	private static Parent loadFXML(String fxml) throws IOException {
@@ -42,6 +46,6 @@ public class App extends Application {
 	}
 
 	public static void main(String[] args) {
-		launch();
+		launch(args);
 	}
 }
