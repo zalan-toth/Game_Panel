@@ -89,6 +89,37 @@ public class Game {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Game)) return false;
+
+		Game game = (Game) o;
+
+		if (getReleaseYear() != game.getReleaseYear()) return false;
+		if (getMachine() != null ? !getMachine().equals(game.getMachine()) : game.getMachine() != null) return false;
+		if (getName() != null ? !getName().equals(game.getName()) : game.getName() != null) return false;
+		if (getPublisher() != null ? !getPublisher().equals(game.getPublisher()) : game.getPublisher() != null)
+			return false;
+		if (getDescription() != null ? !getDescription().equals(game.getDescription()) : game.getDescription() != null)
+			return false;
+		if (getDeveloper() != null ? !getDeveloper().equals(game.getDeveloper()) : game.getDeveloper() != null)
+			return false;
+		return getCover() != null ? getCover().equals(game.getCover()) : game.getCover() == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = getMachine() != null ? getMachine().hashCode() : 0;
+		result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+		result = 31 * result + (getPublisher() != null ? getPublisher().hashCode() : 0);
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getDeveloper() != null ? getDeveloper().hashCode() : 0);
+		result = 31 * result + getReleaseYear();
+		result = 31 * result + (getCover() != null ? getCover().hashCode() : 0);
+		return result;
+	}
+
+	@Override
 	public String toString() {
 		return name;
 	}

@@ -93,6 +93,41 @@ public class Machine {
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Machine)) return false;
+
+		Machine machine = (Machine) o;
+
+		if (getLaunchYear() != machine.getLaunchYear()) return false;
+		if (Double.compare(machine.getRRP(), getRRP()) != 0) return false;
+		if (getName() != null ? !getName().equals(machine.getName()) : machine.getName() != null) return false;
+		if (getManufacturer() != null ? !getManufacturer().equals(machine.getManufacturer()) : machine.getManufacturer() != null)
+			return false;
+		if (getDescription() != null ? !getDescription().equals(machine.getDescription()) : machine.getDescription() != null)
+			return false;
+		if (getType() != null ? !getType().equals(machine.getType()) : machine.getType() != null) return false;
+		if (getMedia() != null ? !getMedia().equals(machine.getMedia()) : machine.getMedia() != null) return false;
+		return getImage() != null ? getImage().equals(machine.getImage()) : machine.getImage() == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result;
+		long temp;
+		result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getManufacturer() != null ? getManufacturer().hashCode() : 0);
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+		result = 31 * result + (getMedia() != null ? getMedia().hashCode() : 0);
+		result = 31 * result + getLaunchYear();
+		temp = Double.doubleToLongBits(getRRP());
+		result = 31 * result + (int) (temp ^ (temp >>> 32));
+		result = 31 * result + (getImage() != null ? getImage().hashCode() : 0);
+		return result;
+	}
+
+	@Override
 	public String toString() {
 		return name;
 	}
