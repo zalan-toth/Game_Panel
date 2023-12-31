@@ -151,12 +151,12 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="portSelectedMachineBox" disable="true" editable="false" layoutX="230.0" layoutY="311.0" prefHeight="31.0" prefWidth="227.0" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="portCurrentMachineBox" disable="true" editable="false" layoutX="230.0" layoutY="311.0" prefHeight="31.0" prefWidth="227.0" promptText="Current Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="portCurrentMachineBox" disable="true" editable="false" layoutX="4.0" layoutY="311.0" prefHeight="31.0" prefWidth="226.0" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="portSelectedMachineBox" disable="true" editable="false" layoutX="4.0" layoutY="311.0" prefHeight="31.0" prefWidth="226.0" promptText="Selected Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
@@ -180,18 +180,21 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextArea fx:id="gameDescriptionBox" layoutX="463.0" layoutY="406.0" prefHeight="97.0" prefWidth="184.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
+                  <TextArea fx:id="gameDescriptionBox" layoutX="463.0" layoutY="406.0" prefHeight="97.0" prefWidth="184.0" promptText="Description" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font></TextArea>
                   <TextField fx:id="gameURLBox" layoutX="463.0" layoutY="372.0" prefHeight="34.0" prefWidth="469.0" promptText="URL" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="gameCurrentMachineBox" disable="true" editable="false" layoutX="711.0" layoutY="248.0" prefHeight="31.0" prefWidth="221.0" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="gameCurrentMachineBox" disable="true" editable="false" layoutX="711.0" layoutY="248.0" prefHeight="31.0" prefWidth="221.0" promptText="Current Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="gameSelectedMachineBox" disable="true" editable="false" layoutX="463.0" layoutY="248.0" prefHeight="31.0" prefWidth="248.0" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="gameSelectedMachineBox" disable="true" editable="false" layoutX="463.0" layoutY="248.0" prefHeight="31.0" prefWidth="248.0" promptText="Selected Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
@@ -239,7 +242,10 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                          <TextArea fx:id="machineDescriptionBox" layoutX="938.0" layoutY="403.0" prefHeight="100.0" prefWidth="182.0" promptText="Description" stylesheets="@css/textfieldscss.css" />
+                          <TextArea fx:id="machineDescriptionBox" layoutX="938.0" layoutY="403.0" prefHeight="100.0" prefWidth="182.0" promptText="Description" stylesheets="@css/textfieldscss.css">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font></TextArea>
                   <TextField fx:id="machineURLBox" layoutX="938.0" layoutY="372.0" prefHeight="31.0" prefWidth="484.0" promptText="URL" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
