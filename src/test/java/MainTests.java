@@ -33,8 +33,8 @@ class MainTests {
 		Assertions.assertEquals((Integer) 56, integers.get(2048));
 		Assertions.assertEquals((Integer) 57, integers.get(4096));
 
-		machinesHash.put("IAmAKey", new Machine("", "", "", "", "", 2009, 67.5, ""));
-		System.out.println(machinesHash.get("IAmAKey"));
+		machinesHash.put("IAmAKey", new Machine("Hello Machine", "", "", "", "", 2009, 67.5, ""));
+		System.out.println(machinesHash.get("IAmAKey").getLaunchYear());
 
 	}
 
