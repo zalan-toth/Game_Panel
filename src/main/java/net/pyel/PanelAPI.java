@@ -5,6 +5,8 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import net.pyel.models.Game;
 import net.pyel.models.Machine;
 import net.pyel.models.Port;
+import net.pyel.models.TerminalElement;
+import net.pyel.utils.CustomEntry;
 import net.pyel.utils.CustomHashMap;
 import net.pyel.utils.CustomList;
 
@@ -52,7 +54,7 @@ public class PanelAPI {
 	 */
 	public void load() throws Exception {
 		//list of classes that you wish to include in the serialisation, separated by a comma
-		Class<?>[] classes = new Class[]{Panel.class, Port.class, Machine.class, Game.class};
+		Class<?>[] classes = new Class[]{Panel.class, Port.class, Machine.class, Game.class, TerminalElement.class, CustomEntry.class};
 
 		//setting up the xstream object with default security and the above classes
 		XStream xstream = new XStream(new DomDriver());
