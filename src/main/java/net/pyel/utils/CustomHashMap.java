@@ -47,6 +47,24 @@ public class CustomHashMap<K, V> {
 		return null; //no match found for the key
 	}
 
+	public void remove(K key) {
+		int index = indexFor(key.hashCode()); //getting the index
+		CustomEntry<K, V> current = table[index]; //The current entry, which is the value of table at the specified index
+		CustomEntry<K, V> previous = null; //the entry before current, starts with null
+		while (current != null) { //looking
+			if (current.key.equals(key)) { //if the entry for the key is found
+				if (previous == null) { //if the key is in the first entry
+					table[index] = current.next; //set that first element the next
+				} else { //if the key is not the first element
+					previous.next = current.next; //connect the previous entry with the next entry counted from the current one, eleminating the current entry.
+				}
+				return; //found the element, so no need to look for more
+			}
+			previous = current;
+			current = current.next;
+		}
+	}
+
 	private int indexFor(int hashCode) {
 		return hashCode % size; //Calculating the index
 	}
