@@ -31,6 +31,36 @@ class MainTests {
 		Assertions.assertEquals((Integer) 57, integers.get(4096));
 	}
 
+	@Test
+	void removeEntriesFromHashing() {
+		integers.put(777, 232);
+		integers.put(923, 533);
+		integers.put(123, 321);
+		integers.put(124, 321);
+		Assertions.assertEquals((Integer) 232, integers.get(777));
+		Assertions.assertEquals((Integer) 533, integers.get(923));
+		Assertions.assertEquals((Integer) 321, integers.get(123));
+		Assertions.assertNull(integers.get(122));
+		Assertions.assertEquals((Integer) 321, integers.get(124));
+		integers.put(1024, 55);
+		integers.put(2048, 56);
+		integers.put(4096, 57);
+		Assertions.assertEquals((Integer) 55, integers.get(1024));
+		Assertions.assertEquals((Integer) 56, integers.get(2048));
+		Assertions.assertEquals((Integer) 57, integers.get(4096));
+		integers.remove(1024);
+		Assertions.assertNull(integers.get(1024));
+		Assertions.assertEquals((Integer) 56, integers.get(2048));
+		Assertions.assertEquals((Integer) 57, integers.get(4096));
+		integers.remove(4096);
+		Assertions.assertNull(integers.get(4096));
+		Assertions.assertEquals((Integer) 56, integers.get(2048));
+		integers.remove(2048);
+		Assertions.assertNull(integers.get(2048));
+		integers.remove(123);
+		Assertions.assertNull(integers.get(123));
+		integers.put(124, 321);
+	}
 
 	/*Port port1, port2, port3, port4, port5, port6;
 	ContainerShip ship1, ship2;
