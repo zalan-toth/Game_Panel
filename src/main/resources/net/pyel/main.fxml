@@ -42,6 +42,7 @@
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -52,7 +53,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="884.0" prefWidth="1434" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
+<VBox prefHeight="884.0" prefWidth="1434" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
     <children>
         <AnchorPane stylesheets="@Game_Panel/smp.css">
             <children>
@@ -151,15 +152,21 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="portCurrentMachineBox" disable="true" editable="false" layoutX="230.0" layoutY="311.0" prefHeight="31.0" prefWidth="227.0" promptText="Current Machine" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="portCurrentMachineBox" editable="false" layoutX="230.0" layoutY="311.0" opacity="0.5" prefHeight="31.0" prefWidth="227.0" promptText="Current Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Machine currently associated with the game port" />
+                     </tooltip>
                   </TextField>
-                  <TextField fx:id="portSelectedMachineBox" disable="true" editable="false" layoutX="4.0" layoutY="311.0" prefHeight="31.0" prefWidth="226.0" promptText="Selected Machine" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="portSelectedMachineBox" editable="false" layoutX="4.0" layoutY="311.0" opacity="0.5" prefHeight="31.0" prefWidth="226.0" promptText="Selected Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Selected Machine" />
+                     </tooltip>
                   </TextField>
                   <ListView fx:id="portListView" layoutX="5.0" layoutY="608.0" minHeight="276.0" minWidth="452.0" prefHeight="276.0" prefWidth="452.0" stylesheets="@css/stylesheet.css">
                      <contextMenu>
@@ -189,15 +196,21 @@
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="gameCurrentMachineBox" disable="true" editable="false" layoutX="711.0" layoutY="248.0" prefHeight="31.0" prefWidth="221.0" promptText="Current Machine" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="gameCurrentMachineBox" editable="false" layoutX="711.0" layoutY="248.0" opacity="0.5" prefHeight="31.0" prefWidth="221.0" promptText="Current Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Machine currently associated with the game" />
+                     </tooltip>
                   </TextField>
-                  <TextField fx:id="gameSelectedMachineBox" disable="true" editable="false" layoutX="463.0" layoutY="248.0" prefHeight="31.0" prefWidth="248.0" promptText="Selected Machine" stylesheets="@css/textfieldscss.css">
+                  <TextField fx:id="gameSelectedMachineBox" editable="false" layoutX="463.0" layoutY="248.0" opacity="0.5" prefHeight="31.0" prefWidth="248.0" promptText="Selected Machine" stylesheets="@css/textfieldscss.css">
                      <font>
                         <Font name="Monospaced Regular" size="15.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Selected Machine" />
+                     </tooltip>
                   </TextField>
                   <TextField fx:id="gameYearBox" layoutX="463.0" layoutY="341.0" prefHeight="31.0" prefWidth="135.0" promptText="Year" stylesheets="@css/textfieldscss.css">
                      <font>
