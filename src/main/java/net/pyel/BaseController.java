@@ -471,7 +471,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void addMachine() {
 		try {
-			if (!machineNameBox.getText().isEmpty() && !machineManufacturerBox.getText().isEmpty() && !machineDescriptionBox.getText().isEmpty() && !machineTypeBox.getText().isEmpty() && !machineMediaBox.getText().isEmpty() && !machineYearBox.getText().isEmpty() && !machineRRPBox.getText().isEmpty() && !machineURLBox.getText().isEmpty()){
+			if (!machineNameBox.getText().isEmpty() && !machineManufacturerBox.getText().isEmpty() && !machineDescriptionBox.getText().isEmpty() && !machineTypeBox.getText().isEmpty() && !machineMediaBox.getText().isEmpty() && !machineYearBox.getText().isEmpty() && !machineRRPBox.getText().isEmpty() && !machineURLBox.getText().isEmpty()) {
 				int year = Integer.parseInt(machineYearBox.getText());
 				double rrp = Double.parseDouble(machineRRPBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
@@ -626,7 +626,9 @@ public class BaseController implements Initializable {
 				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
 				if (year >= 1920 && year <= currentYear) {
-					selectedGame.setMachine(selectedMachine);
+					if (selectedMachine != null) {
+						selectedGame.setMachine(selectedMachine);
+					}
 					selectedGame.setName(gameNameBox.getText());
 					selectedGame.setPublisher(gamePublisherBox.getText());
 					selectedGame.setDescription(gameDescriptionBox.getText());
@@ -657,7 +659,9 @@ public class BaseController implements Initializable {
 				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
 				if (year >= 1920 && year <= currentYear) {
-					selectedPort.setMachine(selectedMachine);
+					if (selectedMachine != null) {
+						selectedPort.setMachine(selectedMachine);
+					}
 					selectedPort.setDeveloper(portDeveloperBox.getText());
 					selectedPort.setReleaseYear(year);
 					selectedPort.setCover(portURLBox.getText());
