@@ -429,7 +429,6 @@ public class BaseController implements Initializable {
 	//██║░░██║██╔══╝░░░╚═══██╗██╔══╝░░██║░░░░░██╔══╝░░██║░░██╗░░░██║░░░░╚═══██╗
 	//██████╔╝███████╗██████╔╝███████╗███████╗███████╗╚█████╔╝░░░██║░░░██████╔╝
 	//╚═════╝░╚══════╝╚═════╝░╚══════╝╚══════╝╚══════╝░╚════╝░░░░╚═╝░░░╚═════╝░
-	//TODO Test if deselects work correctly in every case/scenario
 	@FXML
 	private void deselectMachines() {
 		machineNameText.setText("-");
@@ -480,7 +479,6 @@ public class BaseController implements Initializable {
 	//██╔══██║██║░░██║██║░░██║░╚═══██╗
 	//██║░░██║██████╔╝██████╔╝██████╔╝
 	//╚═╝░░╚═╝╚═════╝░╚═════╝░╚═════╝░
-	//TODO Test adds
 	//TODO Add validation
 	@FXML
 	private void addMachine() {
@@ -558,7 +556,6 @@ public class BaseController implements Initializable {
 	//██╔══██╗██╔══╝░░██║╚██╔╝██║██║░░██║░╚████╔╝░██╔══╝░░░╚═══██╗
 	//██║░░██║███████╗██║░╚═╝░██║╚█████╔╝░░╚██╔╝░░███████╗██████╔╝
 	//╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝░╚════╝░░░░╚═╝░░░╚══════╝╚═════╝░
-	//TODO Test removes
 	@FXML
 	private void removeMachine() {
 		if (selectedMachine != null) {
@@ -594,12 +591,6 @@ public class BaseController implements Initializable {
 	//╚██████╔╝██║░░░░░██████╔╝██║░░██║░░░██║░░░███████╗██████╔╝
 	//░╚═════╝░╚═╝░░░░░╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚══════╝╚═════╝░
 
-	//TODO Write updates
-
-
-	//TODO Update Machine
-
-	//TODO Update Game
 	@FXML
 	private void updateMachine() {
 		try {
@@ -665,7 +656,6 @@ public class BaseController implements Initializable {
 		refresh();
 	}
 
-	//TODO Update Port
 	@FXML
 	public void updatePort() {
 		try {
