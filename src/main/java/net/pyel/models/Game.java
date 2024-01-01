@@ -88,6 +88,14 @@ public class Game {
 		this.ports = ports;
 	}
 
+	public boolean addPort(Port p) {
+		return ports.add(p);
+	}
+
+	public boolean removePort(Port p) {
+		return ports.remove(p);
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;

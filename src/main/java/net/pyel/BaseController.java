@@ -476,7 +476,7 @@ public class BaseController implements Initializable {
 				double rrp = Double.parseDouble(machineRRPBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), year, rrp, machineURLBox.getText());
-					machines.add(m);
+					terminalOut("Machine add: " + panelAPI.panel.addMachine(m));
 					terminalOutError("Machine added successfully");
 					deselectMachines();
 				} else {
@@ -499,7 +499,7 @@ public class BaseController implements Initializable {
 				int year = Integer.parseInt(gameYearBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>());
-					games.add(g);
+					terminalOut("Machine add: " + panelAPI.panel.addGame(g));
 					terminalOutError("Game added successfully.");
 					deselectGames();
 				} else {
@@ -522,7 +522,7 @@ public class BaseController implements Initializable {
 				int year = Integer.parseInt(portYearBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Port p = new Port(selectedMachine, portDeveloperBox.getText(), year, portURLBox.getText());
-					selectedGame.getPorts().add(p);
+					selectedGame.addPort(p);
 					terminalOutError("Game port Successfully added.");
 					deselectPorts();
 				} else {
@@ -548,7 +548,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void removeMachine() {
 		if (selectedMachine != null) {
-			machines.remove(selectedMachine);
+			panelAPI.panel.removeMachine(selectedMachine);
 			deselectMachines();
 		}
 		refresh();
@@ -558,7 +558,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void removeGame() {
 		if (selectedGame != null) {
-			games.remove(selectedGame);
+			panelAPI.panel.removeGame(selectedGame);
 		}
 		refresh();
 
@@ -567,7 +567,7 @@ public class BaseController implements Initializable {
 	@FXML
 	private void removePort() {
 		if (selectedPort != null && selectedGame != null) {
-			selectedGame.getPorts().remove(selectedPort);
+			selectedGame.removePort(selectedPort);
 		}
 		refresh();
 
@@ -595,15 +595,16 @@ public class BaseController implements Initializable {
 				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
 				if (year >= 1920 && year <= currentYear) {
-					selectedMachine.setName(machineNameBox.getText());
-					selectedMachine.setManufacturer(machineManufacturerBox.getText());
-					selectedMachine.setDescription(machineDescriptionBox.getText());
-					selectedMachine.setType(machineTypeBox.getText());
-					selectedMachine.setMedia(machineMediaBox.getText());
-					selectedMachine.setLaunchYear(year);
-					selectedMachine.setRRP(rrp);
-					selectedMachine.setImage(machineURLBox.getText());
-
+					panelAPI.panel.updateMachine(selectedMachine, machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), year, rrp, machineURLBox.getText());
+					//selectedMachine.setName(machineNameBox.getText());
+					//selectedMachine.setManufacturer(machineManufacturerBox.getText());
+					//selectedMachine.setDescription(machineDescriptionBox.getText());
+					//selectedMachine.setType(machineTypeBox.getText());
+					//selectedMachine.setMedia(machineMediaBox.getText());
+					//selectedMachine.setLaunchYear(year);
+					//selectedMachine.setRRP(rrp);
+					//selectedMachine.setImage(machineURLBox.getText());
+//
 					terminalOutError("Machine updated successfully.");
 					deselectMachines();
 				} else {
