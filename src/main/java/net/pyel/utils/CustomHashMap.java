@@ -66,6 +66,9 @@ public class CustomHashMap<K, V> {
 	}
 
 	private int indexFor(int hashCode) {
-		return hashCode % size; //Calculating the index
+		if (hashCode < 0) { //If the hashcode is minus
+			hashCode *= -1;
+		}
+		return hashCode % size;  //Calculating the index
 	}
 }

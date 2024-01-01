@@ -11,8 +11,25 @@ public class Panel {
 	private boolean debugMode = false;
 
 	private CustomList<Machine> machines = new CustomList<>();
-	public CustomHashMap<String, Machine> machinesHash = new CustomHashMap<>();
+	private CustomHashMap<String, Machine> machinesHash = new CustomHashMap<>();
 	private CustomList<Game> games = new CustomList<>();
+	private CustomHashMap<String, Game> gamesHash = new CustomHashMap<>();
+
+	public Panel(boolean debugMode, CustomList<Machine> machines, CustomHashMap<String, Machine> machinesHash, CustomList<Game> games, CustomHashMap<String, Game> gamesHash) {
+		this.debugMode = debugMode;
+		this.machines = machines;
+		this.machinesHash = machinesHash;
+		this.games = games;
+		this.gamesHash = gamesHash;
+	}
+
+	public CustomHashMap<String, Machine> getMachinesHash() {
+		return machinesHash;
+	}
+
+	public void setMachinesHash(CustomHashMap<String, Machine> machinesHash) {
+		this.machinesHash = machinesHash;
+	}
 
 	public CustomList<Machine> getMachines() {
 		return machines;
@@ -28,7 +45,7 @@ public class Panel {
 				return false;
 			}
 		}
-		machinesHash.put(m.getName(), m);
+		machinesHash.put((String) m.getName(), (Machine) m);
 		return machines.add(m);
 	}
 

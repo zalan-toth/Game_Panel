@@ -5,6 +5,8 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import net.pyel.models.Game;
 import net.pyel.models.Machine;
 import net.pyel.models.Port;
+import net.pyel.utils.CustomHashMap;
+import net.pyel.utils.CustomList;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -13,7 +15,7 @@ import java.io.ObjectOutputStream;
 import java.util.Objects;
 
 public class PanelAPI {
-	public Panel panel = new Panel(); //Every potential data is stored in the panel.
+	public Panel panel = new Panel(false, new CustomList<>(), new CustomHashMap<>(), new CustomList<>(), new CustomHashMap<>()); //Every potential data is stored in the panel.
 	public String currentStaff = "";
 
 	public PanelAPI(String staff) {

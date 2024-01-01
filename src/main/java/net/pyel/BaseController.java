@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import net.pyel.models.Game;
 import net.pyel.models.Machine;
 import net.pyel.models.Port;
+import net.pyel.models.TerminalElement;
+import net.pyel.utils.CustomHashMap;
 import net.pyel.utils.CustomList;
 
 import java.io.IOException;
@@ -169,10 +171,11 @@ public class BaseController implements Initializable {
 	TextField logInput = new TextField();
 
 	@FXML
-	ListView<String> log = new ListView<>();
+	ListView<TerminalElement> log = new ListView<>();
 	@FXML
 	TextField staff = new TextField();
 	String previousCommand = "";
+	TerminalElement selectedTerminalElement = new TerminalElement("", null);
 
 
 	@FXML
@@ -181,34 +184,35 @@ public class BaseController implements Initializable {
 		logInput.clear();
 		if (input.length() == 3) {
 			if (input.toLowerCase().substring(0, 3).equals("log")) {
-				terminalOutError("Usage: log [message]");
+				terminalOutError("Usage: log [message]", null);
 				return;
 			}
 		}
 		if (input.length() < 4) {
-			terminalOutError("Invalid command in log prompt. Type \"help\" for help.");
+			terminalOutError("Invalid command in terminal prompt. Type \"help\" for help.", null);
 			return;
 		}
 		if (input.length() == 4) {
 			if (input.toLowerCase().substring(0, 4).equals("help")) {
 
-				terminalOutHelp("-------------------------------------");
-				terminalOutHelp("reset - Resets the program, erases loaded data");
-				terminalOutHelp("debug - Switch debug mode (current: " + panelAPI.panel.isDebugMode() + ")");
-				terminalOutHelp("--------------FACILITIES-------------");
-				terminalOutHelp("clear - Clear terminal");
-				terminalOutHelp("bogosort - Bogo");
-				terminalOutHelp("staff [name] - Change staff");
-				terminalOutHelp("log [message] - Log a message");
-				terminalOutHelp("help - Help page");
-				terminalOutHelp("---------------HELP MENU-------------");
-				terminalOut("HELP executed");
+				terminalOutHelp("-------------------------------------", null);
+				terminalOutHelp("reset - Resets the program, erases loaded data", null);
+				terminalOutHelp("debug - Switch debug mode (current: " + panelAPI.panel.isDebugMode() + ")", null);
+				terminalOutHelp("--------------FACILITIES-------------", null);
+				terminalOutHelp("clear - Clear terminal", null);
+				terminalOutHelp("bogosort - Bogo", null);
+				terminalOutHelp("staff [name] - Change staff", null);
+				terminalOutHelp("log [message] - Log a message", null);
+				terminalOutHelp("help - Help page", null);
+				terminalOutHelp("---------------HELP MENU-------------", null);
+				terminalOut("HELP executed", null);
+				terminalOut("Test element", new Machine("I am a machine!", "", "", "", "", 2000, 66, ""));
 				return;
 			}
 		}
 		if (input.length() == 5) {
 			if (input.toLowerCase().substring(0, 5).equals("clear")) {
-				terminalOut("CLEAR executed");
+				terminalOut("CLEAR executed", null);
 				log.getItems().clear();
 				return;
 			} else if (input.toLowerCase().substring(0, 5).equals("debug")) {
@@ -216,7 +220,7 @@ public class BaseController implements Initializable {
 				return;
 			} else if (input.toLowerCase().substring(0, 5).equals("reset")) {
 				log.getItems().clear();
-				terminalOut("RESET executed");
+				terminalOut("RESET executed", null);
 				try {
 					newPanel();
 				} catch (IOException e) {
@@ -235,11 +239,11 @@ public class BaseController implements Initializable {
 				int count = 0;
 				while (variable != numero) {
 					variable = random.nextInt(30001);
-					terminalOutHelp("" + variable);
+					terminalOutHelp("" + variable, null);
 					log.getItems().clear();
 					count++;
 				}
-				terminalOut("Your public static void main String args[" + numero + "] quantum bogo is found in " + count + " attempt(s).");
+				terminalOut("Your public static void main String args[" + numero + "] quantum bogo is found in " + count + " attempt(s).", null);
 
 				return;
 			}
@@ -248,12 +252,12 @@ public class BaseController implements Initializable {
 
 			if (input.length() > 4) {
 				String message = input.substring(4);
-				terminalOut(message);
+				terminalOut(message, null);
 			} else {
-				terminalOutError("Usage: log [message]");
+				terminalOutError("Usage: log [message]", null);
 			}
 		} else {
-			terminalOutError("Invalid command in log prompt. Type \"help\" for help.");
+			terminalOutError("Invalid command in log prompt. Type \"help\" for help.", null);
 		}
 	}
 
@@ -264,35 +268,45 @@ public class BaseController implements Initializable {
 		} else {
 			panelAPI.panel.setDebugMode(true);
 		}
-		terminalOut("Set DEBUG mode to " + panelAPI.panel.isDebugMode());
+		terminalOut("Set DEBUG mode to " + panelAPI.panel.isDebugMode(), null);
 	}
 
-
-	public void terminalReverse(String out) {
-		String message = out;
-		System.out.println(message);
-		log.getItems().add(message);
-	}
-
-	public void terminalOut(String out) {
-		String message = "[" + panelAPI.currentStaff + "]" + " > " + out;
-		if (panelAPI.currentStaff.isEmpty()) {
-			message = " > " + out;
+	@FXML
+	public void inspectElement() {
+		refresh();
+		Object ie = selectedTerminalElement.getInspectionElemenet();
+		if (selectedTerminalElement.getInspectionElemenet() == null) {
+			terminalOutError("No element to inspect", null);
+		} else if (ie instanceof Machine) {
+			terminalOut(((Machine) ie).getName(), ie);
 		}
-		System.out.println(message);
-		log.getItems().add(0, message);
 	}
 
-	public void terminalOutError(String out) {
-		String message = "(!) " + out;
-		System.out.println(message);
-		log.getItems().add(0, message);
+	public void terminalReverse(String outPutView, Object inspectionElement) {
+		TerminalElement nte = new TerminalElement(outPutView, inspectionElement);
+		System.out.println(nte.toString());
+		log.getItems().add(nte);
 	}
 
-	public void terminalOutHelp(String out) {
-		String message = "| " + out;
-		//System.out.println(message);
-		log.getItems().add(0, message);
+	public void terminalOut(String outPutView, Object inspectionElement) {
+		TerminalElement nte = new TerminalElement("[" + panelAPI.currentStaff + "]" + " > " + outPutView, inspectionElement);
+		if (panelAPI.currentStaff.isEmpty()) {
+			nte = new TerminalElement(" > " + outPutView, inspectionElement);
+		}
+		System.out.println(nte);
+		log.getItems().add(0, nte);
+	}
+
+	public void terminalOutError(String outPutView, Object inspectionElement) {
+		TerminalElement nte = new TerminalElement("(!) " + outPutView, inspectionElement);
+		System.out.println(nte.toString());
+		log.getItems().add(0, nte);
+	}
+
+	public void terminalOutHelp(String outPutView, Object inspectionElement) {
+		TerminalElement nte = new TerminalElement("| " + outPutView, inspectionElement);
+		System.out.println(nte.toString());
+		log.getItems().add(0, nte);
 	}
 
 	@FXML
@@ -476,17 +490,17 @@ public class BaseController implements Initializable {
 				double rrp = Double.parseDouble(machineRRPBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Machine m = new Machine(machineNameBox.getText(), machineManufacturerBox.getText(), machineDescriptionBox.getText(), machineTypeBox.getText(), machineMediaBox.getText(), year, rrp, machineURLBox.getText());
-					terminalOut("Machine add: " + panelAPI.panel.addMachine(m));
-					terminalOutError("Machine added successfully");
+					terminalOut("Machine add: " + panelAPI.panel.addMachine(m), null);
+					terminalOutError("Machine added successfully", m);
 					deselectMachines();
 				} else {
-					terminalOutError("That is not a valid year.");
+					terminalOutError("That is not a valid year.", null);
 				}
 			} else {
-				terminalOutError("All fields are required!");
+				terminalOutError("All fields are required!", null);
 			}
 		} catch (NumberFormatException e) {
-			terminalOutError("Year and RRP must be valid numbers.");
+			terminalOutError("Year and RRP must be valid numbers.", null);
 		}
 		refresh();
 	}
@@ -498,18 +512,18 @@ public class BaseController implements Initializable {
 			if (selectedMachine != null && !gameNameBox.getText().isEmpty() && !gamePublisherBox.getText().isEmpty() && !gameDescriptionBox.getText().isEmpty() && !gameDeveloperBox.getText().isEmpty() && !gameYearBox.getText().isEmpty() && !gameURLBox.getText().isEmpty()) {
 				int year = Integer.parseInt(gameYearBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
-					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>());
-					terminalOut("Machine add: " + panelAPI.panel.addGame(g));
-					terminalOutError("Game added successfully.");
+					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>(), new CustomHashMap<>());
+					terminalOut("Machine add: " + panelAPI.panel.addGame(g), null);
+					terminalOutError("Game added successfully.", null);
 					deselectGames();
 				} else {
-					terminalOutError("That is not a valid year.");
+					terminalOutError("That is not a valid year.", null);
 				}
 			} else {
-				terminalOutError("All fields are required!");
+				terminalOutError("All fields are required!", null);
 			}
 		} catch (NumberFormatException e) {
-			terminalOut("Year must be a number.");
+			terminalOut("Year must be a number.", null);
 		}
 		refresh();
 	}
@@ -523,16 +537,16 @@ public class BaseController implements Initializable {
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
 					Port p = new Port(selectedMachine, portDeveloperBox.getText(), year, portURLBox.getText());
 					selectedGame.addPort(p);
-					terminalOutError("Game port Successfully added.");
+					terminalOutError("Game port Successfully added.", null);
 					deselectPorts();
 				} else {
-					terminalOutError("That is not a valid year.");
+					terminalOutError("That is not a valid year.", null);
 				}
 			} else {
-				terminalOutError("All fields are required.");
+				terminalOutError("All fields are required.", null);
 			}
 		} catch (NumberFormatException e) {
-			terminalOutError("Year must be a valid number.");
+			terminalOutError("Year must be a valid number.", null);
 		}
 		updateData();
 	}
@@ -605,16 +619,16 @@ public class BaseController implements Initializable {
 					//selectedMachine.setRRP(rrp);
 					//selectedMachine.setImage(machineURLBox.getText());
 //
-					terminalOutError("Machine updated successfully.");
+					terminalOutError("Machine updated successfully.", null);
 					deselectMachines();
 				} else {
-					terminalOutError("That is not a valid year.");
+					terminalOutError("That is not a valid year.", null);
 				}
 			} else {
-				terminalOutError("All fields are required!");
+				terminalOutError("All fields are required!", null);
 			}
 		} catch (NumberFormatException e) {
-			terminalOutError("Year and RRP must be valid numbers.");
+			terminalOutError("Year and RRP must be valid numbers.", null);
 		}
 		refresh();
 	}
@@ -637,16 +651,16 @@ public class BaseController implements Initializable {
 					selectedGame.setReleaseYear(year);
 					selectedGame.setCover(gameURLBox.getText());
 
-					terminalOutError("Game updated successfully.");
+					terminalOutError("Game updated successfully.", null);
 					deselectGames();
 				} else {
-					terminalOutError("That is not a valid year.");
+					terminalOutError("That is not a valid year.", null);
 				}
 			} else {
-				terminalOutError("All fields are required!");
+				terminalOutError("All fields are required!", null);
 			}
 		} catch (NumberFormatException e) {
-			terminalOut("Year must be a number.");
+			terminalOut("Year must be a number.", null);
 		}
 		refresh();
 	}
@@ -666,16 +680,16 @@ public class BaseController implements Initializable {
 					selectedPort.setDeveloper(portDeveloperBox.getText());
 					selectedPort.setReleaseYear(year);
 					selectedPort.setCover(portURLBox.getText());
-					terminalOutError("Game port successfully updated.");
+					terminalOutError("Game port successfully updated.", null);
 					deselectPorts();
 				} else {
-					terminalOutError("That is not a valid year.");
+					terminalOutError("That is not a valid year.", null);
 				}
 			} else {
-				terminalOutError("All fields are required.");
+				terminalOutError("All fields are required.", null);
 			}
 		} catch (NumberFormatException e) {
-			terminalOutError("Year must be a valid number.");
+			terminalOutError("Year must be a valid number.", null);
 		}
 		updateData();
 	}
@@ -702,6 +716,7 @@ public class BaseController implements Initializable {
 		//portListView.getItems().addAll(ports);
 		machineListView.setItems(FXCollections.observableList(machines)); //Yay!
 		gameListView.setItems(FXCollections.observableList(games)); //Yay!
+		selectedTerminalElement = log.getSelectionModel().getSelectedItem();
 		updateData();
 
 

@@ -1,3 +1,4 @@
+import net.pyel.models.Machine;
 import net.pyel.utils.CustomHashMap;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Test;
 class MainTests {
 
 	CustomHashMap<Integer, Integer> integers = new CustomHashMap<>();
+
+	private CustomHashMap<String, Machine> machinesHash = new CustomHashMap<>();
 
 	@Test
 	void addingValuesToHashMap() {
@@ -29,6 +32,10 @@ class MainTests {
 		Assertions.assertEquals((Integer) 55, integers.get(1024));
 		Assertions.assertEquals((Integer) 56, integers.get(2048));
 		Assertions.assertEquals((Integer) 57, integers.get(4096));
+
+		machinesHash.put("IAmAKey", new Machine("", "", "", "", "", 2009, 67.5, ""));
+		System.out.println(machinesHash.get("IAmAKey"));
+
 	}
 
 	@Test

@@ -1,10 +1,11 @@
 package net.pyel.models;
 
+import net.pyel.utils.CustomHashMap;
 import net.pyel.utils.CustomList;
 
 public class Game {
 
-	public Game(Machine machine, String name, String publisher, String description, String developer, int releaseYear, String cover, CustomList<Port> ports) {
+	public Game(Machine machine, String name, String publisher, String description, String developer, int releaseYear, String cover, CustomList<Port> ports, CustomHashMap<String, Port> portsHash) {
 		this.machine = machine;
 		this.name = name;
 		this.publisher = publisher;
@@ -13,6 +14,7 @@ public class Game {
 		this.releaseYear = releaseYear;
 		this.cover = cover;
 		this.ports = ports;
+		this.portsHash = portsHash;
 	}
 
 	private Machine machine; //Original machine
@@ -23,6 +25,7 @@ public class Game {
 	private int releaseYear;
 	private String cover;
 	private CustomList<Port> ports = new CustomList<>();
+	private CustomHashMap<String, Port> portsHash = new CustomHashMap<>();
 
 	public Machine getMachine() {
 		return machine;

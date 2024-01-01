@@ -32,7 +32,9 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -48,7 +50,14 @@
                   <Font name="Ubuntu Mono" size="18.0" />
                </font>
             </TextField>
-            <ListView fx:id="log" layoutY="33.0" prefHeight="4096.0" prefWidth="1024.0" style="-fx-border-color: black; -fx-background-color: black;" stylesheets="@css/terminal.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
+            <ListView fx:id="log" layoutY="33.0" prefHeight="4096.0" prefWidth="1024.0" style="-fx-border-color: black; -fx-background-color: black;" stylesheets="@css/terminal.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#inspectElement" text="Inspect Element" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu></ListView>
             <Text fill="WHITE" layoutX="12.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$">
                <font>
                   <Font name="Ubuntu Mono" size="19.0" />
