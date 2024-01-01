@@ -206,7 +206,7 @@ public class BaseController implements Initializable {
 				terminalOutHelp("help - Help page", null);
 				terminalOutHelp("---------------HELP MENU-------------", null);
 				terminalOut("HELP executed", null);
-				terminalOut("Test element", new Machine("I am a machine!", "", "", "", "", 2000, 66, ""));
+				terminalOut("Test machine element :-)", new Machine("I am a machine!", "", "", "", "", 2000, 66, ""));
 				return;
 			}
 		}
