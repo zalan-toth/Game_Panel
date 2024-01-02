@@ -257,7 +257,7 @@ public class BaseController implements Initializable {
 				terminalOut(type + " " + sort + " " + data + " " + value, null);
 				if (type.equals("m") || type.equals("g")) {
 					if (data.equals("n") || data.equals("d")) {
-						if (sort.equals("0") || sort.equals("1")) {
+						if (sort.equals("0") || sort.equals("1") || sort.equals("2") || sort.equals("3")) {
 							CustomList<TerminalElement> lte = panelAPI.panel.find(type, sort, data, value);
 							for (TerminalElement te : lte) {
 								terminalOutHelp(te);

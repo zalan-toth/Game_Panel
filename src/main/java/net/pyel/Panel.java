@@ -183,18 +183,18 @@ public class Panel {
 			if (sort.equals("0")) {
 				return returnValue;
 			} else if (sort.equals("1")) {
-				CustomList<Machine> m = new CustomList<>();
+				/*CustomList<Machine> m = new CustomList<>();
 				for (TerminalElement te : returnValue) {
 					m.add(te.getInspectionElemenet());
 				}
 				CustomList<Machine> sortedM = sortByYearAscending(m);
 				CustomList<TerminalElement> sortedMte = new CustomList<>();
 				for (Machine ma : sortedM) {
-					sortedMte.add(new TerminalElement(ma.getName(), ma));
-				}
-				return sortedMte;
+					sortedMte.add(new TerminalElement(ma.getName() + " [" + ma.getLaunchYear() + "]", ma));
+				}*/
+				return sortByYear(returnValue);
 			} else if (sort.equals("2")) {
-				//return sortedMte;
+				return sortByYearDescending(returnValue);
 			} else if (sort.equals("3")) {
 				//return sortedMte;
 			}
@@ -234,9 +234,9 @@ public class Panel {
 			if (sort.equals("0")) {
 				return returnValue;
 			} else if (sort.equals("1")) {
-				//return returnValue;
+				return sortByYear(returnValue);
 			} else if (sort.equals("2")) {
-				//return sortedMte;
+				return sortByYearDescending(returnValue);
 			} else if (sort.equals("3")) {
 				//return sortedMte;
 			}
@@ -244,9 +244,70 @@ public class Panel {
 		return returnValue;
 	}
 
+	public CustomList<TerminalElement> sortByYear(CustomList<TerminalElement> takeInList) {
+		CustomList<TerminalElement> returnList = new CustomList<>();
+		for (int i = 0; i < takeInList.size(); i++) {
+			returnList.add(takeInList.get(i));
+		}
+
+		for (int i = 1; i < returnList.size(); i++) {
+			TerminalElement current = returnList.get(i);
+			if (current != null) {
+				int j = i - 1;
+				System.out.println("Current terminal element: " + current);
+				if (current.getInspectionElemenet() instanceof Machine) {
+					while (j >= 0 && ((Machine) returnList.get(j).getInspectionElemenet()).getLaunchYear() > ((Machine) current.getInspectionElemenet()).getLaunchYear()) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				} else if (current.getInspectionElemenet() instanceof Game) {
+					while (j >= 0 && ((Game) returnList.get(j).getInspectionElemenet()).getReleaseYear() > ((Game) current.getInspectionElemenet()).getReleaseYear()) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				}
+
+			}
+		}
+
+		return returnList;
+	}
+
+	public CustomList<TerminalElement> sortByYearDescending(CustomList<TerminalElement> takeInList) {
+		CustomList<TerminalElement> returnList = new CustomList<>();
+		for (int i = 0; i < takeInList.size(); i++) {
+			returnList.add(takeInList.get(i));
+		}
+
+		for (int i = 1; i < returnList.size(); i++) {
+			TerminalElement current = returnList.get(i);
+			if (current != null) {
+				int j = i - 1;
+				System.out.println("Current terminal element: " + current);
+				if (current.getInspectionElemenet() instanceof Machine) {
+					while (j >= 0 && ((Machine) returnList.get(j).getInspectionElemenet()).getLaunchYear() < ((Machine) current.getInspectionElemenet()).getLaunchYear()) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				} else if (current.getInspectionElemenet() instanceof Game) {
+					while (j >= 0 && ((Game) returnList.get(j).getInspectionElemenet()).getReleaseYear() < ((Game) current.getInspectionElemenet()).getReleaseYear()) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				}
+
+			}
+		}
+
+		return returnList;
+	}
 	/*
 	Insertion
-	 */
+
 	public CustomList<Machine> sortByYearAscending(CustomList<Machine> takeInList) {
 		CustomList<Machine> returnList = new CustomList<>();
 		for (int i = 0; i < takeInList.size(); i++) {
@@ -269,5 +330,5 @@ public class Panel {
 
 		return returnList;
 	}
-
+	*/
 }
