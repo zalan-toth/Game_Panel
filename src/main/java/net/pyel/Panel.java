@@ -153,13 +153,13 @@ public class Panel {
 
 				if (value.equals("%")) {
 					for (Machine m : machines) {
-						returnValue.add(new TerminalElement(m.getName(), m));
+						returnValue.add(new TerminalElement(m.getName() + " [" + m.getLaunchYear() + "]", m));
 					}
 
 				} else if (value != null) {
 					for (Machine m : machines) {
 						if (m.getName().toLowerCase().contains(value.toLowerCase())) {
-							returnValue.add(new TerminalElement(m.getName(), m));
+							returnValue.add(new TerminalElement(m.getName() + " [" + m.getLaunchYear() + "]", m));
 						}
 					}
 				}
