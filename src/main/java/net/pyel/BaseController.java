@@ -216,8 +216,19 @@ public class BaseController implements Initializable {
 				terminalOutHelp("-------------------------------------------HELP MENU-----------------------------------------", null);
 				terminalOut("HELP executed", null);
 				return;
-			} else if (input.toLowerCase().substring(0, 4).equals("find")) {
-				terminalOutError("Usage: find [type] [sort] [data] [value]", null);
+			}
+		}
+
+		if (input.length() == 4 || input.length() == 5) {
+			if (input.toLowerCase().substring(0, 4).equals("find")) {
+				terminalOutHelp("Example: find m 2 n %", null);
+				terminalOutHelp("Example: find m 2 n PlayStation", null);
+				terminalOutHelp("    [value]  (value to look for in that datatype or type in only \"%\" to list all)", null);
+				terminalOutHelp("    [data] > n (name), d (description)", null);
+				terminalOutHelp("    [sort] > 0 (default), 1 (by name), 2 (by year ascending), 3 (by year descending)", null);
+				terminalOutHelp("    [type] > m (for machine), g (for game)", null);
+				terminalOutHelp("Usage: find [type] [sort] [data] [value] - find all elements with the given value", null);
+				return;
 			}
 		}
 		if (input.length() == 5) {
