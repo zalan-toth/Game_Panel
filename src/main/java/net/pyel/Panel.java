@@ -145,4 +145,57 @@ public class Panel {
 		}
 		return returnValue;
 	}
+
+	public CustomList<TerminalElement> find(String type, String sort, String data, String value) {
+		CustomList<TerminalElement> returnValue = new CustomList<>();
+		if (type.equals("m")) {
+			if (data.equals("n")) {
+
+				if (value.equals("%")) {
+					for (Machine m : machines) {
+						returnValue.add(new TerminalElement(m.getName(), m));
+					}
+					if (sort.equals("0")) {
+						returnValue.add(new TerminalElement("---Machines listed---", null));
+						return returnValue;
+					} else if (sort.equals("1")) {
+						returnValue.add(new TerminalElement("---Machines sorted by release year---", null));
+						return sortByYearAscending(returnValue);
+					}
+
+				} else if (value != null) {
+					for (Machine m : machines) {
+						if (m.getName().toLowerCase().contains(value.toLowerCase())) {
+							returnValue.add(new TerminalElement(m.getName(), m));
+						}
+					}
+				}
+			}
+
+		}
+		return returnValue;
+	}
+
+	/*
+	Insertion
+	 */
+	public CustomList<TerminalElement> sortByYearAscending(CustomList<TerminalElement> takeInList) {
+		CustomList<TerminalElement> returnList = new CustomList<>();
+		for (int i = 0; i < takeInList.size(); i++) {
+			returnList.add(takeInList.get(i));
+		}
+		for (int i = 1; i < returnList.getSize(); i++) {
+			Object o = returnList.get(i).getInspectionElemenet();
+			if (o instanceof Machine) {
+				int j = i - 1;
+
+				while ((j >= 0) && (((Machine) returnList.get(j).getInspectionElemenet()).getLaunchYear() > ((Machine) o).getLaunchYear())) {
+					returnList.set(j + 1, null);//(Machine) returnList.get(j).getInspectionElemenet());
+					j = j - 1;
+				}
+				returnList.set(j + 1, new TerminalElement(((Machine) o).getName(), o));
+			}
+		}
+		return returnList;
+	}
 }

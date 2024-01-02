@@ -215,8 +215,9 @@ public class BaseController implements Initializable {
 				terminalOutHelp("help - Help page", null);
 				terminalOutHelp("-------------------------------------------HELP MENU-----------------------------------------", null);
 				terminalOut("HELP executed", null);
-				terminalOut("Test machine element :-)", new Machine("I am a machine!", "", "", "", "", 2000, 66, ""));
 				return;
+			} else if (input.toLowerCase().substring(0, 4).equals("find")) {
+				terminalOutError("Usage: find [type] [sort] [data] [value]", null);
 			}
 		}
 		if (input.length() == 5) {
@@ -244,6 +245,29 @@ public class BaseController implements Initializable {
 				terminalOutError("       [value]  (value of the name we're looking for)", null);
 				terminalOutError("       [type] > m (for machine), g (for game)", null);
 				terminalOutError("Usage: search [type] [value] - find a specific element by its name", null);
+				return;
+			}
+		}
+		if (input.length() > 5) {
+			if (input.toLowerCase().substring(0, 5).equals("find ")) {
+				String type = input.substring(5, 6);
+				String sort = input.substring(7, 8);
+				String data = input.substring(9, 10);
+				String value = input.substring(11);
+				terminalOut(type + " " + sort + " " + data + " " + value, null);
+				if (type.equals("m") || type.equals("g")) {
+					if (data.equals("n") || data.equals("d")) {
+						if (sort.equals("0") || sort.equals("1")) {
+							CustomList<TerminalElement> lte = panelAPI.panel.find(type, sort, data, value);
+							for (TerminalElement te : lte) {
+								terminalOutHelp(te);
+							}
+						}
+					}
+				} else {
+					terminalOut("\"" + type + "\" is invalid, possible options: m, g", null);
+				}
+
 				return;
 			}
 		}
@@ -338,6 +362,10 @@ public class BaseController implements Initializable {
 			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
 		} else if (ie instanceof Game) {
 			terminalOut("---------------------------------------------------------------------------------------------", null);
+			for (Port p : ((Game) ie).getPorts()) {
+				terminalOutHelp("           " + p.getMachine() + " by " + p.getDeveloper() + "[" + p.getReleaseYear() + "]", p);
+			}
+			terminalOutHelp("    Ports ˇˇ", null);
 			terminalOutHelp("    Description > inspect", ((Game) ie).getDescription());
 			terminalOutHelp("    Cover URL: " + ((Game) ie).getCover(), new Link(((Game) ie).getCover()));
 			terminalOutHelp("    Release Year: " + ((Game) ie).getReleaseYear(), null);
@@ -346,6 +374,14 @@ public class BaseController implements Initializable {
 			terminalOutHelp("    Original Machine: " + ((Game) ie).getMachine().getName(), ((Game) ie).getMachine());
 			terminalOutHelp("    Name: " + ((Game) ie).getName(), ie);
 			terminalOutHelp("Inspected element (Game): " + ((Game) ie).getName(), ie);
+			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
+		} else if (ie instanceof Port) {
+			terminalOut("---------------------------------------------------------------------------------------------", null);
+			terminalOutHelp("    Cover: " + ((Port) ie).getCover(), new Link(((Port) ie).getCover()));
+			terminalOutHelp("    Release Year: " + ((Port) ie).getReleaseYear(), null);
+			terminalOutHelp("    Developer: " + ((Port) ie).getDeveloper(), null);
+			terminalOutHelp("    Machine: " + ((Port) ie).getMachine().getName(), ((Port) ie).getMachine());
+			terminalOutHelp("Inspected element (Port): " + ((Port) ie).getMachine(), ie);
 			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
 		}
 	}
@@ -384,6 +420,12 @@ public class BaseController implements Initializable {
 
 	public void terminalOutError(String outPutView, Object inspectionElement) {
 		TerminalElement nte = new TerminalElement("(!) " + outPutView, inspectionElement);
+		System.out.println(nte.toString());
+		log.getItems().add(0, nte);
+	}
+
+	public void terminalOutHelp(TerminalElement te) {
+		TerminalElement nte = new TerminalElement("| " + te.getOutPutView(), te.getInspectionElemenet());
 		System.out.println(nte.toString());
 		log.getItems().add(0, nte);
 	}
