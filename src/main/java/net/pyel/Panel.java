@@ -196,7 +196,9 @@ public class Panel {
 			} else if (sort.equals("2")) {
 				return sortByYearDescending(returnValue);
 			} else if (sort.equals("3")) {
-				//return sortedMte;
+				return sortByName(returnValue);
+			} else if (sort.equals("4")) {
+				return sortByNameReverse(returnValue);
 			}
 
 		} else if (type.equals("g")) {
@@ -238,7 +240,9 @@ public class Panel {
 			} else if (sort.equals("2")) {
 				return sortByYearDescending(returnValue);
 			} else if (sort.equals("3")) {
-				//return sortedMte;
+				return sortByName(returnValue);
+			} else if (sort.equals("4")) {
+				return sortByNameReverse(returnValue);
 			}
 		}
 		return returnValue;
@@ -305,6 +309,67 @@ public class Panel {
 
 		return returnList;
 	}
+
+	public CustomList<TerminalElement> sortByName(CustomList<TerminalElement> takeInList) {
+		CustomList<TerminalElement> returnList = new CustomList<>();
+		for (int i = 0; i < takeInList.size(); i++) {
+			returnList.add(takeInList.get(i));
+		}
+
+		for (int i = 1; i < returnList.size(); i++) {
+			TerminalElement current = returnList.get(i);
+			if (current != null) {
+				int j = i - 1;
+				System.out.println("Current terminal element: " + current);
+				if (current.getInspectionElemenet() instanceof Machine) {
+					while (j >= 0 && ((Machine) returnList.get(j).getInspectionElemenet()).getName().compareTo(((Machine) current.getInspectionElemenet()).getName()) > 0) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				} else if (current.getInspectionElemenet() instanceof Game) {
+					while (j >= 0 && ((Game) returnList.get(j).getInspectionElemenet()).getName().compareTo(((Game) current.getInspectionElemenet()).getName()) > 0) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				}
+			}
+		}
+
+		return returnList;
+	}
+
+	public CustomList<TerminalElement> sortByNameReverse(CustomList<TerminalElement> takeInList) {
+		CustomList<TerminalElement> returnList = new CustomList<>();
+		for (int i = 0; i < takeInList.size(); i++) {
+			returnList.add(takeInList.get(i));
+		}
+
+		for (int i = 1; i < returnList.size(); i++) {
+			TerminalElement current = returnList.get(i);
+			if (current != null) {
+				int j = i - 1;
+				System.out.println("Current terminal element: " + current);
+				if (current.getInspectionElemenet() instanceof Machine) {
+					while (j >= 0 && ((Machine) returnList.get(j).getInspectionElemenet()).getName().compareTo(((Machine) current.getInspectionElemenet()).getName()) < 0) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				} else if (current.getInspectionElemenet() instanceof Game) {
+					while (j >= 0 && ((Game) returnList.get(j).getInspectionElemenet()).getName().compareTo(((Game) current.getInspectionElemenet()).getName()) < 0) {
+						returnList.set(j + 1, returnList.get(j));
+						j--;
+					}
+					returnList.set(j + 1, current);
+				}
+			}
+		}
+
+		return returnList;
+	}
+
 	/*
 	Insertion
 

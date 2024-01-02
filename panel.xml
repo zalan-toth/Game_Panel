@@ -7,6 +7,336 @@
           <next>
             <next>
               <next>
+                <next>
+                  <next>
+                    <next>
+                      <next>
+                        <next>
+                          <next>
+                            <next>
+                              <next>
+                                <next>
+                                  <next>
+                                    <next>
+                                      <next>
+                                        <next>
+                                          <next>
+                                            <next>
+                                              <next>
+                                                <next>
+                                                  <next>
+                                                    <next>
+                                                      <next>
+                                                        <next>
+                                                          <next>
+                                                            <contents class="net.pyel.models.Machine">
+                                                              <name>Xbox One X</name>
+                                                              <manufacturer>Microsoft</manufacturer>
+                                                              <description>Most powerful Xbox, supports 4K gaming.</description>
+                                                              <type>Home console</type>
+                                                              <media>Blu-ray Disc</media>
+                                                              <launchYear>2017</launchYear>
+                                                              <RRP>499.0</RRP>
+                                                              <image>imageURL</image>
+                                                              <linkedGames>
+                                                                <size>0</size>
+                                                              </linkedGames>
+                                                            </contents>
+                                                          </next>
+                                                          <contents class="net.pyel.models.Machine">
+                                                            <name>Xbox One S</name>
+                                                            <manufacturer>Microsoft</manufacturer>
+                                                            <description>Slimmer version of Xbox One, supports HDR and 4K video.</description>
+                                                            <type>Home console</type>
+                                                            <media>Blu-ray Disc</media>
+                                                            <launchYear>2016</launchYear>
+                                                            <RRP>299.0</RRP>
+                                                            <image>imageURL</image>
+                                                            <linkedGames>
+                                                              <size>0</size>
+                                                            </linkedGames>
+                                                          </contents>
+                                                        </next>
+                                                        <contents class="net.pyel.models.Machine">
+                                                          <name>Xbox One</name>
+                                                          <manufacturer>Microsoft</manufacturer>
+                                                          <description>Integrated with live TV, streaming, and Blu-ray.</description>
+                                                          <type>Home console</type>
+                                                          <media>Blu-ray Disc</media>
+                                                          <launchYear>2013</launchYear>
+                                                          <RRP>499.0</RRP>
+                                                          <image>imageURL</image>
+                                                          <linkedGames>
+                                                            <size>0</size>
+                                                          </linkedGames>
+                                                        </contents>
+                                                      </next>
+                                                      <contents class="net.pyel.models.Machine">
+                                                        <name>Xbox 360 E</name>
+                                                        <manufacturer>Microsoft</manufacturer>
+                                                        <description>A further redesigned version of the Xbox 360.</description>
+                                                        <type>Home console</type>
+                                                        <media>DVD-ROM</media>
+                                                        <launchYear>2013</launchYear>
+                                                        <RRP>299.0</RRP>
+                                                        <image>imageURL</image>
+                                                        <linkedGames>
+                                                          <size>0</size>
+                                                        </linkedGames>
+                                                      </contents>
+                                                    </next>
+                                                    <contents class="net.pyel.models.Machine">
+                                                      <name>Xbox 360 S</name>
+                                                      <manufacturer>Microsoft</manufacturer>
+                                                      <description>A slimmer version of the original Xbox 360.</description>
+                                                      <type>Home console</type>
+                                                      <media>DVD-ROM</media>
+                                                      <launchYear>2010</launchYear>
+                                                      <RRP>299.0</RRP>
+                                                      <image>imageURL</image>
+                                                      <linkedGames>
+                                                        <size>0</size>
+                                                      </linkedGames>
+                                                    </contents>
+                                                  </next>
+                                                  <contents class="net.pyel.models.Machine">
+                                                    <name>Xbox 360</name>
+                                                    <manufacturer>Microsoft</manufacturer>
+                                                    <description>Known for its online gaming service Xbox Live.</description>
+                                                    <type>Home console</type>
+                                                    <media>DVD-ROM</media>
+                                                    <launchYear>2005</launchYear>
+                                                    <RRP>299.0</RRP>
+                                                    <image>imageURL</image>
+                                                    <linkedGames>
+                                                      <size>0</size>
+                                                    </linkedGames>
+                                                  </contents>
+                                                </next>
+                                                <contents class="net.pyel.models.Machine">
+                                                  <name>Xbox</name>
+                                                  <manufacturer>Microsoft</manufacturer>
+                                                  <description>Microsoft&apos;s first foray into the gaming console market.</description>
+                                                  <type>Home console</type>
+                                                  <media>DVD-ROM</media>
+                                                  <launchYear>2001</launchYear>
+                                                  <RRP>299.0</RRP>
+                                                  <image>imageURL</image>
+                                                  <linkedGames>
+                                                    <size>0</size>
+                                                  </linkedGames>
+                                                </contents>
+                                              </next>
+                                              <contents class="net.pyel.models.Machine">
+                                                <name>Nintendo Switch</name>
+                                                <manufacturer>Nintendo</manufacturer>
+                                                <description>Hybrid console, can be used as handheld or connected to a TV.</description>
+                                                <type>Hybrid console</type>
+                                                <media>Game card, Digital</media>
+                                                <launchYear>2017</launchYear>
+                                                <RRP>299.99</RRP>
+                                                <image>imageURL</image>
+                                                <linkedGames>
+                                                  <size>0</size>
+                                                </linkedGames>
+                                              </contents>
+                                            </next>
+                                            <contents class="net.pyel.models.Machine">
+                                              <name>Wii U</name>
+                                              <manufacturer>Nintendo</manufacturer>
+                                              <description>Featured a tablet-like controller and HD graphics.</description>
+                                              <type>Home console</type>
+                                              <media>Wii U Optical Disc</media>
+                                              <launchYear>2012</launchYear>
+                                              <RRP>299.99</RRP>
+                                              <image>imageURL</image>
+                                              <linkedGames>
+                                                <size>0</size>
+                                              </linkedGames>
+                                            </contents>
+                                          </next>
+                                          <contents class="net.pyel.models.Machine">
+                                            <name>Wii</name>
+                                            <manufacturer>Nintendo</manufacturer>
+                                            <description>Introduced motion controls to gaming.</description>
+                                            <type>Home console</type>
+                                            <media>Wii Optical Disc</media>
+                                            <launchYear>2006</launchYear>
+                                            <RRP>249.99</RRP>
+                                            <image>imageURL</image>
+                                            <linkedGames>
+                                              <size>0</size>
+                                            </linkedGames>
+                                          </contents>
+                                        </next>
+                                        <contents class="net.pyel.models.Machine">
+                                          <name>GameCube</name>
+                                          <manufacturer>Nintendo</manufacturer>
+                                          <description>Featured a unique cube shape and miniDVD discs.</description>
+                                          <type>Home console</type>
+                                          <media>MiniDVD</media>
+                                          <launchYear>2001</launchYear>
+                                          <RRP>199.0</RRP>
+                                          <image>imageURL</image>
+                                          <linkedGames>
+                                            <size>0</size>
+                                          </linkedGames>
+                                        </contents>
+                                      </next>
+                                      <contents class="net.pyel.models.Machine">
+                                        <name>Nintendo 64 (N64)</name>
+                                        <manufacturer>Nintendo</manufacturer>
+                                        <description>First Nintendo console with 3D graphics.</description>
+                                        <type>Home console</type>
+                                        <media>Cartridge</media>
+                                        <launchYear>1996</launchYear>
+                                        <RRP>199.99</RRP>
+                                        <image>imageURL</image>
+                                        <linkedGames>
+                                          <size>0</size>
+                                        </linkedGames>
+                                      </contents>
+                                    </next>
+                                    <contents class="net.pyel.models.Machine">
+                                      <name>Super Nintendo Entertainment System (SNES)</name>
+                                      <manufacturer>Nintendo</manufacturer>
+                                      <description>Introduced advanced graphics and sound capabilities.</description>
+                                      <type>Home console</type>
+                                      <media>Cartridge</media>
+                                      <launchYear>1991</launchYear>
+                                      <RRP>199.0</RRP>
+                                      <image>imageURL</image>
+                                      <linkedGames>
+                                        <size>0</size>
+                                      </linkedGames>
+                                    </contents>
+                                  </next>
+                                  <contents class="net.pyel.models.Machine">
+                                    <name>Nintendo Entertainment System (NES)</name>
+                                    <manufacturer>Nintendo</manufacturer>
+                                    <description>The console that revived the home video game market.</description>
+                                    <type>Home console</type>
+                                    <media>Cartridge</media>
+                                    <launchYear>1985</launchYear>
+                                    <RRP>179.99</RRP>
+                                    <image>imageURL</image>
+                                    <linkedGames>
+                                      <size>0</size>
+                                    </linkedGames>
+                                  </contents>
+                                </next>
+                                <contents class="net.pyel.models.Machine">
+                                  <name>PlayStation 4 Slim</name>
+                                  <manufacturer>Sony</manufacturer>
+                                  <description>A smaller version of the original PS4.</description>
+                                  <type>Home console</type>
+                                  <media>Blu-ray Disc</media>
+                                  <launchYear>2016</launchYear>
+                                  <RRP>299.0</RRP>
+                                  <image>imageURL</image>
+                                  <linkedGames>
+                                    <size>0</size>
+                                  </linkedGames>
+                                </contents>
+                              </next>
+                              <contents class="net.pyel.models.Machine">
+                                <name>PlayStation 3 Super Slim</name>
+                                <manufacturer>Sony</manufacturer>
+                                <description>The most compact version of the PS3.</description>
+                                <type>Home console</type>
+                                <media>Blu-ray Disc</media>
+                                <launchYear>2012</launchYear>
+                                <RRP>269.0</RRP>
+                                <image>imageURL</image>
+                                <linkedGames>
+                                  <size>0</size>
+                                </linkedGames>
+                              </contents>
+                            </next>
+                            <contents class="net.pyel.models.Machine">
+                              <name>PlayStation 3 Slim</name>
+                              <manufacturer>Sony</manufacturer>
+                              <description>A slimmer and lighter version of the original PS3.</description>
+                              <type>Home console</type>
+                              <media>Blu-ray Disc</media>
+                              <launchYear>2009</launchYear>
+                              <RRP>299.0</RRP>
+                              <image>imageURL</image>
+                              <linkedGames>
+                                <size>0</size>
+                              </linkedGames>
+                            </contents>
+                          </next>
+                          <contents class="net.pyel.models.Machine">
+                            <name>PlayStation 3 (PS3)</name>
+                            <manufacturer>Sony</manufacturer>
+                            <description>Introduced Blu-ray and online gaming to PlayStation.</description>
+                            <type>Home console</type>
+                            <media>Blu-ray Disc</media>
+                            <launchYear>2006</launchYear>
+                            <RRP>499.0</RRP>
+                            <image>imageURL</image>
+                            <linkedGames>
+                              <size>0</size>
+                            </linkedGames>
+                          </contents>
+                        </next>
+                        <contents class="net.pyel.models.Machine">
+                          <name>PlayStation 2 Slimline</name>
+                          <manufacturer>Sony</manufacturer>
+                          <description>A slimmer, more compact version of the PS2.</description>
+                          <type>Home console</type>
+                          <media>DVD-ROM</media>
+                          <launchYear>2004</launchYear>
+                          <RRP>149.0</RRP>
+                          <image>imageURL</image>
+                          <linkedGames>
+                            <size>0</size>
+                          </linkedGames>
+                        </contents>
+                      </next>
+                      <contents class="net.pyel.models.Machine">
+                        <name>PlayStation 2 (PS2)</name>
+                        <manufacturer>Sony</manufacturer>
+                        <description>Best-selling console ever, known for its vast game library.</description>
+                        <type>Home console</type>
+                        <media>DVD-ROM</media>
+                        <launchYear>2000</launchYear>
+                        <RRP>299.0</RRP>
+                        <image>imageURL</image>
+                        <linkedGames>
+                          <size>0</size>
+                        </linkedGames>
+                      </contents>
+                    </next>
+                    <contents class="net.pyel.models.Machine">
+                      <name>PS One</name>
+                      <manufacturer>Sony</manufacturer>
+                      <description>A smaller, redesigned version of the original PlayStation.</description>
+                      <type>Home console</type>
+                      <media>CD-ROM</media>
+                      <launchYear>2000</launchYear>
+                      <RRP>99.0</RRP>
+                      <image>imageURL</image>
+                      <linkedGames>
+                        <size>0</size>
+                      </linkedGames>
+                    </contents>
+                  </next>
+                  <contents class="net.pyel.models.Machine">
+                    <name>PlayStation (PS)</name>
+                    <manufacturer>Sony</manufacturer>
+                    <description>The original PlayStation, a game-changing console in the 90s.</description>
+                    <type>Home console</type>
+                    <media>CD-ROM</media>
+                    <launchYear>1994</launchYear>
+                    <RRP>299.0</RRP>
+                    <image>imageURL</image>
+                    <linkedGames>
+                      <size>0</size>
+                    </linkedGames>
+                  </contents>
+                </next>
                 <contents class="net.pyel.models.Machine">
                   <name>PlayStation 4</name>
                   <manufacturer>Sony</manufacturer>
@@ -89,8 +419,8 @@ supports 8K resolution</description>
           </linkedGames>
         </contents>
       </first>
-      <last reference="../first/next/next/next/next"/>
-      <size>5</size>
+      <last reference="../first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next"/>
+      <size>27</size>
     </machines>
     <machinesHash>
       <size>512</size>
@@ -105,6 +435,20 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 3 Slim</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 3 Super Slim</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -120,6 +464,10 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 2 Slimline</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -130,16 +478,10 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Wii U</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -213,6 +555,10 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -250,6 +596,10 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">GameCube</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -263,11 +613,15 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Nintendo Entertainment System (NES)</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 4 Slim</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <net.pyel.utils.CustomEntry>
           <key class="string">PlayStation 5</key>
@@ -276,6 +630,256 @@ supports 8K resolution</description>
         <net.pyel.utils.CustomEntry>
           <key class="string">PlayStation 4</key>
           <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/contents"/>
+          <next>
+            <key class="string">PlayStation 2 (PS2)</key>
+            <value class="net.pyel.models.Machine" reference="../../../../../machines/first/next/next/next/next/next/next/next/contents"/>
+          </next>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 3 (PS3)</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox 360 S</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox 360 E</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox One</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox One X</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox One S</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox 360</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Nintendo 64 (N64)</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PS One</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Super Nintendo Entertainment System (SNES)</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Nintendo Switch</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
         </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
@@ -330,6 +934,10 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Wii</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -340,221 +948,10 @@ supports 8K resolution</description>
         <null/>
         <null/>
         <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation (PS)</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -630,6 +1027,146 @@ supports 8K resolution</description>
           <next>
             <next>
               <next>
+                <next>
+                  <next>
+                    <next>
+                      <next>
+                        <next>
+                          <next>
+                            <next>
+                              <next>
+                                <next>
+                                  <next>
+                                    <contents class="net.pyel.models.Game">
+                                      <machine reference="../../../../../../../../../../../../../../../../../../machines/first/next/next/contents"/>
+                                      <name>Ratchet &amp; Clank: Rift Apart</name>
+                                      <publisher>Sony Interactive Entertainment</publisher>
+                                      <description>A third-person shooter platform game in the Ratchet &amp; Clank series.</description>
+                                      <developer>Insomniac Games</developer>
+                                      <releaseYear>2021</releaseYear>
+                                      <cover>coverURL</cover>
+                                      <ports>
+                                        <size>0</size>
+                                      </ports>
+                                    </contents>
+                                  </next>
+                                  <contents class="net.pyel.models.Game">
+                                    <machine reference="../../../../../../../../../../../../../../../../../machines/first/next/next/contents"/>
+                                    <name>Demon&apos;s Souls</name>
+                                    <publisher>Sony Interactive Entertainment</publisher>
+                                    <description>A remake of the original Demon&apos;s Souls, an action RPG known for its difficulty.</description>
+                                    <developer>Bluepoint Games, Japan Studio</developer>
+                                    <releaseYear>2020</releaseYear>
+                                    <cover>coverURL</cover>
+                                    <ports>
+                                      <size>0</size>
+                                    </ports>
+                                  </contents>
+                                </next>
+                                <contents class="net.pyel.models.Game">
+                                  <machine reference="../../../../../../../../../../../../../../../../machines/first/next/next/contents"/>
+                                  <name>Spider-Man: Miles Morales</name>
+                                  <publisher>Sony Interactive Entertainment</publisher>
+                                  <description>An action-adventure game, a follow-up to Marvel&apos;s Spider-Man.</description>
+                                  <developer>Insomniac Games</developer>
+                                  <releaseYear>2020</releaseYear>
+                                  <cover>coverURL</cover>
+                                  <ports>
+                                    <size>0</size>
+                                  </ports>
+                                </contents>
+                              </next>
+                              <contents class="net.pyel.models.Game">
+                                <machine reference="../../../../../../../../../../../../../../../machines/first/next/next/contents"/>
+                                <name>Hitman 3</name>
+                                <publisher>IO Interactive</publisher>
+                                <description>A stealth game, the eighth main installment in the Hitman series.</description>
+                                <developer>IO Interactive</developer>
+                                <releaseYear>2021</releaseYear>
+                                <cover>coverURL</cover>
+                                <ports>
+                                  <size>0</size>
+                                </ports>
+                              </contents>
+                            </next>
+                            <contents class="net.pyel.models.Game">
+                              <machine reference="../../../../../../../../../../../../../../machines/first/next/next/contents"/>
+                              <name>Call of Duty: Black Ops Cold War</name>
+                              <publisher>Activision</publisher>
+                              <description>A first-person shooter set during the early 1980s of the Cold War.</description>
+                              <developer>Treyarch, Raven Software</developer>
+                              <releaseYear>2020</releaseYear>
+                              <cover>coverURL</cover>
+                              <ports>
+                                <size>0</size>
+                              </ports>
+                            </contents>
+                          </next>
+                          <contents class="net.pyel.models.Game">
+                            <machine reference="../../../../../../../../../../../../../machines/first/next/next/contents"/>
+                            <name>Cyberpunk 2077</name>
+                            <publisher>CD Projekt</publisher>
+                            <description>An open-world, action-adventure story set in the megalopolis of Night City.</description>
+                            <developer>CD Projekt Red</developer>
+                            <releaseYear>2020</releaseYear>
+                            <cover>coverURL</cover>
+                            <ports>
+                              <size>0</size>
+                            </ports>
+                          </contents>
+                        </next>
+                        <contents class="net.pyel.models.Game">
+                          <machine reference="../../../../../../../../../../../../machines/first/next/next/contents"/>
+                          <name>FIFA 21</name>
+                          <publisher>Electronic Arts</publisher>
+                          <description>The latest installment in the popular FIFA football simulation series.</description>
+                          <developer>EA Vancouver, EA Romania</developer>
+                          <releaseYear>2020</releaseYear>
+                          <cover>coverURL</cover>
+                          <ports>
+                            <size>0</size>
+                          </ports>
+                        </contents>
+                      </next>
+                      <contents class="net.pyel.models.Game">
+                        <machine reference="../../../../../../../../../../../machines/first/next/next/contents"/>
+                        <name>Gears 5</name>
+                        <publisher>Xbox Game Studios</publisher>
+                        <description>A third-person shooter, the sixth installment in the Gears of War series.</description>
+                        <developer>The Coalition</developer>
+                        <releaseYear>2019</releaseYear>
+                        <cover>coverURL</cover>
+                        <ports>
+                          <size>0</size>
+                        </ports>
+                      </contents>
+                    </next>
+                    <contents class="net.pyel.models.Game">
+                      <machine reference="../../../../../../../../../../machines/first/next/next/contents"/>
+                      <name>Forza Horizon 5</name>
+                      <publisher>Xbox Game Studios</publisher>
+                      <description>An open-world racing game set in a fictional representation of Mexico.</description>
+                      <developer>Playground Games</developer>
+                      <releaseYear>2021</releaseYear>
+                      <cover>coverURL</cover>
+                      <ports>
+                        <size>0</size>
+                      </ports>
+                    </contents>
+                  </next>
+                  <contents class="net.pyel.models.Game">
+                    <machine reference="../../../../../../../../../machines/first/next/next/contents"/>
+                    <name>Halo Infinite</name>
+                    <publisher>Xbox Game Studios</publisher>
+                    <description>Next chapter in the legendary Halo series, featuring the Master Chief.</description>
+                    <developer>343 Industries</developer>
+                    <releaseYear>2021</releaseYear>
+                    <cover>coverURL</cover>
+                    <ports>
+                      <size>0</size>
+                    </ports>
+                  </contents>
+                </next>
                 <contents class="net.pyel.models.Game">
                   <machine reference="../../../../../../../../machines/first/next/next/next/next/contents"/>
                   <name>Assassin&apos;s Creed Syndicate</name>
@@ -813,8 +1350,8 @@ Resident Evil series.</description>
           </ports>
         </contents>
       </first>
-      <last reference="../first/next/next/next/next"/>
-      <size>5</size>
+      <last reference="../first/next/next/next/next/next/next/next/next/next/next/next/next/next/next"/>
+      <size>15</size>
     </games>
     <gamesHash>
       <size>512</size>
@@ -886,10 +1423,126 @@ Resident Evil series.</description>
         <null/>
         <null/>
         <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Forza Horizon 5</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <net.pyel.utils.CustomEntry>
           <key class="string">Assassin&apos;s Creed Valhalla</key>
           <value class="net.pyel.models.Game" reference="../../../../games/first/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Spider-Man: Miles Morales</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Cyberpunk 2077</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Demon&apos;s Souls</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Hitman 3</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/next/next/next/next/contents"/>
         </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
@@ -1011,108 +1664,10 @@ Resident Evil series.</description>
         <null/>
         <null/>
         <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">FIFA 21</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -1146,7 +1701,10 @@ Resident Evil series.</description>
         <null/>
         <null/>
         <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Call of Duty: Black Ops Cold War</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -1170,6 +1728,10 @@ Resident Evil series.</description>
         <net.pyel.utils.CustomEntry>
           <key class="string">Assassin&apos;s Creed Origins</key>
           <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/contents"/>
+          <next>
+            <key class="string">Ratchet &amp; Clank: Rift Apart</key>
+            <value class="net.pyel.models.Game" reference="../../../../../games/first/next/next/next/next/next/next/next/next/next/next/next/next/next/next/contents"/>
+          </next>
         </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
@@ -1207,7 +1769,10 @@ Resident Evil series.</description>
         <null/>
         <null/>
         <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Halo Infinite</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -1275,7 +1840,10 @@ Resident Evil series.</description>
         <null/>
         <null/>
         <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Gears 5</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>

@@ -196,7 +196,8 @@ public class BaseController implements Initializable {
 				terminalOutHelp("Example: find m 2 n PlayStation", null);
 				terminalOutHelp("    [value]  (value to look for in that datatype or type in only \"%\" to list all)", null);
 				terminalOutHelp("    [data] > n (name), d (description)", null);
-				terminalOutHelp("    [sort] > 0 (default), 1 (by name), 2 (by year ascending), 3 (by year descending)", null);
+				terminalOutHelp("           > 3 (by name - alphabetical order from bottom), 4 (by name - alphabetical order from top)", null);
+				terminalOutHelp("    [sort] > 0 (default), 1 (by year - biggest from top), 2 (by year - lowest from top)", null);
 				terminalOutHelp("    [type] > m (for machine), g (for game)", null);
 				terminalOutHelp("find [type] [sort] [data] [value] - find all elements with the given value", null);
 				terminalOutHelp("---------------------------------------------FIND--------------------------------------------", null);
@@ -225,7 +226,8 @@ public class BaseController implements Initializable {
 				terminalOutError("Example: find m 2 n PlayStation", null);
 				terminalOutError("    [value]  (value to look for in that datatype or type in only \"%\" to list all)", null);
 				terminalOutError("    [data] > n (name), d (description)", null);
-				terminalOutError("    [sort] > 0 (default), 1 (by name), 2 (by year ascending), 3 (by year descending)", null);
+				terminalOutError("           > 3 (by name - alphabetical order from bottom), 4 (by name - alphabetical order from top)", null);
+				terminalOutError("    [sort] > 0 (default), 1 (by year - biggest from top), 2 (by year - lowest from top)", null);
 				terminalOutError("    [type] > m (for machine), g (for game)", null);
 				terminalOutError("Usage: find [type] [sort] [data] [value] - find all elements with the given value", null);
 				return;
@@ -265,14 +267,15 @@ public class BaseController implements Initializable {
 				String sort = input.substring(7, 8);
 				String data = input.substring(9, 10);
 				String value = input.substring(11);
-				terminalOut(type + " " + sort + " " + data + " " + value, null);
+				terminalOut("FIND EXECUTED AS: " + type + " " + sort + " " + data + " " + value, null);
 				if (type.equals("m") || type.equals("g")) {
 					if (data.equals("n") || data.equals("d")) {
-						if (sort.equals("0") || sort.equals("1") || sort.equals("2") || sort.equals("3")) {
+						if (sort.equals("0") || sort.equals("1") || sort.equals("2") || sort.equals("3") || sort.equals("4")) {
 							CustomList<TerminalElement> lte = panelAPI.panel.find(type, sort, data, value);
 							for (TerminalElement te : lte) {
 								terminalOutHelp(te);
 							}
+							terminalOutHelp("----FIND_OUTPUT----", null);
 						}
 					}
 				} else {
@@ -617,9 +620,48 @@ public class BaseController implements Initializable {
 	//██╔══██║██║░░██║██║░░██║░╚═══██╗
 	//██║░░██║██████╔╝██████╔╝██████╔╝
 	//╚═╝░░╚═╝╚═════╝░╚═════╝░╚═════╝░
-	//TODO Add validation
+
+	@FXML
+	private void addSampleData() {/*
+		panelAPI.panel.addMachine(new Machine("PlayStation (PS)", "Sony", "The original PlayStation, a game-changing console in the 90s.", "Home console", "CD-ROM", 1994, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PS One", "Sony", "A smaller, redesigned version of the original PlayStation.", "Home console", "CD-ROM", 2000, 99, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PlayStation 2 (PS2)", "Sony", "Best-selling console ever, known for its vast game library.", "Home console", "DVD-ROM", 2000, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PlayStation 2 Slimline", "Sony", "A slimmer, more compact version of the PS2.", "Home console", "DVD-ROM", 2004, 149, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PlayStation 3 (PS3)", "Sony", "Introduced Blu-ray and online gaming to PlayStation.", "Home console", "Blu-ray Disc", 2006, 499, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PlayStation 3 Slim", "Sony", "A slimmer and lighter version of the original PS3.", "Home console", "Blu-ray Disc", 2009, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PlayStation 3 Super Slim", "Sony", "The most compact version of the PS3.", "Home console", "Blu-ray Disc", 2012, 269, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("PlayStation 4 Slim", "Sony", "A smaller version of the original PS4.", "Home console", "Blu-ray Disc", 2016, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Nintendo Entertainment System (NES)", "Nintendo", "The console that revived the home video game market.", "Home console", "Cartridge", 1985, 179.99, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Super Nintendo Entertainment System (SNES)", "Nintendo", "Introduced advanced graphics and sound capabilities.", "Home console", "Cartridge", 1991, 199, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Nintendo 64 (N64)", "Nintendo", "First Nintendo console with 3D graphics.", "Home console", "Cartridge", 1996, 199.99, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("GameCube", "Nintendo", "Featured a unique cube shape and miniDVD discs.", "Home console", "MiniDVD", 2001, 199, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Wii", "Nintendo", "Introduced motion controls to gaming.", "Home console", "Wii Optical Disc", 2006, 249.99, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Wii U", "Nintendo", "Featured a tablet-like controller and HD graphics.", "Home console", "Wii U Optical Disc", 2012, 299.99, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Nintendo Switch", "Nintendo", "Hybrid console, can be used as handheld or connected to a TV.", "Hybrid console", "Game card, Digital", 2017, 299.99, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox", "Microsoft", "Microsoft's first foray into the gaming console market.", "Home console", "DVD-ROM", 2001, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox 360", "Microsoft", "Known for its online gaming service Xbox Live.", "Home console", "DVD-ROM", 2005, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox 360 S", "Microsoft", "A slimmer version of the original Xbox 360.", "Home console", "DVD-ROM", 2010, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox 360 E", "Microsoft", "A further redesigned version of the Xbox 360.", "Home console", "DVD-ROM", 2013, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox One", "Microsoft", "Integrated with live TV, streaming, and Blu-ray.", "Home console", "Blu-ray Disc", 2013, 499, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox One S", "Microsoft", "Slimmer version of Xbox One, supports HDR and 4K video.", "Home console", "Blu-ray Disc", 2016, 299, "imageURL"));
+		panelAPI.panel.addMachine(new Machine("Xbox One X", "Microsoft", "Most powerful Xbox, supports 4K gaming.", "Home console", "Blu-ray Disc", 2017, 499, "imageURL"));
+*//*
+		panelAPI.panel.addGame(new Game(selectedMachine, "Halo Infinite", "Xbox Game Studios", "Next chapter in the legendary Halo series, featuring the Master Chief.", "343 Industries", 2021, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Forza Horizon 5", "Xbox Game Studios", "An open-world racing game set in a fictional representation of Mexico.", "Playground Games", 2021, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Gears 5", "Xbox Game Studios", "A third-person shooter, the sixth installment in the Gears of War series.", "The Coalition", 2019, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "FIFA 21", "Electronic Arts", "The latest installment in the popular FIFA football simulation series.", "EA Vancouver, EA Romania", 2020, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Cyberpunk 2077", "CD Projekt", "An open-world, action-adventure story set in the megalopolis of Night City.", "CD Projekt Red", 2020, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Call of Duty: Black Ops Cold War", "Activision", "A first-person shooter set during the early 1980s of the Cold War.", "Treyarch, Raven Software", 2020, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Hitman 3", "IO Interactive", "A stealth game, the eighth main installment in the Hitman series.", "IO Interactive", 2021, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Spider-Man: Miles Morales", "Sony Interactive Entertainment", "An action-adventure game, a follow-up to Marvel's Spider-Man.", "Insomniac Games", 2020, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Demon's Souls", "Sony Interactive Entertainment", "A remake of the original Demon's Souls, an action RPG known for its difficulty.", "Bluepoint Games, Japan Studio", 2020, "coverURL", new CustomList<>()));
+		panelAPI.panel.addGame(new Game(selectedMachine, "Ratchet & Clank: Rift Apart", "Sony Interactive Entertainment", "A third-person shooter platform game in the Ratchet & Clank series.", "Insomniac Games", 2021, "coverURL", new CustomList<>()));
+*/
+	}
+
 	@FXML
 	private void addMachine() {
+		//addSampleData();
 		try {
 			if (!machineNameBox.getText().isEmpty() && !machineManufacturerBox.getText().isEmpty() && !machineDescriptionBox.getText().isEmpty() && !machineTypeBox.getText().isEmpty() && !machineMediaBox.getText().isEmpty() && !machineYearBox.getText().isEmpty() && !machineRRPBox.getText().isEmpty() && !machineURLBox.getText().isEmpty()) {
 				int year = Integer.parseInt(machineYearBox.getText());
