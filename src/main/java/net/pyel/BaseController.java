@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -582,6 +584,7 @@ public class BaseController implements Initializable {
 		machineDescriptionBox.setText("");
 		selectedMachine = null;
 		machineListView.getSelectionModel().clearSelection();
+		imageOfMachine.setImage(null);
 	}
 
 	@FXML
@@ -597,6 +600,7 @@ public class BaseController implements Initializable {
 		deselectPorts();
 		portListView.setItems(null);
 		selectedGame = null;
+		imageOfGame.setImage(null);
 		gameListView.getSelectionModel().clearSelection();
 	}
 
@@ -608,6 +612,7 @@ public class BaseController implements Initializable {
 		portURLBox.setText("");
 		portCurrentMachineBox.setText("");
 		selectedPort = null;
+		imageOfPort.setImage(null);
 		portListView.getSelectionModel().clearSelection();
 	}
 
@@ -849,7 +854,8 @@ public class BaseController implements Initializable {
 
 
 	}
-
+	ImageView imageView = new ImageView();
+	public String image;
 	private void setupPortListViewListener() {
 
 		gameListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -914,6 +920,8 @@ public class BaseController implements Initializable {
 			machineTypeBox.setText(selectedMachine.getType());
 			machineYearBox.setText(String.valueOf(selectedMachine.getLaunchYear()));
 			machineURLBox.setText(selectedMachine.getImage());
+			machineImage = new Image(selectedMachine.getImage());
+			imageOfMachine.setImage(machineImage);
 			machineDescriptionBox.setText(selectedMachine.getDescription());
 		}
 	}
@@ -922,6 +930,12 @@ public class BaseController implements Initializable {
 	 * Updates values in game related boxes and in listview
 	 * It also forces an update on the port listview as we have a list of ports for each game.
 	 */
+	public ImageView imageOfGame = new ImageView();
+	public ImageView imageOfMachine = new ImageView();
+	public ImageView imageOfPort = new ImageView();
+	public Image gameImage;
+	public Image portImage;
+	public Image machineImage;
 	private void updateData() {
 		selectedGame = gameListView.getSelectionModel().getSelectedItem();
 		if (selectedGame != null) {
@@ -938,6 +952,10 @@ public class BaseController implements Initializable {
 			gameDeveloperBox.setText(selectedGame.getDeveloper());
 			gamePublisherBox.setText(selectedGame.getPublisher());
 			gameURLBox.setText(selectedGame.getCover());
+			gameImage = new Image(selectedGame.getCover());
+			imageOfGame.setImage(gameImage);
+			System.out.println(selectedGame.getCover());
+			System.out.println(image);
 			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
 			gameDescriptionBox.setText(selectedGame.getDescription());
 			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
@@ -957,6 +975,8 @@ public class BaseController implements Initializable {
 			portDeveloperBox.setText(selectedPort.getDeveloper());
 			portYearBox.setText(String.valueOf(selectedPort.getReleaseYear()));
 			portURLBox.setText(selectedPort.getCover());
+			portImage = new Image(selectedPort.getCover());
+			imageOfPort.setImage(portImage);
 			portCurrentMachineBox.setText(selectedPort.getMachine().toString());
 			//selectedMachine = portListView.getSelectionModel().getSelectedItem().getMachine();
 		}
