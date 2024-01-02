@@ -314,7 +314,7 @@ public class BaseController implements Initializable {
 	public void inspectElement() {
 		refresh();
 		Object ie = selectedTerminalElement.getInspectionElemenet();
-		if (selectedTerminalElement.getInspectionElemenet() == null) {
+		if (ie == null) {
 			terminalOutError("No element to inspect", null);
 		} else if (ie instanceof String) {
 			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
