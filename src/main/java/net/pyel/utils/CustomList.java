@@ -179,7 +179,18 @@ public class CustomList<F> implements Iterable<F>, List<F> {
 
 	@Override
 	public F set(int index, F element) {
-		return null;
+		if (!isValidIndex(index)) {
+			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+		}
+
+		CustomNode<F> current = first;
+		for (int i = 0; i < index; i++) {
+			current = current.next;
+		}
+
+		F oldValue = current.getContents();
+		current.setContents(element);
+		return oldValue;
 	}
 
 	@Override

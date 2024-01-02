@@ -159,8 +159,16 @@ public class Panel {
 						returnValue.add(new TerminalElement("---Machines listed---", null));
 						return returnValue;
 					} else if (sort.equals("1")) {
-						returnValue.add(new TerminalElement("---Machines sorted by release year---", null));
-						return sortByYearAscending(returnValue);
+						CustomList<Machine> m = new CustomList<>();
+						for (TerminalElement te : returnValue) {
+							m.add(te.getInspectionElemenet());
+						}
+						CustomList<Machine> sortedM = sortByYearAscending(m);
+						CustomList<TerminalElement> sortedMte = new CustomList<>();
+						for (Machine ma : sortedM) {
+							sortedMte.add(new TerminalElement(ma.getName(), ma));
+						}
+						return sortedMte;
 					}
 
 				} else if (value != null) {
@@ -179,23 +187,27 @@ public class Panel {
 	/*
 	Insertion
 	 */
-	public CustomList<TerminalElement> sortByYearAscending(CustomList<TerminalElement> takeInList) {
-		CustomList<TerminalElement> returnList = new CustomList<>();
+	public CustomList<Machine> sortByYearAscending(CustomList<Machine> takeInList) {
+		CustomList<Machine> returnList = new CustomList<>();
 		for (int i = 0; i < takeInList.size(); i++) {
 			returnList.add(takeInList.get(i));
 		}
-		for (int i = 1; i < returnList.getSize(); i++) {
-			Object o = returnList.get(i).getInspectionElemenet();
-			if (o instanceof Machine) {
-				int j = i - 1;
 
-				while ((j >= 0) && (((Machine) returnList.get(j).getInspectionElemenet()).getLaunchYear() > ((Machine) o).getLaunchYear())) {
-					returnList.set(j + 1, null);//(Machine) returnList.get(j).getInspectionElemenet());
-					j = j - 1;
+		for (int i = 1; i < returnList.size(); i++) {
+			Object o = returnList.get(i);
+			if (o != null) {
+				int j = i - 1;
+				Machine current =  returnList.get(i);
+				System.out.println("Current terminal element: " + current);
+				while (j >= 0 && returnList.get(j).getLaunchYear() > current.getLaunchYear()) {
+					returnList.set(j + 1, returnList.get(j));
+					j--;
 				}
-				returnList.set(j + 1, new TerminalElement(((Machine) o).getName(), o));
+				returnList.set(j + 1, current);
 			}
 		}
+
 		return returnList;
 	}
+
 }
