@@ -3,22 +3,94 @@
     <debugMode>false</debugMode>
     <machines>
       <first>
+        <next>
+          <next>
+            <next>
+              <next>
+                <contents class="net.pyel.models.Machine">
+                  <name>PlayStation 4</name>
+                  <manufacturer>Sony</manufacturer>
+                  <description>Focused on social 
+interaction and 
+integrated 
+entertainment</description>
+                  <type>Home console</type>
+                  <media>SSD</media>
+                  <launchYear>2013</launchYear>
+                  <RRP>399.0</RRP>
+                  <image>https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/PS4-Console-wDS4.jpg/1200px-PS4-Console-wDS4.jpg</image>
+                  <linkedGames>
+                    <size>0</size>
+                  </linkedGames>
+                </contents>
+              </next>
+              <contents class="net.pyel.models.Machine">
+                <name>PlayStation 4 Pro</name>
+                <manufacturer>Sony</manufacturer>
+                <description>Enhanced version 
+of the PS4, 
+supports 4K gaming</description>
+                <type>Home console</type>
+                <media>SSD</media>
+                <launchYear>2016</launchYear>
+                <RRP>399.0</RRP>
+                <image>https://s13emagst.akamaized.net/products/4152/4151786/images/res_6165020e67d4a370499cb9c87a82f3a8.jpg</image>
+                <linkedGames>
+                  <size>0</size>
+                </linkedGames>
+              </contents>
+            </next>
+            <contents class="net.pyel.models.Machine">
+              <name>PlayStation 5</name>
+              <manufacturer>Sony</manufacturer>
+              <description>Latest PlayStation, 
+offering 
+advanced graphics 
+and speed</description>
+              <type>Home console</type>
+              <media>SSD</media>
+              <launchYear>2020</launchYear>
+              <RRP>499.0</RRP>
+              <image>https://p1.akcdn.net/full/722489832.sony-playstation-5-ps5.jpg</image>
+              <linkedGames>
+                <size>0</size>
+              </linkedGames>
+            </contents>
+          </next>
+          <contents class="net.pyel.models.Machine">
+            <name>Xbox Series S</name>
+            <manufacturer>Microsoft</manufacturer>
+            <description>Smaller, less 
+expensive version of 
+the Xbox Series X</description>
+            <type>Home console</type>
+            <media>SSD</media>
+            <launchYear>2020</launchYear>
+            <RRP>299.0</RRP>
+            <image>https://p1.akcdn.net/full/720074976.microsoft-xbox-series-s-512gb.jpg</image>
+            <linkedGames>
+              <size>0</size>
+            </linkedGames>
+          </contents>
+        </next>
         <contents class="net.pyel.models.Machine">
-          <name>PlayStation 5</name>
-          <manufacturer>Sony</manufacturer>
-          <description>asdasdads</description>
-          <type>Video Game Console</type>
+          <name>Xbox Series X</name>
+          <manufacturer>Microsoft</manufacturer>
+          <description>Microsoft&apos;s most 
+powerful console, 
+supports 8K resolution</description>
+          <type>Home console</type>
           <media>SSD</media>
           <launchYear>2020</launchYear>
-          <RRP>1241.0</RRP>
-          <image>asdasd</image>
+          <RRP>499.0</RRP>
+          <image>https://p1.akcdn.net/full/639374967.microsoft-xbox-series-x-1tb.jpg</image>
           <linkedGames>
             <size>0</size>
           </linkedGames>
         </contents>
       </first>
-      <last reference="../first"/>
-      <size>1</size>
+      <last reference="../first/next/next/next/next"/>
+      <size>5</size>
     </machines>
     <machinesHash>
       <size>512</size>
@@ -86,7 +158,10 @@
         <null/>
         <null/>
         <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 4 Pro</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -196,7 +271,11 @@
         <null/>
         <net.pyel.utils.CustomEntry>
           <key class="string">PlayStation 5</key>
-          <value class="net.pyel.models.Machine" reference="../../../../machines/first/contents"/>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">PlayStation 4</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/next/next/next/contents"/>
         </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
@@ -509,13 +588,18 @@
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox Series X</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
         <null/>
-        <null/>
-        <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Xbox Series S</key>
+          <value class="net.pyel.models.Machine" reference="../../../../machines/first/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -541,7 +625,196 @@
       </table>
     </machinesHash>
     <games>
-      <size>0</size>
+      <first>
+        <next>
+          <next>
+            <next>
+              <next>
+                <contents class="net.pyel.models.Game">
+                  <machine reference="../../../../../../../../machines/first/next/next/next/next/contents"/>
+                  <name>Assassin&apos;s Creed Syndicate</name>
+                  <publisher>Ubisoft</publisher>
+                  <description>Set in Victorian 
+London, focusing on 
+the Industrial 
+Revolution era.</description>
+                  <developer>Ubisoft Quebec</developer>
+                  <releaseYear>2015</releaseYear>
+                  <cover>https://image.api.playstation.com/cdn/EP0001/CUSA02376_00/dHz2YAR7qq5RGU46Mj61foWXcajRq9DJ.png</cover>
+                  <ports>
+                    <first>
+                      <contents class="net.pyel.models.Port">
+                        <machine reference="../../../../../../../../../../../machines/first/next/next/next/contents"/>
+                        <developer>Ubisoft Quebec</developer>
+                        <releaseYear>2015</releaseYear>
+                        <cover>https://image.api.playstation.com/cdn/EP0001/CUSA02376_00/dHz2YAR7qq5RGU46Mj61foWXcajRq9DJ.png</cover>
+                      </contents>
+                    </first>
+                    <last reference="../first"/>
+                    <size>1</size>
+                  </ports>
+                </contents>
+              </next>
+              <contents class="net.pyel.models.Game">
+                <machine reference="../../../../../../../machines/first/next/next/next/next/contents"/>
+                <name>Assassin&apos;s Creed Origins</name>
+                <publisher>Ubisoft</publisher>
+                <description>Action RPG set in 
+Ancient Egypt, 
+revitalizing the 
+Assassin&apos;s Creed 
+series.</description>
+                <developer>Ubisoft Montreal</developer>
+                <releaseYear>2017</releaseYear>
+                <cover>https://static.posters.cz/image/750/plakatok/assassins-creed-origins-cover-i49105.jpg</cover>
+                <ports>
+                  <first>
+                    <contents class="net.pyel.models.Port">
+                      <machine reference="../../../../../../../../../../machines/first/next/next/next/contents"/>
+                      <developer>Ubisoft Montreal</developer>
+                      <releaseYear>2017</releaseYear>
+                      <cover>https://static.posters.cz/image/750/plakatok/assassins-creed-origins-cover-i49105.jpg</cover>
+                    </contents>
+                  </first>
+                  <last reference="../first"/>
+                  <size>1</size>
+                </ports>
+              </contents>
+            </next>
+            <contents class="net.pyel.models.Game">
+              <machine reference="../../../../../../machines/first/next/next/contents"/>
+              <name>Assassin&apos;s Creed Odyssey</name>
+              <publisher>Ubisoft</publisher>
+              <description>Action RPG set in 
+ancient Greece, part 
+of the 
+Assassin&apos;s Creed 
+series.</description>
+              <developer>Ubisoft Quebec</developer>
+              <releaseYear>2018</releaseYear>
+              <cover>https://image.api.playstation.com/cdn/EP0001/CUSA09303_00/tzKcptCCUkiigpacybO8xWmvxPS7vIzk.png</cover>
+              <ports>
+                <first>
+                  <next>
+                    <contents class="net.pyel.models.Port">
+                      <machine reference="../../../../../../../../../../machines/first/contents"/>
+                      <developer>Ubisoft Quebec</developer>
+                      <releaseYear>2018</releaseYear>
+                      <cover>https://image.api.playstation.com/cdn/EP0001/CUSA09303_00/tzKcptCCUkiigpacybO8xWmvxPS7vIzk.png</cover>
+                    </contents>
+                  </next>
+                  <contents class="net.pyel.models.Port">
+                    <machine reference="../../../../../../../../../machines/first/next/contents"/>
+                    <developer>Ubisoft Quebec</developer>
+                    <releaseYear>2018</releaseYear>
+                    <cover>https://image.api.playstation.com/cdn/EP0001/CUSA09303_00/tzKcptCCUkiigpacybO8xWmvxPS7vIzk.png</cover>
+                  </contents>
+                </first>
+                <last reference="../first/next"/>
+                <size>2</size>
+              </ports>
+            </contents>
+          </next>
+          <contents class="net.pyel.models.Game">
+            <machine reference="../../../../../machines/first/next/contents"/>
+            <name>Assassin&apos;s Creed Valhalla</name>
+            <publisher>Ubisoft</publisher>
+            <description>Action RPG set in the 
+Viking age, part of 
+the Assassin&apos;s Creed
+series.</description>
+            <developer>Ubisoft Montreal</developer>
+            <releaseYear>2020</releaseYear>
+            <cover>https://image.api.playstation.com/vulcan/ap/rnd/202007/0208/Ud7Ikvjoyev61bx3n1PTC9u8.png</cover>
+            <ports>
+              <first>
+                <next>
+                  <next>
+                    <next>
+                      <contents class="net.pyel.models.Port">
+                        <machine reference="../../../../../../../../../../../machines/first/next/next/next/next/contents"/>
+                        <developer>Ubisoft Montreal</developer>
+                        <releaseYear>2020</releaseYear>
+                        <cover>https://image.api.playstation.com/vulcan/ap/rnd/202007/0208/Ud7Ikvjoyev61bx3n1PTC9u8.png</cover>
+                      </contents>
+                    </next>
+                    <contents class="net.pyel.models.Port">
+                      <machine reference="../../../../../../../../../../machines/first/next/next/next/contents"/>
+                      <developer>Ubisoft Montreal</developer>
+                      <releaseYear>2020</releaseYear>
+                      <cover>https://image.api.playstation.com/vulcan/ap/rnd/202007/0208/Ud7Ikvjoyev61bx3n1PTC9u8.png</cover>
+                    </contents>
+                  </next>
+                  <contents class="net.pyel.models.Port">
+                    <machine reference="../../../../../../../../../machines/first/next/next/contents"/>
+                    <developer>Ubisoft Montreal</developer>
+                    <releaseYear>2020</releaseYear>
+                    <cover>https://image.api.playstation.com/vulcan/ap/rnd/202007/0208/Ud7Ikvjoyev61bx3n1PTC9u8.png</cover>
+                  </contents>
+                </next>
+                <contents class="net.pyel.models.Port">
+                  <machine reference="../../../../../../../../machines/first/contents"/>
+                  <developer>Ubisoft Montreal</developer>
+                  <releaseYear>2020</releaseYear>
+                  <cover>https://image.api.playstation.com/vulcan/ap/rnd/202007/0208/Ud7Ikvjoyev61bx3n1PTC9u8.png</cover>
+                </contents>
+              </first>
+              <last reference="../first/next/next/next"/>
+              <size>4</size>
+            </ports>
+          </contents>
+        </next>
+        <contents class="net.pyel.models.Game">
+          <machine reference="../../../../machines/first/next/contents"/>
+          <name>Resident Evil Village</name>
+          <publisher>Capcom</publisher>
+          <description>Survival horror game, 
+tenth major 
+installment in the 
+Resident Evil series.</description>
+          <developer>Capcom</developer>
+          <releaseYear>2021</releaseYear>
+          <cover>https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-103958015/103958015.jpg</cover>
+          <ports>
+            <first>
+              <next>
+                <next>
+                  <next>
+                    <contents class="net.pyel.models.Port">
+                      <machine reference="../../../../../../../../../../machines/first/next/next/next/next/contents"/>
+                      <developer>Capcom</developer>
+                      <releaseYear>2021</releaseYear>
+                      <cover>https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-103958015/103958015.jpg</cover>
+                    </contents>
+                  </next>
+                  <contents class="net.pyel.models.Port">
+                    <machine reference="../../../../../../../../../machines/first/next/next/next/contents"/>
+                    <developer>Capcom</developer>
+                    <releaseYear>2021</releaseYear>
+                    <cover>https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-103958015/103958015.jpg</cover>
+                  </contents>
+                </next>
+                <contents class="net.pyel.models.Port">
+                  <machine reference="../../../../../../../../machines/first/next/next/contents"/>
+                  <developer>Capcom</developer>
+                  <releaseYear>2021</releaseYear>
+                  <cover>https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-103958015/103958015.jpg</cover>
+                </contents>
+              </next>
+              <contents class="net.pyel.models.Port">
+                <machine reference="../../../../../../../machines/first/contents"/>
+                <developer>Capcom</developer>
+                <releaseYear>2021</releaseYear>
+                <cover>https://static.toiimg.com/thumb/resizemode-4,width-1280,height-720,msid-103958015/103958015.jpg</cover>
+              </contents>
+            </first>
+            <last reference="../first/next/next/next"/>
+            <size>4</size>
+          </ports>
+        </contents>
+      </first>
+      <last reference="../first/next/next/next/next"/>
+      <size>5</size>
     </games>
     <gamesHash>
       <size>512</size>
@@ -576,6 +849,10 @@
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Assassin&apos;s Creed Syndicate</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -610,6 +887,10 @@
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Assassin&apos;s Creed Valhalla</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -848,6 +1129,10 @@
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Resident Evil Village</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -882,6 +1167,10 @@
         <null/>
         <null/>
         <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Assassin&apos;s Creed Origins</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>
@@ -956,11 +1245,10 @@
         <null/>
         <null/>
         <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
-        <null/>
+        <net.pyel.utils.CustomEntry>
+          <key class="string">Assassin&apos;s Creed Odyssey</key>
+          <value class="net.pyel.models.Game" reference="../../../../games/first/next/next/contents"/>
+        </net.pyel.utils.CustomEntry>
         <null/>
         <null/>
         <null/>

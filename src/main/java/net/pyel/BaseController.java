@@ -12,11 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import net.pyel.models.Game;
-import net.pyel.models.Machine;
-import net.pyel.models.Port;
-import net.pyel.models.TerminalElement;
-import net.pyel.utils.CustomHashMap;
+import net.pyel.models.*;
 import net.pyel.utils.CustomList;
 
 import java.io.IOException;
@@ -195,16 +191,29 @@ public class BaseController implements Initializable {
 		if (input.length() == 4) {
 			if (input.toLowerCase().substring(0, 4).equals("help")) {
 
-				terminalOutHelp("-------------------------------------", null);
+				terminalOutHelp("---------------------------------------------------------------------------------------------", null);
+				terminalOutHelp("Example: find m 2 n %", null);
+				terminalOutHelp("Example: find m 2 n PlayStation", null);
+				terminalOutHelp("    [value]  (value to look for in that datatype or type in only \"%\" to list all)", null);
+				terminalOutHelp("    [data] > n (name), d (description)", null);
+				terminalOutHelp("    [sort] > 0 (default), 1 (by name), 2 (by year ascending), 3 (by year descending)", null);
+				terminalOutHelp("    [type] > m (for machine), g (for game)", null);
+				terminalOutHelp("find [type] [sort] [data] [value] - find all elements with the given value", null);
+				terminalOutHelp("---------------------------------------------FIND--------------------------------------------", null);
+				terminalOutHelp("Example: search m PlayStation 5", null);
+				terminalOutHelp("    [value]  (value of the name we're looking for)", null);
+				terminalOutHelp("    [type] > m (for machine), g (for game)", null);
+				terminalOutHelp("search [type] [value] - find a specific element by its name", null);
+				terminalOutHelp("--------------------------------------------SEARCH-------------------------------------------", null);
 				terminalOutHelp("reset - Resets the program, erases loaded data", null);
 				terminalOutHelp("debug - Switch debug mode (current: " + panelAPI.panel.isDebugMode() + ")", null);
-				terminalOutHelp("--------------FACILITIES-------------", null);
+				terminalOutHelp("------------------------------------------FACILITIES-----------------------------------------", null);
 				terminalOutHelp("clear - Clear terminal", null);
 				terminalOutHelp("bogosort - Bogo", null);
 				terminalOutHelp("staff [name] - Change staff", null);
 				terminalOutHelp("log [message] - Log a message", null);
 				terminalOutHelp("help - Help page", null);
-				terminalOutHelp("---------------HELP MENU-------------", null);
+				terminalOutHelp("-------------------------------------------HELP MENU-----------------------------------------", null);
 				terminalOut("HELP executed", null);
 				terminalOut("Test machine element :-)", new Machine("I am a machine!", "", "", "", "", 2000, 66, ""));
 				return;
@@ -229,7 +238,37 @@ public class BaseController implements Initializable {
 				return;
 			}
 		}
+		if (input.length() == 6 || input.length() == 7) {
+			if (input.toLowerCase().substring(0, 6).equals("search")) {
+				terminalOutError("       Example: search m PlayStation 5", null);
+				terminalOutError("       [value]  (value of the name we're looking for)", null);
+				terminalOutError("       [type] > m (for machine), g (for game)", null);
+				terminalOutError("Usage: search [type] [value] - find a specific element by its name", null);
+				return;
+			}
+		}
+		if (input.length() > 7) {
+			if (input.toLowerCase().substring(0, 7).equals("search ")) {
+				String type = input.substring(7, 8);
+				String value = input.substring(9);
+				if (type.equals("m") || type.equals("g")) {
+					TerminalElement te = panelAPI.panel.search(type, value, null);
+					terminalOut(te);
+				} else {
+					terminalOut("\"" + type + "\" is invalid, possible options: m, g", null);
+				}
 
+				return;
+			}
+		}
+		if (input.length() > 5) {
+			if (input.toLowerCase().substring(0, 6).equals("staff ")) {
+				String name = input.substring(6);
+				panelAPI.currentStaff = name;
+				terminalOut("Look at me! I'm Mr. Meeseeks!", null);
+				return;
+			}
+		}
 		if (input.length() == 8) {
 			if (input.toLowerCase().substring(0, 8).equals("bogosort")) {
 
@@ -277,8 +316,45 @@ public class BaseController implements Initializable {
 		Object ie = selectedTerminalElement.getInspectionElemenet();
 		if (selectedTerminalElement.getInspectionElemenet() == null) {
 			terminalOutError("No element to inspect", null);
+		} else if (ie instanceof String) {
+			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
+			terminalOutHelp((String) ie, ie);
+			terminalOutHelp("Inspected element (String): ", ie);
+			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
+		} else if (ie instanceof Link) {
+			terminalOutHelp("Opening link", ie);
+			openWebpage(((Link) ie).getLink());
 		} else if (ie instanceof Machine) {
-			terminalOut(((Machine) ie).getName(), ie);
+			terminalOut("---------------------------------------------------------------------------------------------", null);
+			terminalOutHelp("    Description > inspect", ((Machine) ie).getDescription());
+			terminalOutHelp("    Image URL: " + ((Machine) ie).getImage(), new Link(((Machine) ie).getImage()));
+			terminalOutHelp("    RRP: " + ((Machine) ie).getRRP(), null);
+			terminalOutHelp("    Launch Year: " + ((Machine) ie).getLaunchYear(), null);
+			terminalOutHelp("    Media: " + ((Machine) ie).getMedia(), null);
+			terminalOutHelp("    Type: " + ((Machine) ie).getType(), null);
+			terminalOutHelp("    Manufacturer: " + ((Machine) ie).getManufacturer(), null);
+			terminalOutHelp("    Name: " + ((Machine) ie).getName(), ie);
+			terminalOutHelp("Inspected element (Machine): " + ((Machine) ie).getName(), ie);
+			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
+		} else if (ie instanceof Game) {
+			terminalOut("---------------------------------------------------------------------------------------------", null);
+			terminalOutHelp("    Description > inspect", ((Game) ie).getDescription());
+			terminalOutHelp("    Cover URL: " + ((Game) ie).getCover(), new Link(((Game) ie).getCover()));
+			terminalOutHelp("    Release Year: " + ((Game) ie).getReleaseYear(), null);
+			terminalOutHelp("    Developer: " + ((Game) ie).getDeveloper(), null);
+			terminalOutHelp("    Publisher: " + ((Game) ie).getPublisher(), null);
+			terminalOutHelp("    Original Machine: " + ((Game) ie).getMachine().getName(), ((Game) ie).getMachine());
+			terminalOutHelp("    Name: " + ((Game) ie).getName(), ie);
+			terminalOutHelp("Inspected element (Game): " + ((Game) ie).getName(), ie);
+			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
+		}
+	}
+
+	public static void openWebpage(String url) {
+		try {
+			new ProcessBuilder("x-www-browser", url).start();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -292,6 +368,15 @@ public class BaseController implements Initializable {
 		TerminalElement nte = new TerminalElement("[" + panelAPI.currentStaff + "]" + " > " + outPutView, inspectionElement);
 		if (panelAPI.currentStaff.isEmpty()) {
 			nte = new TerminalElement(" > " + outPutView, inspectionElement);
+		}
+		System.out.println(nte);
+		log.getItems().add(0, nte);
+	}
+
+	public void terminalOut(TerminalElement te) {
+		TerminalElement nte = new TerminalElement("[" + panelAPI.currentStaff + "]" + " > " + te.getOutPutView(), te.getInspectionElemenet());
+		if (panelAPI.currentStaff.isEmpty()) {
+			nte = new TerminalElement(" > " + te.getOutPutView(), te.getInspectionElemenet());
 		}
 		System.out.println(nte);
 		log.getItems().add(0, nte);
@@ -510,7 +595,7 @@ public class BaseController implements Initializable {
 			if (selectedMachine != null && !gameNameBox.getText().isEmpty() && !gamePublisherBox.getText().isEmpty() && !gameDescriptionBox.getText().isEmpty() && !gameDeveloperBox.getText().isEmpty() && !gameYearBox.getText().isEmpty() && !gameURLBox.getText().isEmpty()) {
 				int year = Integer.parseInt(gameYearBox.getText());
 				if (year >= 1920 && year <= Calendar.getInstance().get(Calendar.YEAR)) {
-					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>(), new CustomHashMap<>());
+					Game g = new Game(selectedMachine, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText(), new CustomList<>());
 					terminalOut("Machine add: " + panelAPI.panel.addGame(g), null);
 					terminalOutError("Game added successfully.", null);
 					deselectGames();
@@ -632,15 +717,15 @@ public class BaseController implements Initializable {
 				int currentYear = Calendar.getInstance().get(Calendar.YEAR);
 
 				if (year >= 1920 && year <= currentYear) {
-					if (selectedMachine != null) {
-						selectedGame.setMachine(selectedMachine);
-					}
-					selectedGame.setName(gameNameBox.getText());
-					selectedGame.setPublisher(gamePublisherBox.getText());
-					selectedGame.setDescription(gameDescriptionBox.getText());
-					selectedGame.setDeveloper(gameDeveloperBox.getText());
-					selectedGame.setReleaseYear(year);
-					selectedGame.setCover(gameURLBox.getText());
+					Machine machineToSet = selectedMachine;
+					panelAPI.panel.updateGame(selectedGame, machineToSet, gameNameBox.getText(), gamePublisherBox.getText(), gameDescriptionBox.getText(), gameDeveloperBox.getText(), year, gameURLBox.getText());
+
+					//selectedGame.setName(gameNameBox.getText());
+					//selectedGame.setPublisher(gamePublisherBox.getText());
+					//selectedGame.setDescription(gameDescriptionBox.getText());
+					//selectedGame.setDeveloper(gameDeveloperBox.getText());
+					//selectedGame.setReleaseYear(year);
+					//selectedGame.setCover(gameURLBox.getText());
 
 					terminalOutError("Game updated successfully.", null);
 					deselectGames();

@@ -2,6 +2,7 @@ package net.pyel;
 
 import net.pyel.models.Game;
 import net.pyel.models.Machine;
+import net.pyel.models.TerminalElement;
 import net.pyel.utils.CustomHashMap;
 import net.pyel.utils.CustomList;
 
@@ -46,7 +47,8 @@ public class Panel {
 			}
 		}
 		machinesHash.put((String) m.getName(), (Machine) m);
-		return machines.add(m);
+		machines.add(m);
+		return true;
 	}
 
 	public void updateMachine(Machine m, String name, String manufacturer, String description, String type, String media, int year, double rrp, String URL) {
@@ -62,17 +64,41 @@ public class Panel {
 		machinesHash.put(m.getName(), m);
 	}
 
-	public boolean removeMachine(Machine m) {
+
+	public void removeMachine(Machine m) {
 		machinesHash.remove(m.getName());
-		return machines.remove(m);
+		machines.remove(m);
 	}
 
 	public boolean addGame(Game g) {
-		return games.add(g);
+		for (Game game : games) {
+			if (Objects.equals(game.getName(), g.getName())) {
+				return false;
+			}
+		}
+		gamesHash.put((String) g.getName(), (Game) g);
+		games.add(g);
+		return true;
 	}
 
-	public boolean removeGame(Game g) {
-		return games.remove(g);
+	public void updateGame(Game g, Machine m, String name, String publisher, String description, String developer, int year, String URL) {
+		gamesHash.remove(g.getName());
+		g.setName(name);
+		if (m != null) {
+			g.setMachine(m);
+		}
+		g.setPublisher(publisher);
+		g.setDescription(description);
+		g.setDeveloper(developer);
+		g.setReleaseYear(year);
+		g.setCover(URL);
+
+		gamesHash.put(g.getName(), g);
+	}
+
+	public void removeGame(Game g) {
+		gamesHash.remove(g.getName());
+		games.remove(g);
 	}
 
 	public CustomList<Game> getGames() {
@@ -97,5 +123,26 @@ public class Panel {
 			return true;
 		else
 			return true;
+	}
+
+	public TerminalElement search(String type, String value, Object additinalValue) {
+		TerminalElement returnValue;
+		returnValue = new TerminalElement(null, null);
+		if (Objects.equals(type, "m")) {
+			Machine m = machinesHash.get(value);
+			if (m == null) {
+				returnValue = new TerminalElement("No machine found.", null);
+			} else {
+				returnValue = new TerminalElement("Found machine: " + m.getName(), m);
+			}
+		} else if (Objects.equals(type, "g")) {
+			Game g = gamesHash.get(value);
+			if (g == null) {
+				returnValue = new TerminalElement("No game found.", null);
+			} else {
+				returnValue = new TerminalElement("Found game: " + g.getName(), g);
+			}
+		}
+		return returnValue;
 	}
 }
