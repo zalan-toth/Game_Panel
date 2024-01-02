@@ -155,21 +155,6 @@ public class Panel {
 					for (Machine m : machines) {
 						returnValue.add(new TerminalElement(m.getName(), m));
 					}
-					if (sort.equals("0")) {
-						returnValue.add(new TerminalElement("---Machines listed---", null));
-						return returnValue;
-					} else if (sort.equals("1")) {
-						CustomList<Machine> m = new CustomList<>();
-						for (TerminalElement te : returnValue) {
-							m.add(te.getInspectionElemenet());
-						}
-						CustomList<Machine> sortedM = sortByYearAscending(m);
-						CustomList<TerminalElement> sortedMte = new CustomList<>();
-						for (Machine ma : sortedM) {
-							sortedMte.add(new TerminalElement(ma.getName(), ma));
-						}
-						return sortedMte;
-					}
 
 				} else if (value != null) {
 					for (Machine m : machines) {
@@ -178,8 +163,83 @@ public class Panel {
 						}
 					}
 				}
+
+			} else if (data.equals("d")) {
+
+				if (value.equals("%")) {
+					for (Machine m : machines) {
+						returnValue.add(new TerminalElement(m.getName() + " [" + m.getLaunchYear() + "]", m));
+					}
+
+				} else if (value != null) {
+					for (Machine m : machines) {
+						if (m.getDescription().toLowerCase().contains(value.toLowerCase())) {
+							returnValue.add(new TerminalElement(m.getName() + " [" + m.getLaunchYear() + "]", m));
+						}
+					}
+				}
+
+			}
+			if (sort.equals("0")) {
+				return returnValue;
+			} else if (sort.equals("1")) {
+				CustomList<Machine> m = new CustomList<>();
+				for (TerminalElement te : returnValue) {
+					m.add(te.getInspectionElemenet());
+				}
+				CustomList<Machine> sortedM = sortByYearAscending(m);
+				CustomList<TerminalElement> sortedMte = new CustomList<>();
+				for (Machine ma : sortedM) {
+					sortedMte.add(new TerminalElement(ma.getName(), ma));
+				}
+				return sortedMte;
+			} else if (sort.equals("2")) {
+				//return sortedMte;
+			} else if (sort.equals("3")) {
+				//return sortedMte;
 			}
 
+		} else if (type.equals("g")) {
+			if (data.equals("n")) {
+
+				if (value.equals("%")) {
+					for (Game g : games) {
+						returnValue.add(new TerminalElement(g.getName() + " [" + g.getReleaseYear() + "]", g));
+					}
+
+				} else if (value != null) {
+					for (Game g : games) {
+						if (g.getName().toLowerCase().contains(value.toLowerCase())) {
+							returnValue.add(new TerminalElement(g.getName() + " [" + g.getReleaseYear() + "]", g));
+						}
+					}
+				}
+
+			} else if (data.equals("d")) {
+
+				if (value.equals("%")) {
+					for (Game g : games) {
+						returnValue.add(new TerminalElement(g.getName() + " [" + g.getReleaseYear() + "]", g));
+					}
+
+				} else if (value != null) {
+					for (Game g : games) {
+						if (g.getDescription().toLowerCase().contains(value.toLowerCase())) {
+							returnValue.add(new TerminalElement(g.getName() + " [" + g.getReleaseYear() + "]", g));
+						}
+					}
+				}
+
+			}
+			if (sort.equals("0")) {
+				return returnValue;
+			} else if (sort.equals("1")) {
+				//return returnValue;
+			} else if (sort.equals("2")) {
+				//return sortedMte;
+			} else if (sort.equals("3")) {
+				//return sortedMte;
+			}
 		}
 		return returnValue;
 	}
@@ -197,7 +257,7 @@ public class Panel {
 			Object o = returnList.get(i);
 			if (o != null) {
 				int j = i - 1;
-				Machine current =  returnList.get(i);
+				Machine current = returnList.get(i);
 				System.out.println("Current terminal element: " + current);
 				while (j >= 0 && returnList.get(j).getLaunchYear() > current.getLaunchYear()) {
 					returnList.set(j + 1, returnList.get(j));
