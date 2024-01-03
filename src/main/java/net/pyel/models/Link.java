@@ -1,5 +1,10 @@
 package net.pyel.models;
 
+/**
+ * Link model - stores URL in String format
+ *
+ * @author Zalán Tóth
+ */
 public class Link {
 	String link;
 

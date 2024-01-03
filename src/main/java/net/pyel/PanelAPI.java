@@ -16,6 +16,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Objects;
 
+/**
+ * API for Panel
+ *
+ * @author Zalán Tóth & Marcin Budzinski
+ */
 public class PanelAPI {
 	public Panel panel = new Panel(false, new CustomList<>(), new CustomHashMap<>(), new CustomList<>(), new CustomHashMap<>()); //Every potential data is stored in the panel.
 	public String currentStaff = "";

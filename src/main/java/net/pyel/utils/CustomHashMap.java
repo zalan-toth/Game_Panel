@@ -1,5 +1,10 @@
 package net.pyel.utils;
 
+/**
+ * Custom Hash Map
+ *
+ * @author Zalán Tóth & Marcin Budzinski
+ */
 public class CustomHashMap<K, V> {
 	private int size = 512; //size of the array, that is the number that every key hash value will be divided by, and the remainder will give the index
 	//So if we have for example 64, the array size will be 64, and the maximum remainder will be 63, which is the maximum index for the array (as it starts with 0).

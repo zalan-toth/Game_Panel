@@ -1,9 +1,9 @@
 package net.pyel.models;
 
 /**
- * Port class
+ * Game Port model
  *
- * @author Zalán Tóth
+ * @author Zalán Tóth & Marcin Budzinski
  */
 public class Port {
 

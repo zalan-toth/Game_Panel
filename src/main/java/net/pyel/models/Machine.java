@@ -2,6 +2,11 @@ package net.pyel.models;
 
 import net.pyel.utils.CustomList;
 
+/**
+ * Machine model
+ *
+ * @author Zalán Tóth & Marcin Budzinski
+ */
 public class Machine {
 	private String name;
 	private String manufacturer;

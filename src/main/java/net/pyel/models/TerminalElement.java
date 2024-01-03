@@ -1,5 +1,10 @@
 package net.pyel.models;
 
+/**
+ * Terminal Element model - used for each line in terminal
+ *
+ * @author Zalán Tóth
+ */
 public class TerminalElement {
 	private String outPutView;
 	private Object inspectionElemenet;

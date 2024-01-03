@@ -2,6 +2,11 @@ package net.pyel.models;
 
 import net.pyel.utils.CustomList;
 
+/**
+ * Game model
+ *
+ * @author Zalán Tóth & Marcin Budzinski
+ */
 public class Game {
 
 	public Game(Machine machine, String name, String publisher, String description, String developer, int releaseYear, String cover, CustomList<Port> ports) {

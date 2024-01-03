@@ -1,5 +1,10 @@
 package net.pyel.utils;
 
+/**
+ * Entry for hashmap
+ *
+ * @author Zalán Tóth & Marcin Budzinski
+ */
 public class CustomEntry<K, V> {
 	public K key; //Holds the key
 	public V value; //Holds the value associated with the key

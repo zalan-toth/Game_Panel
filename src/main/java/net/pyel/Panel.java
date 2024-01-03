@@ -8,6 +8,11 @@ import net.pyel.utils.CustomList;
 
 import java.util.Objects;
 
+/**
+ * Panel - center of data and some algorithm
+ *
+ * @author Zalán Tóth & Marcin Budzinski
+ */
 public class Panel {
 	private boolean debugMode = false;
 
