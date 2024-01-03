@@ -176,7 +176,9 @@ public class Panel {
 
 				if (value.equals("%")) {
 					for (Machine m : machines) {
-						returnValue.add(new TerminalElement(m.getName() + " [" + m.getLaunchYear() + "]", m));
+						if (m.getDescription() != null) {
+							returnValue.add(new TerminalElement(m.getName() + " [" + m.getLaunchYear() + "]", m));
+						}
 					}
 
 				} else if (value != null) {
@@ -229,7 +231,9 @@ public class Panel {
 
 				if (value.equals("%")) {
 					for (Game g : games) {
-						returnValue.add(new TerminalElement(g.getName() + " [" + g.getReleaseYear() + "]", g));
+						if (g.getDescription() != null) {
+							returnValue.add(new TerminalElement(g.getName() + " [" + g.getReleaseYear() + "]", g));
+						}
 					}
 
 				} else if (value != null) {
