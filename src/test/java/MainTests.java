@@ -1,7 +1,12 @@
+import net.pyel.Panel;
 import net.pyel.models.Machine;
+import net.pyel.models.TerminalElement;
 import net.pyel.utils.CustomHashMap;
+import net.pyel.utils.CustomList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * JUnit - some useful tests for the app
@@ -37,7 +42,48 @@ class MainTests {
 		System.out.println(machinesHash.get("IAmAKey").getLaunchYear());
 
 	}
+	public boolean isSortedAscending(CustomList<TerminalElement> machines) {
+		for (int i = 0; i < machines.size() - 1; i++) {
+			if (((Machine) machines.get(i).getInspectionElemenet()).getLaunchYear() > ((Machine) machines.get(i + 1).getInspectionElemenet()).getLaunchYear()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	@Test
+	public void testSortingAlgorithm() {
+		Machine machine = new Machine("Hello Machine", "microsoft", "123", "das", "qwe", 2009, 67.5, "");
+		Machine machine1 = new Machine("Alpha", "BrandA", "001", "ModelA", "TypeA", 2010, 100.0, "DescriptionA");
+		Machine machine2 = new Machine("Beta", "BrandB", "002", "ModelB", "TypeB", 2015, 150.5, "DescriptionB");
+		Machine machine3 = new Machine("Gamma", "BrandC", "003", "ModelC", "TypeC", 2020, 200.0, "DescriptionC");
+		Machine machine4 = new Machine("Delta", "BrandD", "004", "ModelD", "TypeD", 2005, 50.5, "DescriptionD");
+		Machine machine5 = new Machine("Epsilon", "BrandE", "005", "ModelE", "TypeE", 2018, 120.0, "DescriptionE");
+		Machine machine6 = new Machine("Zeta", "BrandF", "006", "ModelF", "TypeF", 2011, 110.0, "DescriptionF");
+		Machine machine7 = new Machine("Eta", "BrandG", "007", "ModelG", "TypeG", 2012, 115.5, "DescriptionG");
+		Machine machine8 = new Machine("Theta", "BrandH", "008", "ModelH", "TypeH", 2016, 130.0, "DescriptionH");
+		Machine machine9 = new Machine("Iota", "BrandI", "009", "ModelI", "TypeI", 2017, 140.5, "DescriptionI");
+		Machine machine10 = new Machine("Kappa", "BrandJ", "010", "ModelJ", "TypeJ", 2021, 210.0, "DescriptionJ");
+		CustomList<Machine> unsortedArray = new CustomList<Machine>();
+		unsortedArray.add(machine);
+		unsortedArray.add(machine1);
+		unsortedArray.add(machine2);
+		unsortedArray.add(machine3);
+		unsortedArray.add(machine4);
+		unsortedArray.add(machine5);
+		unsortedArray.add(machine6);
+		unsortedArray.add(machine7);
+		unsortedArray.add(machine8);
+		unsortedArray.add(machine9);
+		unsortedArray.add(machine10);
+		CustomList<TerminalElement> te = new CustomList<TerminalElement>();
+		for (Machine m : unsortedArray){
+			te.add(new TerminalElement(m.getName(), m));
+		}
+		Panel panel = new Panel(false,unsortedArray,null,null,null);
+		CustomList<TerminalElement> list = panel.sortByYear(te);
+		assertTrue(isSortedAscending(list));
 
+	}
 	@Test
 	void removeEntriesFromHashing() {
 		integers.put(777, 232);
