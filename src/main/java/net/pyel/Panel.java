@@ -24,6 +24,14 @@ public class Panel {
 		this.gamesHash = gamesHash;
 	}
 
+	public CustomHashMap<String, Game> getGamesHash() {
+		return gamesHash;
+	}
+
+	public void setGamesHash(CustomHashMap<String, Game> gamesHash) {
+		this.gamesHash = gamesHash;
+	}
+
 	public CustomHashMap<String, Machine> getMachinesHash() {
 		return machinesHash;
 	}
