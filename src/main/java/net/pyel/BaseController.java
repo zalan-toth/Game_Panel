@@ -362,7 +362,7 @@ public class BaseController implements Initializable {
 			terminalOutHelp("Inspected element (String): ", ie);
 			terminalOutHelp("---------------------------------------------------------------------------------------------", null);
 		} else if (ie instanceof Link) {
-			terminalOutHelp("Opening link", ie);
+			terminalOut("Opening link", ie);
 			openWebpage(((Link) ie).getLink());
 		} else if (ie instanceof Machine) {
 			terminalOut("---------------------------------------------------------------------------------------------", null);
@@ -896,8 +896,10 @@ public class BaseController implements Initializable {
 
 
 	}
+
 	ImageView imageView = new ImageView();
 	public String image;
+
 	private void setupPortListViewListener() {
 
 		gameListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -962,9 +964,9 @@ public class BaseController implements Initializable {
 			machineTypeBox.setText(selectedMachine.getType());
 			machineYearBox.setText(String.valueOf(selectedMachine.getLaunchYear()));
 			machineURLBox.setText(selectedMachine.getImage());
+			machineDescriptionBox.setText(selectedMachine.getDescription());
 			machineImage = new Image(selectedMachine.getImage());
 			imageOfMachine.setImage(machineImage);
-			machineDescriptionBox.setText(selectedMachine.getDescription());
 		}
 	}
 
@@ -978,6 +980,7 @@ public class BaseController implements Initializable {
 	public Image gameImage;
 	public Image portImage;
 	public Image machineImage;
+
 	private void updateData() {
 		selectedGame = gameListView.getSelectionModel().getSelectedItem();
 		if (selectedGame != null) {
@@ -994,13 +997,13 @@ public class BaseController implements Initializable {
 			gameDeveloperBox.setText(selectedGame.getDeveloper());
 			gamePublisherBox.setText(selectedGame.getPublisher());
 			gameURLBox.setText(selectedGame.getCover());
+			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
+			gameDescriptionBox.setText(selectedGame.getDescription());
+			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
 			gameImage = new Image(selectedGame.getCover());
 			imageOfGame.setImage(gameImage);
 			System.out.println(selectedGame.getCover());
 			System.out.println(image);
-			gameYearBox.setText(String.valueOf(selectedGame.getReleaseYear()));
-			gameDescriptionBox.setText(selectedGame.getDescription());
-			gameCurrentMachineBox.setText(selectedGame.getMachine().toString());
 			//selectedMachine = gameListView.getSelectionModel().getSelectedItem().getMachine();
 			//selectedMachine = selectedGame.getMachine();
 		}
@@ -1018,8 +1021,8 @@ public class BaseController implements Initializable {
 			portYearBox.setText(String.valueOf(selectedPort.getReleaseYear()));
 			portURLBox.setText(selectedPort.getCover());
 			portImage = new Image(selectedPort.getCover());
-			imageOfPort.setImage(portImage);
 			portCurrentMachineBox.setText(selectedPort.getMachine().toString());
+			imageOfPort.setImage(portImage);
 			//selectedMachine = portListView.getSelectionModel().getSelectedItem().getMachine();
 		}
 	}
