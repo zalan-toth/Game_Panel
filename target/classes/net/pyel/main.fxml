@@ -53,7 +53,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="884.0" prefWidth="1434" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
+<VBox prefHeight="884.0" prefWidth="1434" style="-fx-background-color: #11182b;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="net.pyel.BaseController">
     <children>
         <AnchorPane stylesheets="@Game_Panel/smp.css">
             <children>
@@ -79,7 +79,7 @@
                         <Font name="Monospaced Regular" size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fx:id="imageOfPort" fitHeight="199.0" fitWidth="228.0" layoutX="116.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="portImage" fx:id="imageOfPort" fitHeight="199.0" fitWidth="228.0" layoutX="116.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
                   <Button layoutX="168.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#updatePort" prefHeight="95.0" prefWidth="163.0" stylesheets="@css/buttoncss.css" text="Update" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
@@ -125,8 +125,8 @@
                                   <Font size="21.0" />
                               </font>
                           </Button>
-                  <ImageView fx:id="imageOfGame" fitHeight="169.0" fitWidth="182.0" layoutX="611.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="ImageOfMachine" fitHeight="188.0" fitWidth="203.0" layoutX="1079.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="gameImage" fx:id="imageOfGame" fitHeight="169.0" fitWidth="182.0" layoutX="611.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="machineImage" fx:id="imageOfMachine" fitHeight="188.0" fitWidth="203.0" layoutX="1079.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" />
                   <Button layoutX="4.0" layoutY="407.0" mnemonicParsing="false" onMouseClicked="#addPort" prefHeight="94.0" prefWidth="164.0" stylesheets="@css/buttoncss.css" text="Add" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
