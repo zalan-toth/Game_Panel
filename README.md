@@ -10,7 +10,6 @@ The app has these main capabilities:
  - Sort the present datasets by various methods using self written custom algorithms
  - Custom written extensive CLI / Terminal for ease of use (for sorting and such) which has a custom inspection feature
  - Testing using JUnit
- - Benchmarking using JMH
 
 
 ## Screenshots
